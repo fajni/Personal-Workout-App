@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_outlined"
+        />
+
+    <item
+        android:id="@+id/calories"
+        android:title="Calories"
+        android:icon="@drawable/calorie_outlined"
+        />
+
+    <item
+        android:id="@+id/history"
+        android:title="History"
+        android:icon="@drawable/history_outlined"
+        />
+
+    <item
+        android:id="@+id/workout"
+        android:title="Workout"
+        android:icon="@drawable/dumbell_outlined"
+        />
+
+    <item
+        android:id="@+id/account"
+        android:title="Account"
+        android:icon="@drawable/account_outlined"
+        />
+
+</menu>

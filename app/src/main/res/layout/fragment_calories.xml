@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.CaloriesFragment"
+
+    android:background="@color/discord_background_color"
+
+    android:padding="5pt"
+    >
+
+    <!--TODO: Implement items-->
+
+    <!-- CALCULATED/TARGET VALUES -->
+    <TableLayout
+
+        android:id="@+id/tableCalories"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="10pt"
+
+        android:background="@drawable/table_border"
+
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="5pt"
+        >
+
+        <TableRow
+            android:layout_marginBottom="1pt"
+            >
+            <TextView
+                android:text="Calories"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                android:layout_column="0"
+                />
+            <TextView
+                android:text="Proteins"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                android:layout_column="1"
+                />
+            <TextView
+                android:text="Carbs"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                android:layout_column="2"
+                />
+            <TextView
+                android:text="Fats"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                android:layout_column="3"
+                />
+        </TableRow>
+
+        <!--VALUES-->
+        <TableRow>
+
+            <TextView
+                android:id="@+id/caloriesValue"
+
+                android:text="value (kcal)"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                />
+
+            <TextView
+                android:id="@+id/proteinsValue"
+
+                android:text="value (g)"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                />
+
+            <TextView
+                android:id="@+id/carbsValue"
+
+                android:text="value (g)"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                />
+
+            <TextView
+                android:id="@+id/fatsValue"
+
+                android:text="value (g)"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:textSize="15sp"
+
+                android:layout_marginRight="10pt"
+                />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/addBtn"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/add"
+
+        android:background="@drawable/add_button_border"
+
+        android:padding="3pt"
+
+        android:layout_gravity="bottom|end"
+        />
+
+</FrameLayout>
