@@ -13,7 +13,31 @@
     android:padding="5pt"
     >
 
-    <!--TODO: Implement items-->
+    <!-- Meals -->
+    <FrameLayout
+        android:id="@+id/mealsLayout"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="95dp"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mealsList"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginTop="0dp"
+
+            tools:listitem="@layout/meal_item"
+
+            />
+    </FrameLayout>
 
     <!-- CALCULATED/TARGET VALUES -->
     <TableLayout
