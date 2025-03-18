@@ -5,14 +5,131 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.compose.ui.graphics.Color
+import androidx.fragment.app.findFragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
+import com.example.myapplication.data.models.FoodData
+import com.example.myapplication.data.viewmodel.FoodViewModel
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class AddFragment : Fragment() {
 
+    private lateinit var foodViewModel: FoodViewModel
+
+    private lateinit var title: EditText
+    private lateinit var titleValue: EditText
+    private lateinit var caloriesValue: EditText
+    private lateinit var proteinsValue: EditText
+    private lateinit var carbsValue: EditText
+    private lateinit var fatsValue: EditText
+
+    private lateinit var date: String
+
+    private lateinit var submitBtn: Button
+
+    private fun checkBlankFields(): Boolean {
+
+        if (
+            title.text.isBlank() ||
+            titleValue.text.isBlank() ||
+            caloriesValue.text.isBlank() ||
+            proteinsValue.text.isBlank() ||
+            carbsValue.text.isBlank() ||
+            fatsValue.text.isBlank()
+        )
+            return false
+
+        return true
+    }
+
+    private fun clearFields() {
+        title.setText("")
+        titleValue.setText("")
+        caloriesValue.setText("")
+        proteinsValue.setText("")
+        carbsValue.setText("")
+        fatsValue.setText("")
+    }
+
+    private fun insertDataToDatabase(foodData: FoodData) {
+
+        var toast: Toast
+
+        try{
+
+            foodViewModel.addFood(foodData)
+            toast = Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_SHORT)
+
+        } catch (e: Exception) {
+
+            print(e.message)
+            toast = Toast.makeText(requireContext(), "Error occurred!", Toast.LENGTH_SHORT)
+        }
+
+        toast.show()
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_add, container, false)
+
+        foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
+
+        submitBtn = view.findViewById<Button>(R.id.submit)
+
+        title = view.findViewById<EditText>(R.id.addTitle)
+        titleValue = view.findViewById<EditText>(R.id.addTitleValue)
+        caloriesValue = view.findViewById<EditText>(R.id.addCaloriesValue)
+        proteinsValue = view.findViewById<EditText>(R.id.addProteinsValue)
+        carbsValue = view.findViewById<EditText>(R.id.addCarbsValue)
+        fatsValue = view.findViewById<EditText>(R.id.addFatsValue)
+
+        val addValues = view.findViewById<TextView>(R.id.addValues)
+
+        val time = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd/MM/yyyy")
+        date = formatter.format(time)
+
+        submitBtn.setOnClickListener {
+
+            val submit: Boolean = checkBlankFields()
+
+            if (submit) {
+
+                // id = 0 -> Room library will do the id (primary key) numbering
+                var data: FoodData = FoodData(
+                    number = 0,
+                    title = title.text.toString() + " " + titleValue.text.toString(),
+                    calories = caloriesValue.text.toString().toInt(),
+                    proteins = proteinsValue.text.toString().toInt(),
+                    carbs = carbsValue.text.toString().toInt(),
+                    fats = fatsValue.text.toString().toInt(),
+                    date = date
+                )
+
+                addValues.text = data.toString()
+
+                insertDataToDatabase(data)
+
+                clearFields()
+
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.mainFrameLayout, FoodFragment())
+                    .commit()
+
+            } else {
+                Toast.makeText(context, "EMPTY FIELDS ARE NOT ALLOWED", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        return view
     }
 }

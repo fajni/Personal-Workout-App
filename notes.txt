@@ -1,6 +1,0 @@
-Used folders: 
-	1. drawable - symbols, images, ...
-	2. layout - presentation of main activities,
-	3. menu - menus used in activities such as navbar
-	4. values - defined colors, string, ...
-	5. 

@@ -6,7 +6,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CaloriesFragment"
+    tools:context=".fragments.FoodFragment"
 
     android:background="@color/discord_background_color"
 
@@ -21,7 +21,7 @@
         android:layout_height="match_parent"
 
         android:layout_marginStart="0dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="95dp"
         >
@@ -34,7 +34,7 @@
 
             android:layout_marginTop="0dp"
 
-            tools:listitem="@layout/meal_item"
+            tools:listitem="@layout/food_item"
 
             />
     </FrameLayout>
@@ -146,20 +146,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <ImageButton
-        android:id="@+id/addBtn"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:src="@drawable/add"
-
-        android:background="@drawable/add_button_border"
-
-        android:padding="3pt"
-
-        android:layout_gravity="bottom|end"
-        />
 
 </FrameLayout>

@@ -5,16 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.adapter.MealAdapter
-import com.example.myapplication.models.MealData
+import com.example.myapplication.adapter.FoodAdapter
+import com.example.myapplication.data.models.FoodData
+import com.example.myapplication.data.viewmodel.FoodViewModel
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
-class CaloriesFragment : Fragment() {
+class FoodFragment : Fragment() {
+
+    private lateinit var foodViewModel: FoodViewModel
 
     private lateinit var caloriesValue: TextView
     private lateinit var proteinsValue: TextView
@@ -23,32 +28,29 @@ class CaloriesFragment : Fragment() {
 
     private lateinit var mealsRecyclerView: RecyclerView
 
-    private lateinit var mealsList: ArrayList<MealData>
+    private lateinit var mealsList: ArrayList<FoodData>
 
-    // TODO
+
     private fun setValues() {
 
-        caloriesValue.text = "/ kcal"
-        proteinsValue.text = "/ g"
-        carbsValue.text = "/ g"
-        fatsValue.setText("/ g")
+        mealsList = ArrayList<FoodData>()
 
-        var meal1: MealData = MealData(1, 500, 40, 70, 5)
-        var meal2: MealData = MealData(2, 800, 70, 100, 20)
-        var meal3: MealData = MealData(3, 1000, 50, 60, 25)
+        val adapter = FoodAdapter(mealsList, foodViewModel)
 
-        mealsList = arrayListOf<MealData>()
-        mealsList.add(meal1)
-        mealsList.add(meal2)
-        mealsList.add(meal3)
+        foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { meals ->
 
-        mealsRecyclerView.adapter = MealAdapter(mealsList)
+            adapter.setCurrentData(meals)
+            calculateValues(meals)
+        })
 
-        calculateValues(mealsList)
+        mealsRecyclerView.adapter = adapter
     }
 
-    // TODO
-    private fun calculateValues(mealsList: List<MealData>) {
+    private fun calculateValues(mealsList: List<FoodData>) {
+
+        val time = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd/MM/yyyy")
+        var currentDate: String = formatter.format(time)
 
         var calories: Int = 0
         var proteins: Int = 0
@@ -56,10 +58,13 @@ class CaloriesFragment : Fragment() {
         var fats: Int = 0
 
         for (meal in mealsList){
-            calories += meal.calories!!
-            proteins += meal.proteins!!
-            carbs += meal.carbs!!
-            fats += meal.fats!!
+            if(meal.date == currentDate) {
+
+                calories += meal.calories!!
+                proteins += meal.proteins!!
+                carbs += meal.carbs!!
+                fats += meal.fats!!
+            }
         }
 
         caloriesValue.text = calories.toString() + "kcal"
@@ -73,7 +78,7 @@ class CaloriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view: View = inflater.inflate(R.layout.fragment_calories, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_food, container, false)
 
         caloriesValue = view.findViewById<TextView>(R.id.caloriesValue)
         proteinsValue = view.findViewById<TextView>(R.id.proteinsValue)
@@ -84,21 +89,9 @@ class CaloriesFragment : Fragment() {
         mealsRecyclerView.layoutManager = LinearLayoutManager(context)
         mealsRecyclerView.setHasFixedSize(true)
 
+        foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
+
         setValues()
-
-        val addBtn = view.findViewById<ImageButton>(R.id.addBtn)
-
-        // Change CaloriesFragment to AddFragment
-        addBtn?.setOnClickListener {
-
-            val transaction = parentFragmentManager.beginTransaction()
-
-            transaction.replace(R.id.mainFrameLayout, AddFragment())
-            transaction.commit()
-
-            Toast.makeText(context, "Add Fragment", Toast.LENGTH_SHORT).show()
-
-        }
 
         return view
     }

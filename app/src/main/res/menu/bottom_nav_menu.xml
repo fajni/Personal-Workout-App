@@ -10,7 +10,7 @@
         />
 
     <item
-        android:id="@+id/calories"
+        android:id="@+id/food"
         android:title="Calories"
         android:icon="@drawable/calorie_outlined"
         />

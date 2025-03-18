@@ -7,8 +7,17 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="For now, just add personal max personal record (max pr). (editable)"
+        />
+
+    <TextView
+
+        android:layout_marginTop="50sp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You can also add where you did your training. (example: if you did it outside - what was the temperature...)"
         />
 
 </FrameLayout>
