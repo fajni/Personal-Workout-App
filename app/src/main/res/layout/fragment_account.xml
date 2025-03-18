@@ -81,13 +81,26 @@
         android:layout_marginTop="90pt"
         />
 
+    <TextView
+        android:id="@+id/maxPRs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="MAX PRs: "
+        android:textSize="18sp"
+        android:textColor="@color/white"
+
+        android:layout_marginTop="115pt"
+        />
+
     <ListView
         android:id="@+id/accountList"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="120pt"
+        android:layout_marginTop="140pt"
+        android:layout_marginBottom="5pt"
         />
 
 </FrameLayout>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="10dp"
 
     app:cardCornerRadius="15dp"
 
@@ -199,5 +199,30 @@
         android:layout_gravity="right|center"
         android:layout_marginRight="10sp"
         />
+
+    <FrameLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="70sp"
+        android:paddingTop="10sp"
+        android:paddingBottom="5sp"
+
+        android:background="@color/discord_color3"
+        >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@drawable/update_pen"
+
+            android:background="@null"
+
+            android:layout_gravity="center"
+            />
+
+    </FrameLayout>
 
 </androidx.cardview.widget.CardView>

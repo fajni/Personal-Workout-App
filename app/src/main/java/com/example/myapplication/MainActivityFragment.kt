@@ -19,7 +19,26 @@ import java.util.Calendar
 
 class MainActivityFragment : AppCompatActivity() {
 
-    private fun setCurrentFragment(fragment: Fragment) {
+    private lateinit var bottomNavigationView: BottomNavigationView
+
+    private fun setCurrentFragment(fragment: Fragment, icon: Int) {
+
+        bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_outlined)
+        bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_outlined)
+        bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_outlined)
+        bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.sport_outlined)
+        bottomNavigationView.menu.findItem(R.id.history).setIcon(R.drawable.history_outlined)
+
+        // NOT GOOD icons
+        when(icon) {
+            R.id.home -> bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_filled)
+            R.id.food -> bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_filled)
+            R.id.account -> bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_filled)
+            R.id.history -> bottomNavigationView.menu.findItem(R.id.history).setIcon(R.drawable.history_filled)
+            R.id.workout -> bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.sport_filled)
+
+            else -> { }
+        }
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.mainFrameLayout, fragment)
@@ -34,17 +53,7 @@ class MainActivityFragment : AppCompatActivity() {
         val current = formatter.format(time)
 
         val currentData = findViewById<TextView>(R.id.date)
-        currentData.text = current.toString()
-    }
-
-    private fun setInitialIcons(bottomNavigationView: BottomNavigationView) {
-
-        bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_outlined)
-        bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_outlined)
-        bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_outlined)
-        bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.dumbell_outlined)
-        bottomNavigationView.menu.findItem(R.id.history).setIcon(R.drawable.history_outlined)
-
+        currentData.text = "TODAY: " + current.toString()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +63,7 @@ class MainActivityFragment : AppCompatActivity() {
 
         setDataTitle()
 
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        this.bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         val mainFragment = MainFragment()
         val foodFragment = FoodFragment()
@@ -65,39 +74,29 @@ class MainActivityFragment : AppCompatActivity() {
 
         val addBtn: ImageButton = findViewById(R.id.addBtn)
 
-        setCurrentFragment(mainFragment)
+        setCurrentFragment(mainFragment, R.id.home)
 
         bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
 
                 R.id.home -> {
-                    setCurrentFragment(mainFragment)
-                    setInitialIcons(bottomNavigationView)
-                    bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_filled)
+                    setCurrentFragment(mainFragment, R.id.home)
                 }
 
                 R.id.food -> {
-                    setCurrentFragment(foodFragment)
-                    setInitialIcons(bottomNavigationView)
-                    bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_filled)
+                    setCurrentFragment(foodFragment, R.id.food)
                 }
 
                 R.id.history -> {
-                    setCurrentFragment(historyFragment)
-                    setInitialIcons(bottomNavigationView)
-                    bottomNavigationView.menu.findItem(R.id.history).setIcon(R.drawable.history_filled)
+                    setCurrentFragment(historyFragment, R.id.history)
                 }
 
                 R.id.workout -> {
-                    setCurrentFragment(workoutFragment)
-                    setInitialIcons(bottomNavigationView)
-                    bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.dumbell_filled)
+                    setCurrentFragment(workoutFragment, R.id.workout)
                 }
 
                 R.id.account -> {
-                    setCurrentFragment(accountFragment)
-                    setInitialIcons(bottomNavigationView)
-                    bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_filled)
+                    setCurrentFragment(accountFragment, R.id.account)
                 }
             }
             true
@@ -105,7 +104,7 @@ class MainActivityFragment : AppCompatActivity() {
 
         addBtn.setOnClickListener {
             bottomNavigationView.selectedItemId = R.id.food
-            setCurrentFragment(addFragment)
+            setCurrentFragment(addFragment, R.id.food)
             Toast.makeText(applicationContext, "Add New Meal/Food", Toast.LENGTH_SHORT).show()
         }
     }

@@ -24,7 +24,7 @@
     <item
         android:id="@+id/workout"
         android:title="Workout"
-        android:icon="@drawable/dumbell_outlined"
+        android:icon="@drawable/sport_outlined"
         />
 
     <item

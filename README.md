@@ -1,6 +1,6 @@
-# Gym-App
+# Workout-App
 
-Personal Gym-App is mainly made for my own purposes.
+Personal Workout-App is mainly made for my own purposes.
 All data is saved locally using Room library, so there's no need for internet connection.
 
 ## Features
@@ -15,3 +15,10 @@ All data is saved locally using Room library, so there's no need for internet co
 
 ...
 
+<hr/>
+
+<sub>
+Workout-App is mainly made for myself, so there are still many things that can be improved and added.
+<br/>
+The application is made with the aim of being as light and simple as possible, not to look good.
+</sub>
