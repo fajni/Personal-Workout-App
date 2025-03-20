@@ -3,7 +3,7 @@
 
     <gradient
         android:startColor="@color/discord_background_color"
-        android:endColor="#000000"
+        android:endColor="@color/discord_color1"
         android:angle="315"/>
 
 </shape>

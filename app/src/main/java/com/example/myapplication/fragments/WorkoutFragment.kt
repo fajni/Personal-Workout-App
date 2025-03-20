@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 
 class WorkoutFragment : Fragment() {
@@ -13,9 +14,8 @@ class WorkoutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_workout, container, false)
 
-
-
-        return inflater.inflate(R.layout.fragment_workout, container, false)
+        return view
     }
 }

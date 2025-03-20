@@ -29,4 +29,9 @@ class FoodRepository(private val foodDAO: FoodDAO) {
         foodDAO.deleteAll()
     }
 
+    suspend fun updateFood(updatedFood: FoodData) {
+
+        foodDAO.updateFood(updatedFood)
+    }
+
 }

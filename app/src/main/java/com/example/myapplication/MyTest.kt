@@ -12,4 +12,6 @@ fun main() {
     numbers.removeAt(0)
 
     println(numbers)
+
+    print(CurrentDate().getCurrentData())
 }

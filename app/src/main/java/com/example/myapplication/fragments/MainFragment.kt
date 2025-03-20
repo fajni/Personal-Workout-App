@@ -5,13 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
+import com.example.myapplication.data.viewmodel.FoodViewModel
 
 class MainFragment : Fragment() {
+
+    private lateinit var foodViewModel: FoodViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_main, container, false)
+
+        foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 
         // TODO: implement
 

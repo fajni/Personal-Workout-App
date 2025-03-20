@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FoodAddFragment"
+
+    android:paddingHorizontal="2pt"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="top"
+
+        android:text="ADD NEW NUTRIENTS"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
+
+    <LinearLayout
+
+        android:layout_marginTop="30pt"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Title:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_weight="1.2"
+            />
+
+        <EditText
+            android:id="@+id/addTitle"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter title"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+
+            android:inputType="text"
+
+            android:layout_weight="1"
+            />
+
+        <EditText
+            android:id="@+id/addTitleValue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="(g/ml)"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+
+            android:inputType="number"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_marginTop="55pt"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Calories:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_weight="3"
+            />
+
+        <EditText
+            android:id="@+id/addCaloriesValue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter calories"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+
+            android:inputType="number"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_marginTop="80pt"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Proteins:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_weight="3"
+            />
+
+        <EditText
+            android:id="@+id/addProteinsValue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter proteins"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+
+            android:inputType="number"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_marginTop="105pt"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Carbs:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_weight="3"
+            />
+
+        <EditText
+            android:id="@+id/addCarbsValue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter carbs"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+
+            android:inputType="number"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_marginTop="130pt"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Fats:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_weight="3"
+            />
+
+        <EditText
+            android:id="@+id/addFatsValue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter fats"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+
+            android:inputType="number"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/addValues"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="values on submit"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+
+        android:layout_gravity="bottom"
+
+        android:layout_marginBottom="100pt"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submit"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="10pt"
+
+        android:layout_gravity="bottom|center"
+
+        android:text="SUBMIT"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+
+        android:background="@drawable/main_button"
+        android:backgroundTint="@color/green"
+        />
+
+</FrameLayout>

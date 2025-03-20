@@ -58,4 +58,12 @@ class FoodViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun updateFood(updatedFood: FoodData) {
+
+        // coroutine. Adding will be in another (background) thread
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updateFood(updatedFood)
+        }
+    }
+
 }

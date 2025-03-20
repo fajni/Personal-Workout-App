@@ -5,19 +5,92 @@
     android:layout_height="match_parent"
     tools:context=".fragments.WorkoutFragment">
 
-    <TextView
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="For now, just add personal max personal record (max pr). (editable)"
-        />
+        >
 
-    <TextView
+        <TableRow
+            android:background="@drawable/border"
+            android:padding="5sp"
+            >
+            <TextView
 
-        android:layout_marginTop="50sp"
+                android:text="MONDAY"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="18sp"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="You can also add where you did your training. (example: if you did it outside - what was the temperature...)"
-        />
+                android:layout_weight="1"
+                />
+            <TextView
+
+                android:text="WEDNESDAY"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+
+                android:layout_weight="1"
+                />
+
+            <TextView
+
+                android:text="FRIDAY"
+                android:textStyle="bold"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+
+                android:layout_weight="1"
+                />
+
+            <TextView
+
+                android:text="WEEKEND"
+                android:textStyle="bold|italic"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+
+                android:layout_weight="1"
+                />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+
+                android:text="TEST"
+
+                android:layout_weight="1"
+                />
+
+
+            <TextView
+
+                android:text="TEST"
+
+                android:layout_weight="1"
+                />
+
+
+            <TextView
+
+                android:text="TEST"
+
+                android:layout_weight="1"
+                />
+
+
+            <TextView
+
+                android:text="TEST"
+
+                android:layout_weight="1"
+                />
+        </TableRow>
+
+    </TableLayout>
 
 </FrameLayout>

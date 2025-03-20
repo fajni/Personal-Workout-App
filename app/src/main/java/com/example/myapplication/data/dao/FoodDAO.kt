@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.myapplication.data.models.FoodData
 
 /*
@@ -31,5 +32,6 @@ interface FoodDAO {
     @Query("DELETE FROM food_data")
     suspend fun deleteAll()
 
-    // TODO: update data
+    @Update
+    suspend fun updateFood(food: FoodData)
 }

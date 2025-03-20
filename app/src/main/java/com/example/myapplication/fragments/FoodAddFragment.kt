@@ -9,17 +9,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.compose.ui.graphics.Color
-import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
-class AddFragment : Fragment() {
+class FoodAddFragment : Fragment() {
 
     private lateinit var foodViewModel: FoodViewModel
 
@@ -79,7 +76,7 @@ class AddFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_add, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_add_food, container, false)
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 

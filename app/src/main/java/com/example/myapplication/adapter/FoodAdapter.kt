@@ -2,6 +2,7 @@ package com.example.myapplication.adapter
 
 import android.app.AlertDialog
 import android.graphics.Color
+import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -11,13 +12,17 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.CurrentDate
 import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
-import java.text.SimpleDateFormat
-import java.util.Calendar
+import com.example.myapplication.fragments.FoodUpdateFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /*
 
@@ -53,6 +58,29 @@ class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodV
         holder.carbs.text = mealsList[position].carbs.toString() + "g"
         holder.fats.text = mealsList[position].fats.toString() + "g"
 
+        // from adapter to fragment
+        holder.itemView.setOnClickListener {
+
+            val foodUpdateFragment: FoodUpdateFragment = FoodUpdateFragment(mealsList[position])
+
+            val fragmentTransaction = (holder.itemView.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+
+            /*
+            // We're passing FoodData in constructor, no need for Bundle
+            val bundle = Bundle()
+            bundle.putString("meal", mealsList[position].toString())
+
+            foodUpdateFragment.arguments = bundle
+             */
+
+            Toast.makeText(holder.itemView.context, "Update " + mealsList[position].title?.uppercase(), Toast.LENGTH_SHORT).show()
+
+            fragmentTransaction.replace(R.id.mainFrameLayout, foodUpdateFragment)
+            //fragmentTransaction.addToBackStack(null) // go back
+            fragmentTransaction.commit()
+
+        }
+
         val builder = AlertDialog.Builder(holder.itemView.context)
         val positiveSpan = SpannableString("Yes").apply { setSpan(ForegroundColorSpan(Color.GREEN), 0, "Yes".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
         val negativeSpan = SpannableString("No").apply { setSpan(ForegroundColorSpan(Color.RED), 0, "No".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
@@ -77,7 +105,6 @@ class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodV
                 .setNegativeButton(negativeSpan) { dialog, id ->
                     dialog.dismiss()
                 }
-
                 .show()
         }
     }
@@ -88,12 +115,8 @@ class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodV
 
     public fun setCurrentData(mealsList: List<FoodData>) {
 
-        val time = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("dd/MM/yyyy")
-        var currentDate: String = formatter.format(time)
-
         for(meal in mealsList){
-            if (meal.date == currentDate)
+            if (meal.date == CurrentDate().getCurrentData())
                 this.mealsList.add(meal)
         }
 

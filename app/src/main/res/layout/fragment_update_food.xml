@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AddFragment"
+    tools:context=".fragments.FoodUpdateFragment"
 
     android:paddingHorizontal="2pt"
     >
@@ -14,7 +14,7 @@
 
         android:layout_gravity="top"
 
-        android:text="ADD NEW NUTRIENTS"
+        android:text="UPDATE NUTRIENTS"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -22,235 +22,246 @@
         />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
 
         android:layout_marginTop="30pt"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="horizontal"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Title:"
+            android:layout_weight="3"
+
+            android:text="Title: "
             android:textSize="18sp"
+            android:textColor="@color/white"
             android:textStyle="bold"
-            android:textColor="@color/white"
-
-            android:layout_weight="1.2"
             />
 
         <EditText
-            android:id="@+id/addTitle"
+            android:id="@+id/updateFoodTitle"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:hint="Enter title"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-
-            android:inputType="text"
-
             android:layout_weight="1"
-            />
 
-        <EditText
-            android:id="@+id/addTitleValue"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:hint="(g/ml)"
+            android:hint="Enter new title"
             android:textColorHint="@color/white"
+
             android:textColor="@color/white"
-
-            android:inputType="number"
-
-            android:layout_weight="1"
+            android:textSize="18sp"
             />
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
 
         android:layout_marginTop="55pt"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="horizontal"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Calories:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_weight="3"
+
+            android:text="Calories: "
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             />
 
         <EditText
-            android:id="@+id/addCaloriesValue"
+            android:id="@+id/updateFoodCalories"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:hint="Enter calories"
+            android:layout_weight="1"
+
+            android:hint="Enter new calories"
             android:textColorHint="@color/white"
+
             android:textColor="@color/white"
+            android:textSize="18sp"
 
             android:inputType="number"
-
-            android:layout_weight="1"
             />
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
 
         android:layout_marginTop="80pt"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="horizontal"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Proteins:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_weight="3"
+
+            android:text="Proteins: "
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             />
 
         <EditText
-            android:id="@+id/addProteinsValue"
+            android:id="@+id/updateFoodProteins"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:hint="Enter proteins"
+            android:layout_weight="1"
+
+            android:hint="Enter new proteins"
             android:textColorHint="@color/white"
+
             android:textColor="@color/white"
+            android:textSize="18sp"
 
             android:inputType="number"
-
-            android:layout_weight="1"
             />
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
 
         android:layout_marginTop="105pt"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="horizontal"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Carbs:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_weight="3"
+
+            android:text="Carbs: "
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             />
 
         <EditText
-            android:id="@+id/addCarbsValue"
+            android:id="@+id/updateFoodCarbs"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:hint="Enter carbs"
+            android:layout_weight="1"
+
+            android:hint="Enter new carbs"
             android:textColorHint="@color/white"
+
             android:textColor="@color/white"
+            android:textSize="18sp"
 
             android:inputType="number"
-
-            android:layout_weight="1"
             />
 
     </LinearLayout>
 
     <LinearLayout
-
-        android:layout_marginTop="130pt"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:orientation="horizontal"
+
+        android:layout_marginTop="130pt"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Fats:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_weight="3"
+
+            android:text="Fats: "
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             />
 
         <EditText
-            android:id="@+id/addFatsValue"
+            android:id="@+id/updateFoodFats"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:hint="Enter fats"
+            android:layout_weight="1"
+
+            android:hint="Enter new fats"
             android:textColorHint="@color/white"
+
             android:textColor="@color/white"
+            android:textSize="18sp"
 
             android:inputType="number"
-
-            android:layout_weight="1"
             />
 
     </LinearLayout>
 
-    <!-- TO DELETE -->
-
-    <TextView
-        android:id="@+id/addValues"
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="values on submit"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:orientation="horizontal"
 
-        android:layout_gravity="bottom"
+        android:layout_marginTop="155pt"
+        >
 
-        android:layout_marginBottom="100pt"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
+            android:layout_weight="3"
+
+            android:text="Date: "
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/updateFoodDate"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:hint="dd/mm/yyyy"
+            android:textColorHint="@color/white"
+
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:inputType="date"
+            android:maxLength="10"
+            />
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/submit"
+        android:id="@+id/updateFoodBtn"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -259,13 +270,13 @@
 
         android:layout_gravity="bottom|center"
 
-        android:text="SUBMIT"
+        android:text="UPDATE"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="15sp"
 
         android:background="@drawable/main_button"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="@color/discord_blue"
         />
 
 </FrameLayout>
