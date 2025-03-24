@@ -27,7 +27,6 @@ class MainActivityFragment : AppCompatActivity() {
         bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.sport_outlined)
         bottomNavigationView.menu.findItem(R.id.history).setIcon(R.drawable.history_outlined)
 
-        // NOT GOOD icons
         when(icon) {
             R.id.home -> bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_filled)
             R.id.food -> bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_filled)
@@ -57,7 +56,7 @@ class MainActivityFragment : AppCompatActivity() {
 
         setDateTitle()
 
-        this.bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         val mainFragment = MainFragment()
         val foodFragment = FoodFragment()

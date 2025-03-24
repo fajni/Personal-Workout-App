@@ -2,7 +2,6 @@ package com.example.myapplication.adapter
 
 import android.app.AlertDialog
 import android.graphics.Color
-import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
@@ -13,16 +12,12 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.CurrentDate
 import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
 import com.example.myapplication.fragments.FoodUpdateFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 /*
 

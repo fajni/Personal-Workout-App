@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.CurrentDate
 import com.example.myapplication.R
 import com.example.myapplication.adapter.FoodAdapter
 import com.example.myapplication.data.models.FoodData
@@ -28,14 +29,10 @@ class FoodFragment : Fragment() {
 
     private lateinit var mealsRecyclerView: RecyclerView
 
-    private lateinit var mealsList: ArrayList<FoodData>
-
 
     private fun setValues() {
 
-        mealsList = ArrayList<FoodData>()
-
-        val adapter = FoodAdapter(mealsList, foodViewModel)
+        val adapter = FoodAdapter(ArrayList<FoodData>(), foodViewModel)
 
         foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { meals ->
 
@@ -48,9 +45,7 @@ class FoodFragment : Fragment() {
 
     private fun calculateValues(mealsList: List<FoodData>) {
 
-        val time = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("dd/MM/yyyy")
-        var currentDate: String = formatter.format(time)
+        var currentDate = CurrentDate().getCurrentData()
 
         var calories: Int = 0
         var proteins: Int = 0

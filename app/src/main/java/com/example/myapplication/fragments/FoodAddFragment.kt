@@ -59,7 +59,7 @@ class FoodAddFragment : Fragment() {
 
         var toast: Toast
 
-        try{
+        try {
 
             foodViewModel.addFood(foodData)
             toast = Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_SHORT)
