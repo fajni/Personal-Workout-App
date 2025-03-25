@@ -120,4 +120,20 @@
         android:background="@color/discord_blue"
         />
 
+    <Button
+        android:id="@+id/historyBtnClearDatabase"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="CLEAR DATABASE"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+
+        android:layout_marginBottom="10sp"
+        android:layout_gravity="bottom|center"
+
+        android:backgroundTint="@color/red"
+        />
+
 </FrameLayout>

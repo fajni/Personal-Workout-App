@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,8 +17,6 @@ import com.example.myapplication.R
 import com.example.myapplication.adapter.FoodAdapter
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
-import java.text.SimpleDateFormat
-import java.util.Calendar
 
 class FoodFragment : Fragment() {
 
@@ -85,6 +85,9 @@ class FoodFragment : Fragment() {
         mealsRecyclerView.setHasFixedSize(true)
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
+
+        val addBtn = requireActivity().findViewById<ImageButton>(R.id.addBtn)
+        addBtn.isVisible = true
 
         setValues()
 

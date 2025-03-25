@@ -151,7 +151,7 @@
         >
 
         <Button
-            android:id="@+id/btnAccountDelete"
+            android:id="@+id/btnWorkoutDelete"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
             />
 
         <Button
-            android:id="@+id/btnAccountUpdate"
+            android:id="@+id/btnWorkoutUpdate"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
