@@ -23,6 +23,8 @@ class AccountFragment : Fragment() {
 
     private lateinit var accountViewModel: AccountViewModel
 
+    private var myAccount: AccountData? = null
+
     private lateinit var accountName: EditText
     private lateinit var accountCalories: EditText
     private lateinit var accountProteins: EditText
@@ -97,7 +99,7 @@ class AccountFragment : Fragment() {
         accountUpdateDate.setText(account.accountDate)
 
         // UPDATE BTN
-        accountBtnUpdateAdd.setText("Update")
+        accountBtnUpdateAdd.setText("UPDATE")
         accountBtnUpdateAdd.setBackgroundColor(resources.getColor(R.color.discord_blue))
 
         accountBtnUpdateAdd.setOnClickListener {
@@ -242,14 +244,16 @@ class AccountFragment : Fragment() {
 
         accountViewModel.readAccount.observe(viewLifecycleOwner, Observer { account ->
 
-            if (account == null) {
+            myAccount = account
+
+            if (myAccount == null) {
                 Toast.makeText(context, "Please enter account data!", Toast.LENGTH_SHORT).show()
                 insertAccount()
 
             } else {
                 //Toast.makeText(context, "You can update data!", Toast.LENGTH_SHORT).show()
-                setFieldsUpdateAccount(account!!)
-                deleteAccount(account)
+                setFieldsUpdateAccount(myAccount!!)
+                deleteAccount(myAccount!!)
             }
 
         })

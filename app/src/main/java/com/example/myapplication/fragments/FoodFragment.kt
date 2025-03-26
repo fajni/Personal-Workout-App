@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TableLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -26,11 +27,12 @@ class FoodFragment : Fragment() {
     private lateinit var proteinsValue: TextView
     private lateinit var carbsValue: TextView
     private lateinit var fatsValue: TextView
+    private lateinit var progressTable: TableLayout
 
     private lateinit var mealsRecyclerView: RecyclerView
 
 
-    private fun setValues() {
+    private fun setData() {
 
         val adapter = FoodAdapter(ArrayList<FoodData>(), foodViewModel)
 
@@ -62,23 +64,24 @@ class FoodFragment : Fragment() {
             }
         }
 
-        caloriesValue.text = calories.toString() + "kcal"
-        proteinsValue.text = proteins.toString() + "g"
-        carbsValue.text = carbs.toString() + "g"
-        fatsValue.setText(fats.toString() + "g")
+        caloriesValue.text = calories.toString() + " kcal"
+        proteinsValue.text = proteins.toString() + " g"
+        carbsValue.text = carbs.toString() + " g"
+        fatsValue.setText(fats.toString() + " g")
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val view: View = inflater.inflate(R.layout.fragment_food, container, false)
 
         caloriesValue = view.findViewById<TextView>(R.id.caloriesValue)
         proteinsValue = view.findViewById<TextView>(R.id.proteinsValue)
         carbsValue = view.findViewById<TextView>(R.id.carbsValue)
         fatsValue = view.findViewById<TextView>(R.id.fatsValue)
+        progressTable = view.findViewById<TableLayout>(R.id.progressTable)
 
         mealsRecyclerView = view.findViewById<RecyclerView>(R.id.mealsList)
         mealsRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -86,10 +89,13 @@ class FoodFragment : Fragment() {
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 
+        // Set ADD Button to VISIBLE
         val addBtn = requireActivity().findViewById<ImageButton>(R.id.addBtn)
         addBtn.isVisible = true
 
-        setValues()
+        // TODO: set outline for progressTable to red if (calories < account.calories)
+
+        setData()
 
         return view
     }

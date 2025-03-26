@@ -52,6 +52,9 @@ class MainActivityFragment : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Loading Screen must go before setContentView
+        setTheme(R.style.Theme_MyApplication)
+
         setContentView(R.layout.activity_main_fragment)
 
         setDateTitle()

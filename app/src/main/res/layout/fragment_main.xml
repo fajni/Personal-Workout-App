@@ -4,27 +4,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.MainFragment"
+
+    android:paddingHorizontal="5sp"
     >
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="Main Fragment"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        />
+        android:orientation="horizontal"
 
-    <TextView
+        android:layout_marginTop="5pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Calories:"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_gravity="center"
+
+            android:layout_weight="3"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBarCalories"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:layout_gravity="center"
+
+            style="?android:progressBarStyleHorizontal"
+
+            android:progressDrawable="@drawable/progressbar"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="Scroll:"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:orientation="horizontal"
 
-        android:layout_marginTop="20pt"
-        />
+        android:layout_marginTop="25pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Proteins:"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_gravity="center"
+
+            android:layout_weight="3"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBarProteins"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:layout_gravity="center"
+
+            style="?android:progressBarStyleHorizontal"
+
+            android:progressDrawable="@drawable/progressbar"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="45pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Carbs:"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_gravity="center"
+
+            android:layout_weight="3"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBarCarbs"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:layout_gravity="center"
+
+            style="?android:progressBarStyleHorizontal"
+
+            android:progressDrawable="@drawable/progressbar"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="65pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Fats:"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_gravity="center"
+
+            android:layout_weight="3"
+            />
+
+        <ProgressBar
+            android:id="@+id/progressBarFats"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:layout_gravity="center"
+
+            style="?android:progressBarStyleHorizontal"
+
+            android:progressDrawable="@drawable/progressbar"
+            />
+
+    </LinearLayout>
 
 
 </FrameLayout>
