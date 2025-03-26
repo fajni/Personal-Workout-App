@@ -23,6 +23,7 @@ Pics of the app's user interface:
 
 <details>
 <summary>Click for images</summary>
+<img src = "./images/SplashScreen.png" width = 180>
 <img src = "./images/Home.png" width = 180>
 <img src = "./images/Nutrients.png" width = 180>
 <img src = "./images/AddNutrients.png" width = 180>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.CurrentDate
@@ -23,6 +24,15 @@ class MainFragment : Fragment() {
     private lateinit var progressBarProteins: ProgressBar
     private lateinit var progressBarCarbs: ProgressBar
     private lateinit var progressBarFats: ProgressBar
+
+    private lateinit var caloriesConsumed: TextView
+    private lateinit var caloriesLeft: TextView
+    private lateinit var proteinsConsumed: TextView
+    private lateinit var proteinsLeft: TextView
+    private lateinit var carbsConsumed: TextView
+    private lateinit var carbsLeft: TextView
+    private lateinit var fatsConsumed: TextView
+    private lateinit var fatsLeft: TextView
 
     private var calories: Int = 0
     private var proteins: Int = 0
@@ -61,29 +71,62 @@ class MainFragment : Fragment() {
     private fun updateProgressBars() {
 
         progressBarCalories.progress = 0
+        progressBarCalories.max = 0
         progressBarProteins.progress = 0
+        progressBarProteins.max = 0
         progressBarCarbs.progress = 0
+        progressBarCarbs.max = 0
         progressBarFats.progress = 0
+        progressBarFats.max = 0
 
         if (calories != 0 && myAccount != null) {
             progressBarCalories.max = myAccount?.calories!!
             progressBarCalories.progress = calories
+
+            caloriesConsumed.setText(calories.toString() + " kcal")
+            caloriesLeft.setText((myAccount?.calories!! - calories).toString() + " kcal")
+
+            println("Calories Max: " + progressBarCalories.max)
+            println("Calories Progress: " + progressBarCalories.progress)
         }
 
         if (proteins != 0 && myAccount != null) {
             progressBarProteins.max = myAccount?.proteins!!
             progressBarProteins.progress = proteins
+
+            proteinsConsumed.setText(proteins.toString() + " g")
+            proteinsLeft.setText((myAccount?.proteins!! - proteins).toString() + " g")
+
+            println("Proteins Max: " + progressBarProteins.max)
+            println("Proteins Progress: " + progressBarProteins.progress)
         }
 
         if (carbs != 0 && myAccount != null) {
             progressBarCarbs.max = myAccount?.carbs!!
             progressBarCarbs.progress = carbs
+
+            carbsConsumed.setText(carbs.toString() + " g")
+            carbsLeft.setText((myAccount?.carbs!! - carbs).toString() + " g")
+
+            println("Carbs Max: " + progressBarCarbs.max)
+            println("Carbs Progress: " + progressBarCarbs.progress)
         }
 
         if (fats != 0 && myAccount != null) {
             progressBarFats.max = myAccount?.fats!!
             progressBarFats.progress = fats
+
+            fatsConsumed.setText(fats.toString() + " g")
+            fatsLeft.setText((myAccount?.fats!! - fats).toString() + " g")
+
+            println("Fats Max: " + progressBarFats.max)
+            println("Fats Progress: " + progressBarFats.progress)
         }
+
+        calories = 0
+        proteins = 0
+        carbs = 0
+        fats = 0
     }
 
     override fun onCreateView(
@@ -100,6 +143,15 @@ class MainFragment : Fragment() {
         progressBarProteins = view.findViewById(R.id.progressBarProteins)
         progressBarCarbs = view.findViewById(R.id.progressBarCarbs)
         progressBarFats = view.findViewById(R.id.progressBarFats)
+
+        caloriesConsumed = view.findViewById(R.id.caloriesConsumed)
+        caloriesLeft = view.findViewById(R.id.caloriesLeft)
+        proteinsConsumed = view.findViewById(R.id.proteinsConsumed)
+        proteinsLeft = view.findViewById(R.id.proteinsLeft)
+        carbsConsumed = view.findViewById(R.id.carbsConsumed)
+        carbsLeft = view.findViewById(R.id.carbsLeft)
+        fatsConsumed = view.findViewById(R.id.fatsConsumed)
+        fatsLeft = view.findViewById(R.id.fatsLeft)
 
         setData()
 

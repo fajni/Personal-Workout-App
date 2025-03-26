@@ -8,6 +8,7 @@
     android:paddingHorizontal="5sp"
     >
 
+    <!-- CALORIES -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,13 +22,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Calories:"
+            android:text="CALORIES"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
 
             android:layout_gravity="center"
 
-            android:layout_weight="3"
+            android:layout_weight="2"
             />
 
         <ProgressBar
@@ -53,20 +55,92 @@
 
         android:orientation="horizontal"
 
-        android:layout_marginTop="25pt"
+        android:layout_marginTop="20pt"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Proteins:"
+            android:text="Consumed: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/caloriesConsumed"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="35pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Left: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/caloriesLeft"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <!-- PROTEINS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="60pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="PROTEINS"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
 
             android:layout_gravity="center"
 
-            android:layout_weight="3"
+            android:layout_weight="2"
             />
 
         <ProgressBar
@@ -92,20 +166,92 @@
 
         android:orientation="horizontal"
 
-        android:layout_marginTop="45pt"
+        android:layout_marginTop="75pt"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Carbs:"
+            android:text="Consumed: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/proteinsConsumed"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="90pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Left: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/proteinsLeft"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <!-- CARBS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="115pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="CARBS"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
 
             android:layout_gravity="center"
 
-            android:layout_weight="3"
+            android:layout_weight="2"
             />
 
         <ProgressBar
@@ -131,20 +277,91 @@
 
         android:orientation="horizontal"
 
-        android:layout_marginTop="65pt"
+        android:layout_marginTop="130pt"
         >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="Fats:"
+            android:text="Consumed: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/carbsConsumed"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="145pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Left: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/carbsLeft"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="170pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="FATS"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
 
             android:layout_gravity="center"
 
-            android:layout_weight="3"
+            android:layout_weight="2"
             />
 
         <ProgressBar
@@ -164,5 +381,74 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="185pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Consumed: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/fatsConsumed"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginTop="200pt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Left: "
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="2"
+            />
+
+        <TextView
+            android:id="@+id/fatsLeft"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="VALUE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
 
 </FrameLayout>
