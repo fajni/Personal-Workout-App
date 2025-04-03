@@ -5,17 +5,15 @@ All data is saved locally using Room library, so there's no need for internet co
 
 ## Features
 
-- **Daily/Previous Nutrients**: Easily calculate and monitor essential nutrients like calories, proteins, carbs, and fats, with the ability to track daily intake for each day. Add, track, preview and calculate current intakes during the day. *Not fully implemented*
+- **Daily/Previous Nutrients**: Easily calculate and monitor essential nutrients like calories, proteins, carbs, and fats, with the ability to track daily intake for each day. Add, track, preview and calculate current intakes during the day.
 
 - **Personal Data**: Monitor your personal records in weightlifting exercises such as bench press, deadlift, and squad. Monitor you current weight, and last update date.
 
-- **Trainings**: *Not implemented*
+- **Trainings**: Simple Track of your training/workout plan. Add/Update/Delete workout for any day in the week.
 
 ## Description
 
 A Personal app whose main goal is to track daily calorie intake and other nutrients. In addition, it's necessary to monitor the current body weight and the personal records in strength exercises.
-
-
 
 ### User interface
 

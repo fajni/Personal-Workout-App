@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
@@ -126,6 +128,10 @@ class FoodAddFragment : Fragment() {
                 Toast.makeText(context, "EMPTY FIELDS ARE NOT ALLOWED", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Set ADD Button to VISIBLE
+        val addBtn = requireActivity().findViewById<ImageButton>(R.id.addBtn)
+        addBtn.isVisible = false
 
         return view
     }
