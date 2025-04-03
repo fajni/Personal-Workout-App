@@ -5,150 +5,487 @@
     android:layout_height="match_parent"
     tools:context=".fragments.WorkoutFragment">
 
-    <ScrollView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
 
-        android:layout_marginBottom="60sp"
-        >
+        android:text="Weekly Workouts:"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- HORIZONTAL SCROLL -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30sp"
+        android:padding="10sp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="vertical"
-            >
+            android:orientation="horizontal">
 
+            <LinearLayout
+                android:id="@+id/monday"
 
-            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:stretchColumns="*"
+
+                android:layout_marginHorizontal="10sp"
+
+                android:background="@drawable/item_border"
+
+                android:orientation="vertical"
+                android:paddingHorizontal="30sp"
+
+                android:paddingVertical="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="MONDAY"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/mondayTraining"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="/"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tuesday"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="10sp"
+
+                android:background="@drawable/item_border"
+
+                android:orientation="vertical"
+                android:paddingHorizontal="30sp"
+
+                android:paddingVertical="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="TUESDAY"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tuesdayTraining"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/wednesday"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="10sp"
+
+                android:background="@drawable/item_border"
+
+                android:orientation="vertical"
+                android:paddingHorizontal="30sp"
+
+                android:paddingVertical="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="WEDNESDAY"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/wednesdayTraining"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/thursday"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="10sp"
+
+                android:background="@drawable/item_border"
+
+                android:orientation="vertical"
+                android:paddingHorizontal="30sp"
+
+                android:paddingVertical="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="THURSDAY"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/thursdayTraining"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/friday"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="10sp"
+
+                android:background="@drawable/item_border"
+
+                android:orientation="vertical"
+                android:paddingHorizontal="30sp"
+
+                android:paddingVertical="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="FRIDAY"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/fridayTraining"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/saturday"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="10sp"
+
+                android:background="@drawable/item_border"
+
+                android:orientation="vertical"
+                android:paddingHorizontal="30sp"
+
+                android:paddingVertical="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="SATURDAY"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/saturdayTraining"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sunday"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="10sp"
+
+                android:background="@drawable/item_border"
+
+                android:orientation="vertical"
+                android:paddingHorizontal="30sp"
+
+                android:paddingVertical="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="SUNDAY"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/sundayTraining"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="/"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- WORKOUT DETAILS -->
+    <TextView
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80pt"
+
+        android:text="Workout details"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/selectDayForMoreDetailsText"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="95pt"
+
+        android:text="Select day for more details"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="italic"
+
+        android:visibility="visible" />
+
+
+    <ScrollView
+        android:id="@+id/workoutScrollView"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginTop="95pt"
+        android:layout_marginBottom="30pt"
+
+        android:fillViewport="true"
+
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+
+                android:layout_marginBottom="10sp"
                 >
 
-                <TableRow
-                    android:layout_width="fill_parent"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    android:layout_weight="2"
 
-                        android:text="MONDAY"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
+                    android:text="Day: "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                        android:background="@drawable/table_border"
-                        />
+                <TextView
+                    android:id="@+id/workoutDay"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="WEDNESDAY"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
-
-                        android:background="@drawable/table_border"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="FRIDAY"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
-
-                        android:background="@drawable/table_border"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="WEEKEND"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textAlignment="center"
-
-                        android:background="@drawable/table_border"
-                        />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    >
 
-                    <TextView
+                    android:layout_weight="1"
 
-                        android:text="TRAINING 1"
-                        android:textColor="@color/white"
+                    android:text="workoutday"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    />
+            </LinearLayout>
 
-                        android:padding="10sp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-                        android:background="@drawable/table_border"
-                        />
+                android:orientation="horizontal"
 
-                    <TextView
+                android:layout_marginBottom="10sp"
+                >
 
-                        android:text="TRAINING 2"
-                        android:textColor="@color/white"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                        android:padding="10sp"
+                    android:layout_weight="2"
 
-                        android:background="@drawable/table_border"
-                        />
+                    android:text="Created At: "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                    <TextView
+                <TextView
+                    android:id="@+id/workoutCreatedAt"
 
-                        android:text="TRAINING 3"
-                        android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                        android:padding="10sp"
+                    android:layout_weight="1"
 
-                        android:background="@drawable/table_border"
-                        />
+                    android:text="createdAt"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    />
+            </LinearLayout>
 
-                    <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-                        android:text="TRAINING 4"
-                        android:textColor="@color/white"
+                android:orientation="horizontal">
 
-                        android:padding="10sp"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                        android:background="@drawable/table_border"
-                        />
+                    android:layout_weight="2"
 
-                </TableRow>
+                    android:text="Title: "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-            </TableLayout>
+                <EditText
+                    android:id="@+id/workoutTitle"
 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:hint="Enter workout title"
+                    android:textColorHint="@color/white"
+
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="2"
+
+                    android:text="Muscle groups: "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/workoutMuscle"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:hint="Enter muscle groups"
+                    android:textColorHint="@color/white"
+
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
+    <!-- BUTTONS -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:paddingHorizontal="10sp"
-        android:paddingVertical="2sp"
-
-        android:layout_marginBottom="10sp"
         android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10sp"
 
         android:orientation="horizontal"
-        >
+        android:paddingHorizontal="10sp"
+        android:paddingEnd="40pt"
+
+        android:paddingVertical="2sp">
 
         <Button
             android:id="@+id/btnWorkoutDelete"
@@ -156,16 +493,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
-
-            android:text="DELETE"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_marginEnd="5sp"
 
+            android:layout_weight="1"
+
             android:backgroundTint="@color/red"
-            />
+
+            android:text="DELETE"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnWorkoutUpdate"
@@ -173,16 +509,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
-
-            android:text="UPDATE"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_marginStart="5sp"
 
+            android:layout_weight="1"
+
             android:backgroundTint="@color/discord_blue"
-            />
+
+            android:text="UPDATE"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -9,7 +9,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.CurrentDate
+import com.example.myapplication.utils.CurrentDate
 import com.example.myapplication.R
 import com.example.myapplication.data.models.AccountData
 import com.example.myapplication.data.viewmodel.AccountViewModel

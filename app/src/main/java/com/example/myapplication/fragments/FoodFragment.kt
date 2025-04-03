@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.CurrentDate
+import com.example.myapplication.utils.CurrentDate
 import com.example.myapplication.R
 import com.example.myapplication.adapter.FoodAdapter
 import com.example.myapplication.data.models.FoodData

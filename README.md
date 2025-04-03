@@ -31,6 +31,45 @@ Pics of the app's user interface:
 <img src = "./images/AddAccount.png" width = 180>
 <img src = "./images/Account.png" width = 180>
 <img src = "./images/History.png" width = 180>
+<img src = "./images/Workout.png" width = 180>
+<img src = "./images/WorkoutAdd.png" width = 180>
+<img src = "./images/WorkoutUpdate.png" width = 180>
+</details>
+
+### Tables
+
+- account_data (_only 1 instance_)
+- food_data
+- workout_data
+
+<details>
+<summary>Account table</summary>
+
+| id | name     | calories | proteins | carbs | fats | max_bench_kg | max_bench_reps | max_deadlift_kg | max_deadlift_reps | max_squad_kg | max_squad_reps | current_weight | account_date |
+|----|----------|----------|----------|-------|------|--------------|----------------|-----------------|-------------------|--------------|----------------|----------------|--------------|
+| 1  | John Doe | 3000     | 150      | 300   | 80   | 90           | 2              | 120             | 4                 | 150          | 5              | 85             | 26/03/2025   |
+
+</details>
+
+<details>
+<summary>Food table</summary>
+
+| number | title     | calories | proteins | carbs | fats | date        |
+|--------|-----------|----------|----------|-------|------|-------------|
+| 56     | Milk 300  | 150      | 15       | 5     | 8    | 26/03/2025  |
+| 57     | Bread 200 | 250      | 10       | 50    | 4    | 26/03/2025  |
+
+</details>
+
+<details>
+<summary>Workout table</summary>
+
+| number | day             | muscle           | workout_title | createdAt   |
+|--------|-----------------|------------------|---------------|-------------|
+| 1      | monday          | chest/triceps    | push          | 30/03/2025  |
+| 2      | tuesday         | /                | rest          | 30/03/2025  |    
+| 3      | saturday/sunday | swimming/running | condition     | 20/03/2025  |
+
 </details>
 
 <hr/>

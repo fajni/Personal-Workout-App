@@ -13,6 +13,7 @@ import com.example.myapplication.fragments.FoodFragment
 import com.example.myapplication.fragments.HistoryFragment
 import com.example.myapplication.fragments.MainFragment
 import com.example.myapplication.fragments.WorkoutFragment
+import com.example.myapplication.utils.CurrentDate
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivityFragment : AppCompatActivity() {
@@ -71,12 +72,13 @@ class MainActivityFragment : AppCompatActivity() {
         val addBtn: ImageButton = findViewById(R.id.addBtn)
         addBtn.isVisible = true
 
-        val accountBtn: ImageButton = findViewById(R.id.mainLinearLayoutTitleAccountBtn)
+        val settings: ImageButton = findViewById(R.id.settings)
 
         setCurrentFragment(mainFragment, R.id.home)
 
         bottomNavigationView.setOnItemSelectedListener {
             addBtn.isVisible = true
+            settings.setImageResource(R.drawable.settings_outlined)
             when(it.itemId){
 
                 R.id.home -> {
@@ -110,10 +112,11 @@ class MainActivityFragment : AppCompatActivity() {
             addBtn.isVisible = false
         }
 
-        accountBtn.setOnClickListener {
-            bottomNavigationView.selectedItemId = R.id.account
-            setCurrentFragment(accountFragment, R.id.account)
-            addBtn.isVisible = false
+        settings.setOnClickListener {
+
+            settings.setImageResource(R.drawable.settings_filled)
+
+            Toast.makeText(applicationContext, "Settings: Delete Databases...", Toast.LENGTH_SHORT).show()
         }
     }
 }

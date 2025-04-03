@@ -451,4 +451,17 @@
 
     </LinearLayout>
 
+    <TextView
+
+        android:layout_marginTop="240pt"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Today's Training: "
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        />
+
 </FrameLayout>
