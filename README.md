@@ -32,6 +32,7 @@ Pics of the app's user interface:
 <img src = "./images/Workout.png" width = 180>
 <img src = "./images/WorkoutAdd.png" width = 180>
 <img src = "./images/WorkoutUpdate.png" width = 180>
+<img src = "./images/Settings.png" width = 180>
 </details>
 
 ### Tables

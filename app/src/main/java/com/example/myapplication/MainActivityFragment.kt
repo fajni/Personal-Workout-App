@@ -12,6 +12,7 @@ import com.example.myapplication.fragments.FoodAddFragment
 import com.example.myapplication.fragments.FoodFragment
 import com.example.myapplication.fragments.HistoryFragment
 import com.example.myapplication.fragments.MainFragment
+import com.example.myapplication.fragments.SettingsPopUpFragment
 import com.example.myapplication.fragments.WorkoutFragment
 import com.example.myapplication.utils.CurrentDate
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -117,6 +118,9 @@ class MainActivityFragment : AppCompatActivity() {
             settings.setImageResource(R.drawable.settings_filled)
 
             Toast.makeText(applicationContext, "Settings: Delete Databases...", Toast.LENGTH_SHORT).show()
+
+            val settingsPopUp = SettingsPopUpFragment()
+            settingsPopUp.show(supportFragmentManager, "settingsPopUp")
         }
     }
 }
