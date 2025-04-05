@@ -50,6 +50,7 @@ class WorkoutFragment : Fragment() {
     private lateinit var createdAt: TextView
     private lateinit var title: EditText
     private lateinit var muscle: EditText
+    private lateinit var note: EditText
 
     private lateinit var workoutBtnDelete: Button
     private lateinit var workoutBtnUpdate: Button
@@ -82,6 +83,7 @@ class WorkoutFragment : Fragment() {
         createdAt = view.findViewById(R.id.workoutCreatedAt)
         title = view.findViewById(R.id.workoutTitle)
         muscle = view.findViewById(R.id.workoutMuscle)
+        note = view.findViewById(R.id.workoutNote)
 
         workoutBtnDelete = view.findViewById(R.id.btnWorkoutDelete)
         workoutBtnUpdate = view.findViewById(R.id.btnWorkoutUpdate)
@@ -106,6 +108,7 @@ class WorkoutFragment : Fragment() {
         createdAt.setText("/")
         title.setText("")
         muscle.setText("")
+        note.setText("")
 
     }
 
@@ -153,7 +156,7 @@ class WorkoutFragment : Fragment() {
         }
         else {
 
-            val workout = WorkoutData(0, day.text.toString(), muscle.text.toString(), title.text.toString(), CurrentDate().getCurrentData())
+            val workout = WorkoutData(0, day.text.toString(), muscle.text.toString(), title.text.toString(), CurrentDate().getCurrentData(), note.text.toString())
 
             if(workoutBtnUpdate.text.equals("ADD")){
 
@@ -223,6 +226,7 @@ class WorkoutFragment : Fragment() {
         createdAt.text = "/"
         title.setText("")
         muscle.setText("")
+        note.setText("")
 
         workoutsList.forEach{ workout ->
 
@@ -231,6 +235,7 @@ class WorkoutFragment : Fragment() {
                 createdAt.text = workout.createdAt
                 title.setText(workout.workoutTitle)
                 muscle.setText(workout.muscle)
+                note.setText(workout.note)
 
                 workoutBtnUpdate.setText("UPDATE")
                 workoutBtnUpdate.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.discord_blue, null))

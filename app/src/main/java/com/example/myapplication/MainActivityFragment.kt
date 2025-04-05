@@ -48,7 +48,7 @@ class MainActivityFragment : AppCompatActivity() {
     private fun setDateTitle() {
 
         val currentData = findViewById<TextView>(R.id.date)
-        currentData.text = "TODAY: " + CurrentDate().getCurrentData()
+        currentData.text = "TODAY: " + CurrentDate().getCurrentData() + " - " + CurrentDate().getCurrentDay()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

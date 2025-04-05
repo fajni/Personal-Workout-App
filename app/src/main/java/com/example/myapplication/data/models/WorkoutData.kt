@@ -26,7 +26,10 @@ data class WorkoutData (
     public var workoutTitle: String,
 
     @ColumnInfo(defaultValue = "('Created at' || CURRENT_TIMESTAMP)")
-    public var createdAt: String?
+    public var createdAt: String?,
+
+    @ColumnInfo(name = "note", defaultValue = "/")
+    public var note: String?
 )
 {
 
@@ -35,6 +38,7 @@ data class WorkoutData (
                 "\nDay: " + day +
                 "\nMuscle Part: " + muscle +
                 "\nWorkout title: " + workoutTitle +
+                "\nWorkout Note: " + note +
                 "\nCreated at: " + createdAt
     }
 

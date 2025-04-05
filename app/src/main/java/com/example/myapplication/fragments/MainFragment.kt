@@ -14,11 +14,13 @@ import com.example.myapplication.R
 import com.example.myapplication.data.models.AccountData
 import com.example.myapplication.data.viewmodel.AccountViewModel
 import com.example.myapplication.data.viewmodel.FoodViewModel
+import com.example.myapplication.data.viewmodel.WorkoutViewModel
 
 class MainFragment : Fragment() {
 
     private lateinit var foodViewModel: FoodViewModel
     private lateinit var accountViewModel: AccountViewModel
+    private lateinit var workoutViewModel: WorkoutViewModel
 
     private lateinit var progressBarCalories: ProgressBar
     private lateinit var progressBarProteins: ProgressBar
@@ -41,7 +43,52 @@ class MainFragment : Fragment() {
 
     private var myAccount: AccountData? = null
 
+    private lateinit var todayTraining: TextView
+    private lateinit var todayMuscle: TextView
+
+
+    private fun initializeResources(view: View) {
+
+        foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
+        accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
+        workoutViewModel = ViewModelProvider(this)[WorkoutViewModel::class.java]
+
+        progressBarCalories = view.findViewById(R.id.progressBarCalories)
+        progressBarProteins = view.findViewById(R.id.progressBarProteins)
+        progressBarCarbs = view.findViewById(R.id.progressBarCarbs)
+        progressBarFats = view.findViewById(R.id.progressBarFats)
+
+        caloriesConsumed = view.findViewById(R.id.caloriesConsumed)
+        caloriesLeft = view.findViewById(R.id.caloriesLeft)
+        proteinsConsumed = view.findViewById(R.id.proteinsConsumed)
+        proteinsLeft = view.findViewById(R.id.proteinsLeft)
+        carbsConsumed = view.findViewById(R.id.carbsConsumed)
+        carbsLeft = view.findViewById(R.id.carbsLeft)
+        fatsConsumed = view.findViewById(R.id.fatsConsumed)
+        fatsLeft = view.findViewById(R.id.fatsLeft)
+
+        todayTraining = view.findViewById(R.id.todayTrainingTitle)
+        todayMuscle = view.findViewById(R.id.todayMusclePart)
+    }
+
+
     private fun setData() {
+
+        todayTraining.setText("")
+        todayMuscle.setText("")
+
+        workoutViewModel.readWorkouts.observe(viewLifecycleOwner, Observer { workouts ->
+
+            val currentDay = CurrentDate().getCurrentDay().lowercase()
+
+            for(workout in workouts) {
+                if(workout.day == currentDay){
+                    todayTraining.setText(workout.workoutTitle)
+                    todayMuscle.setText(workout.muscle)
+                }
+            }
+
+        })
 
         foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { meals ->
 
@@ -56,7 +103,7 @@ class MainFragment : Fragment() {
                 }
             }
 
-            //updateProgressBars()
+            updateProgressBars()
         })
 
         accountViewModel.readAccount.observe(viewLifecycleOwner, Observer { account ->
@@ -136,22 +183,7 @@ class MainFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
-        foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
-        accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
-
-        progressBarCalories = view.findViewById(R.id.progressBarCalories)
-        progressBarProteins = view.findViewById(R.id.progressBarProteins)
-        progressBarCarbs = view.findViewById(R.id.progressBarCarbs)
-        progressBarFats = view.findViewById(R.id.progressBarFats)
-
-        caloriesConsumed = view.findViewById(R.id.caloriesConsumed)
-        caloriesLeft = view.findViewById(R.id.caloriesLeft)
-        proteinsConsumed = view.findViewById(R.id.proteinsConsumed)
-        proteinsLeft = view.findViewById(R.id.proteinsLeft)
-        carbsConsumed = view.findViewById(R.id.carbsConsumed)
-        carbsLeft = view.findViewById(R.id.carbsLeft)
-        fatsConsumed = view.findViewById(R.id.fatsConsumed)
-        fatsLeft = view.findViewById(R.id.fatsLeft)
+        initializeResources(view)
 
         setData()
 

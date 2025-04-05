@@ -451,17 +451,80 @@
 
     </LinearLayout>
 
-    <TextView
-
-        android:layout_marginTop="240pt"
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="Today's Training: "
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        />
+        android:layout_marginTop="240pt"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Today's Training: "
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_weight="1"
+            />
+
+        <TextView
+
+            android:id="@+id/todayTrainingTitle"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="title"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="255pt"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Muscle Part: "
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_weight="1"
+            />
+
+        <TextView
+
+            android:id="@+id/todayMusclePart"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="muscle"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
 
 </FrameLayout>

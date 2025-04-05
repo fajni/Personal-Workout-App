@@ -1,6 +1,7 @@
 package com.example.myapplication.utils
 
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import java.util.Calendar
 
 class CurrentDate {
@@ -13,4 +14,13 @@ class CurrentDate {
     public fun getCurrentData() : String {
         return currentDate
     }
+
+    public fun getCurrentDay(): String {
+
+        val today = LocalDate.now()
+        val dayOfWeek = today.dayOfWeek.toString()
+
+        return dayOfWeek
+    }
+
 }

@@ -26,7 +26,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+
+            android:layout_marginBottom="10sp"
+            >
 
             <LinearLayout
                 android:id="@+id/monday"
@@ -462,6 +465,40 @@
                     android:layout_weight="1"
 
                     android:hint="Enter muscle groups"
+                    android:textColorHint="@color/white"
+
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="2"
+
+                    android:text="Workout Note: "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/workoutNote"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:hint="Enter workout note"
                     android:textColorHint="@color/white"
 
                     android:textColor="@color/white"
