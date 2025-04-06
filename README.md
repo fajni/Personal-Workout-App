@@ -71,6 +71,10 @@ Pics of the app's user interface:
 
 </details>
 
+<br/>
+
+[![Download App](https://img.shields.io/badge/Download-APK-blue)](https://github.com/fajni/Personal-Workout-App/raw/main/apk/Workout-App-v1.apk)
+
 <hr/>
 
 <sub>

@@ -13,6 +13,43 @@
     android:padding="5pt"
     >
 
+    <LinearLayout
+        android:id="@+id/noValuesText"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="115dp"
+
+        android:orientation="vertical"
+
+        android:visibility="visible"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="No Values Yet!"
+            android:textAlignment="center"
+            android:textColor="@color/discord_blue"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="You can add new values on button below"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            />
+
+    </LinearLayout>
+
     <!-- Meals -->
     <FrameLayout
         android:id="@+id/mealsLayout"
@@ -21,9 +58,9 @@
         android:layout_height="match_parent"
 
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="115dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="95dp"
+        android:layout_marginBottom="5dp"
         >
 
         <androidx.recyclerview.widget.RecyclerView
@@ -36,13 +73,12 @@
 
             tools:listitem="@layout/food_item"
 
+            android:visibility="invisible"
             />
     </FrameLayout>
 
     <!-- CALCULATED/TARGET VALUES -->
     <TableLayout
-
-        android:id="@+id/progressTable"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +87,7 @@
 
         android:background="@drawable/calories_today_border"
 
-        android:layout_gravity="bottom"
+        android:layout_gravity="top"
         android:layout_marginBottom="5pt"
         >
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TableLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -27,7 +28,8 @@ class FoodFragment : Fragment() {
     private lateinit var proteinsValue: TextView
     private lateinit var carbsValue: TextView
     private lateinit var fatsValue: TextView
-    private lateinit var progressTable: TableLayout
+
+    private lateinit var noValuesText: LinearLayout
 
     private lateinit var mealsRecyclerView: RecyclerView
 
@@ -47,7 +49,9 @@ class FoodFragment : Fragment() {
 
     private fun calculateValues(mealsList: List<FoodData>) {
 
-        var currentDate = CurrentDate().getCurrentData()
+        val currentDate = CurrentDate().getCurrentData()
+
+        val todayMeals = ArrayList<FoodData>()
 
         var calories: Int = 0
         var proteins: Int = 0
@@ -61,7 +65,15 @@ class FoodFragment : Fragment() {
                 proteins += meal.proteins!!
                 carbs += meal.carbs!!
                 fats += meal.fats!!
+
+                todayMeals.add(meal)
             }
+        }
+
+        if(todayMeals.isNotEmpty()){
+
+            mealsRecyclerView.isVisible = true
+            noValuesText.isVisible = false
         }
 
         caloriesValue.text = calories.toString() + " kcal"
@@ -81,7 +93,8 @@ class FoodFragment : Fragment() {
         proteinsValue = view.findViewById<TextView>(R.id.proteinsValue)
         carbsValue = view.findViewById<TextView>(R.id.carbsValue)
         fatsValue = view.findViewById<TextView>(R.id.fatsValue)
-        progressTable = view.findViewById<TableLayout>(R.id.progressTable)
+
+        noValuesText = view.findViewById<LinearLayout>(R.id.noValuesText)
 
         mealsRecyclerView = view.findViewById<RecyclerView>(R.id.mealsList)
         mealsRecyclerView.layoutManager = LinearLayoutManager(context)
