@@ -18,11 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:paddingStart="10sp"
+        android:paddingHorizontal="20sp"
 
         android:orientation="horizontal"
 
-        android:background="@color/discord_color1"
+        android:background="@drawable/rounded_bottom"
         >
 
         <TextView

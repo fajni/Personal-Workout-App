@@ -12,7 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -31,6 +34,9 @@ class HistoryFragment : Fragment() {
     private lateinit var chooseDate: EditText
     private lateinit var btnClearDatabase: Button
 
+    private lateinit var mealsLayout: FrameLayout
+    private lateinit var noValuesText: LinearLayout
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,6 +49,9 @@ class HistoryFragment : Fragment() {
         chooseDate.setText(CurrentDate().getCurrentData())
 
         btnClearDatabase = view.findViewById(R.id.historyBtnClearDatabase)
+
+        mealsLayout = view.findViewById(R.id.mealsLayout)
+        noValuesText = view.findViewById(R.id.noValuesText)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.mealsList)
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -61,6 +70,11 @@ class HistoryFragment : Fragment() {
                         mealsList.add(meal)
                     if (chooseDate.text.isBlank() || chooseDate.text.length < 10)
                         mealsList.add(meal)
+                }
+
+                if(!meals.isEmpty()) {
+                    noValuesText.isVisible = false
+                    mealsLayout.isVisible = true
                 }
 
                 //adapter.setData(meals)

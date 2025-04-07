@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.utils.CurrentDate
@@ -46,6 +48,11 @@ class MainFragment : Fragment() {
     private lateinit var todayTraining: TextView
     private lateinit var todayMuscle: TextView
 
+    private lateinit var noAccountValuesText: LinearLayout
+    private lateinit var noValuesText: LinearLayout
+    private lateinit var foodValues: LinearLayout
+    private lateinit var noWorkoutValuesText: LinearLayout
+    private lateinit var todayWorkout: LinearLayout
 
     private fun initializeResources(view: View) {
 
@@ -69,6 +76,12 @@ class MainFragment : Fragment() {
 
         todayTraining = view.findViewById(R.id.todayTrainingTitle)
         todayMuscle = view.findViewById(R.id.todayMusclePart)
+
+        noAccountValuesText = view.findViewById(R.id.noAccountValuesText)
+        noValuesText = view.findViewById(R.id.noValuesText)
+        noWorkoutValuesText = view.findViewById(R.id.noWorkoutValuesText)
+        todayWorkout = view.findViewById(R.id.todayWorkoutValues)
+        foodValues = view.findViewById(R.id.foodValues)
     }
 
 
@@ -78,6 +91,12 @@ class MainFragment : Fragment() {
         todayMuscle.setText("")
 
         workoutViewModel.readWorkouts.observe(viewLifecycleOwner, Observer { workouts ->
+
+            if(workouts.isEmpty()){
+
+                todayWorkout.isVisible = false
+                noWorkoutValuesText.isVisible = true
+            }
 
             val currentDay = CurrentDate().getCurrentDay().lowercase()
 
@@ -91,6 +110,12 @@ class MainFragment : Fragment() {
         })
 
         foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { meals ->
+
+            if(meals.isEmpty()) {
+
+                noValuesText.isVisible = true
+                foodValues.isVisible = false
+            }
 
             val currentDate: String = CurrentDate().getCurrentData()
 
@@ -107,6 +132,12 @@ class MainFragment : Fragment() {
         })
 
         accountViewModel.readAccount.observe(viewLifecycleOwner, Observer { account ->
+
+            if(account == null) {
+
+                noAccountValuesText.isVisible = true
+                foodValues.isVisible = false
+            }
 
             myAccount = account
 

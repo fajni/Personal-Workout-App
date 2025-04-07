@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
 
             android:text="You can add new values on button below"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textColor="@color/discord_color3"
             android:textSize="18sp"
             android:textStyle="normal"
             />
