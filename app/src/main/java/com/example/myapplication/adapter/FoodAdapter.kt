@@ -36,6 +36,7 @@ class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodV
         val carbs: TextView = mealView.findViewById(R.id.mealCarbsValue)
         val fats: TextView = mealView.findViewById(R.id.mealFatsValue)
         val deleteBtn: ImageButton = mealView.findViewById(R.id.deleteFood)
+        val seeDetails: TextView = mealView.findViewById(R.id.textSeeDetails)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -102,6 +103,11 @@ class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodV
                 }
                 .show()
         }
+
+        holder.seeDetails.setOnClickListener {
+            Toast.makeText(holder.itemView.context, "Details for - " + mealsList[position].title, Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     override fun getItemCount(): Int {

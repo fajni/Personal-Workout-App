@@ -8,18 +8,46 @@
     android:paddingHorizontal="2pt"
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+    <ImageButton
+        android:id="@+id/btnCloseAddFood"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:paddingHorizontal="15sp"
+        android:paddingVertical="5sp"
+
+        android:src="@drawable/close"
+        android:background="@android:color/transparent"
+
+        android:layout_weight="1"
+        />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_gravity="top"
+        android:layout_gravity="center"
 
-        android:text="ADD NEW NUTRIENTS"
+        android:layout_marginStart="20sp"
+
+        android:text="Add new nutrients"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textAlignment="center"
+        android:textStyle="normal"
+        android:textAlignment="textStart"
+
+        android:layout_weight="1"
         />
+
+    </LinearLayout>
 
     <LinearLayout
 

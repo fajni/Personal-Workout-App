@@ -200,4 +200,23 @@
         android:layout_marginRight="10sp"
         />
 
+    <TextView
+        android:id="@+id/textSeeDetails"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="35pt"
+
+        android:paddingBottom="5sp"
+        android:paddingRight="10sp"
+
+        android:text="See details"
+        android:textSize="15sp"
+        android:textColor="@color/discord_blue"
+        android:textAlignment="center"
+
+        android:background="@color/discord_color3"
+        />
+
 </androidx.cardview.widget.CardView>

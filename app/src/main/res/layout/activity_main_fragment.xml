@@ -22,7 +22,7 @@
 
         android:orientation="horizontal"
 
-        android:background="@drawable/rounded_bottom"
+        android:background="@color/discord_color1"
         >
 
         <TextView

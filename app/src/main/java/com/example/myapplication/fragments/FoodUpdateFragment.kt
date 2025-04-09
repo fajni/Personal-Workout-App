@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -28,6 +29,8 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
     private lateinit var date: EditText
 
     private lateinit var updateBtn: Button
+
+    private lateinit var closeBtn: ImageButton
 
     private fun setFields() {
 
@@ -90,6 +93,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
         fats = view.findViewById(R.id.updateFoodFats)
         date = view.findViewById(R.id.updateFoodDate)
         updateBtn = view.findViewById(R.id.updateFoodBtn)
+        closeBtn = view.findViewById(R.id.btnCloseUpdateFood)
 
         setFields()
 
@@ -101,6 +105,15 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
             }
             else
                 Toast.makeText(context, "Empty Fields Not Allowed!", Toast.LENGTH_SHORT).show()
+        }
+
+        closeBtn.setOnClickListener {
+
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.food
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.mainFrameLayout, FoodFragment())
+                .commit()
         }
 
         return view

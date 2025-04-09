@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -32,6 +33,8 @@ class FoodAddFragment : Fragment() {
     private lateinit var date: String
 
     private lateinit var submitBtn: Button
+
+    private lateinit var closeBtn: ImageButton
 
     private fun checkBlankFields(): Boolean {
 
@@ -83,6 +86,7 @@ class FoodAddFragment : Fragment() {
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 
         submitBtn = view.findViewById<Button>(R.id.submit)
+        closeBtn = view.findViewById<ImageButton>(R.id.btnCloseAddFood)
 
         title = view.findViewById<EditText>(R.id.addTitle)
         titleValue = view.findViewById<EditText>(R.id.addTitleValue)
@@ -127,6 +131,15 @@ class FoodAddFragment : Fragment() {
             } else {
                 Toast.makeText(context, "EMPTY FIELDS ARE NOT ALLOWED", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        closeBtn.setOnClickListener {
+
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.food
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.mainFrameLayout, FoodFragment())
+                .commit()
         }
 
         // Set ADD Button to VISIBLE
