@@ -34,7 +34,7 @@ class HistoryFragment : Fragment() {
     private lateinit var chooseDate: EditText
     private lateinit var btnClearDatabase: Button
 
-    private lateinit var mealsLayout: FrameLayout
+    private lateinit var foodLayout: FrameLayout
     private lateinit var noValuesText: LinearLayout
 
     override fun onCreateView(
@@ -50,35 +50,35 @@ class HistoryFragment : Fragment() {
 
         btnClearDatabase = view.findViewById(R.id.historyBtnClearDatabase)
 
-        mealsLayout = view.findViewById(R.id.mealsLayout)
+        foodLayout = view.findViewById(R.id.foodLayout)
         noValuesText = view.findViewById(R.id.noValuesText)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.mealsList)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.foodList)
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
 
-        var mealsList = ArrayList<FoodData>()
+        var foodList = ArrayList<FoodData>()
 
-        val adapter = FoodAdapter(mealsList, foodViewModel)
+        val adapter = FoodAdapter(foodList, foodViewModel)
 
         chooseDate.addTextChangedListener {
-            mealsList.clear()
-            foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { meals ->
+            foodList.clear()
+            foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { foods ->
 
-                meals.forEach { meal ->
-                    if (meal.date.equals(chooseDate.text.toString()))
-                        mealsList.add(meal)
+                foods.forEach { food ->
+                    if (food.date.equals(chooseDate.text.toString()))
+                        foodList.add(food)
                     if (chooseDate.text.isBlank() || chooseDate.text.length < 10)
-                        mealsList.add(meal)
+                        foodList.add(food)
                 }
 
-                if(!meals.isEmpty()) {
+                if(!foods.isEmpty()) {
                     noValuesText.isVisible = false
-                    mealsLayout.isVisible = true
+                    foodLayout.isVisible = true
                 }
 
-                //adapter.setData(meals)
-                adapter.setData(mealsList)
+                //adapter.setData(foods)
+                adapter.setData(foodList)
             })
             recyclerView.adapter = adapter
         }
@@ -97,7 +97,7 @@ class HistoryFragment : Fragment() {
                 .setPositiveButton(positiveSpan) { dialog, id ->
                     Toast.makeText(context, "Food Database cleared!", Toast.LENGTH_SHORT).show()
                     foodViewModel.deleteAll()
-                    mealsList.clear()
+                    foodList.clear()
                 }
 
                 .setNegativeButton(negativeSpan) { dialog, id ->

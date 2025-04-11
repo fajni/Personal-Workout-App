@@ -109,9 +109,9 @@ class MainFragment : Fragment() {
 
         })
 
-        foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { meals ->
+        foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { foods ->
 
-            if(meals.isEmpty()) {
+            if(foods.isEmpty()) {
 
                 noValuesText.isVisible = true
                 foodValues.isVisible = false
@@ -119,12 +119,12 @@ class MainFragment : Fragment() {
 
             val currentDate: String = CurrentDate().getCurrentData()
 
-            for (meal in meals) {
-                if (meal.date == currentDate){
-                    calories += meal.calories!!
-                    proteins += meal.proteins!!
-                    carbs += meal.carbs!!
-                    fats += meal.fats!!
+            for (food in foods) {
+                if (food.date == currentDate){
+                    calories += food.calories!!
+                    proteins += food.proteins!!
+                    carbs += food.carbs!!
+                    fats += food.fats!!
                 }
             }
 

@@ -67,7 +67,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/mealCaloriesValue"
+                android:id="@+id/foodCaloriesValue"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/mealProteinsValue"
+                android:id="@+id/foodProteinsValue"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/mealCarbsValue"
+                android:id="@+id/foodCarbsValue"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/mealFatsValue"
+                android:id="@+id/foodFatsValue"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.TableLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -24,6 +23,8 @@ class FoodFragment : Fragment() {
 
     private lateinit var foodViewModel: FoodViewModel
 
+    private lateinit var linearLayoutHistory: LinearLayout
+
     private lateinit var caloriesValue: TextView
     private lateinit var proteinsValue: TextView
     private lateinit var carbsValue: TextView
@@ -31,48 +32,48 @@ class FoodFragment : Fragment() {
 
     private lateinit var noValuesText: LinearLayout
 
-    private lateinit var mealsRecyclerView: RecyclerView
+    private lateinit var foodRecyclerView: RecyclerView
 
 
     private fun setData() {
 
         val adapter = FoodAdapter(ArrayList<FoodData>(), foodViewModel)
 
-        foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { meals ->
+        foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { foodList ->
 
-            adapter.setCurrentData(meals)
-            calculateValues(meals)
+            adapter.setCurrentData(foodList)
+            calculateValues(foodList)
         })
 
-        mealsRecyclerView.adapter = adapter
+        foodRecyclerView.adapter = adapter
     }
 
-    private fun calculateValues(mealsList: List<FoodData>) {
+    private fun calculateValues(list: List<FoodData>) {
 
         val currentDate = CurrentDate().getCurrentData()
 
-        val todayMeals = ArrayList<FoodData>()
+        val todayFood = ArrayList<FoodData>()
 
         var calories: Int = 0
         var proteins: Int = 0
         var carbs: Int = 0
         var fats: Int = 0
 
-        for (meal in mealsList){
-            if(meal.date == currentDate) {
+        for (food in list){
+            if(food.date == currentDate) {
 
-                calories += meal.calories!!
-                proteins += meal.proteins!!
-                carbs += meal.carbs!!
-                fats += meal.fats!!
+                calories += food.calories!!
+                proteins += food.proteins!!
+                carbs += food.carbs!!
+                fats += food.fats!!
 
-                todayMeals.add(meal)
+                todayFood.add(food)
             }
         }
 
-        if(todayMeals.isNotEmpty()){
+        if(todayFood.isNotEmpty()){
 
-            mealsRecyclerView.isVisible = true
+            foodRecyclerView.isVisible = true
             noValuesText.isVisible = false
         }
 
@@ -89,6 +90,8 @@ class FoodFragment : Fragment() {
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_food, container, false)
 
+        linearLayoutHistory = view.findViewById<LinearLayout>(R.id.linearLayoutHistory)
+
         caloriesValue = view.findViewById<TextView>(R.id.caloriesValue)
         proteinsValue = view.findViewById<TextView>(R.id.proteinsValue)
         carbsValue = view.findViewById<TextView>(R.id.carbsValue)
@@ -96,9 +99,9 @@ class FoodFragment : Fragment() {
 
         noValuesText = view.findViewById<LinearLayout>(R.id.noValuesText)
 
-        mealsRecyclerView = view.findViewById<RecyclerView>(R.id.mealsList)
-        mealsRecyclerView.layoutManager = LinearLayoutManager(context)
-        mealsRecyclerView.setHasFixedSize(true)
+        foodRecyclerView = view.findViewById<RecyclerView>(R.id.foodList)
+        foodRecyclerView.layoutManager = LinearLayoutManager(context)
+        foodRecyclerView.setHasFixedSize(true)
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 
@@ -109,6 +112,12 @@ class FoodFragment : Fragment() {
         // TODO: set outline for progressTable to red if (calories < account.calories)
 
         setData()
+
+        linearLayoutHistory.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.mainFrameLayout, HistoryFragment())
+                .commit()
+        }
 
         return view
     }

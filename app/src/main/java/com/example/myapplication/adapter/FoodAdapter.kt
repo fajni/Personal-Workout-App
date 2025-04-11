@@ -25,54 +25,54 @@ import com.example.myapplication.fragments.FoodUpdateFragment
 
 */
 
-class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodViewModel: FoodViewModel) : RecyclerView.Adapter<FoodAdapter.MyViewHolder>() {
+class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodViewModel: FoodViewModel) : RecyclerView.Adapter<FoodAdapter.MyViewHolder>() {
 
     // individual element
-    class MyViewHolder(mealView: View) : RecyclerView.ViewHolder(mealView) {
+    class MyViewHolder(foodView: View) : RecyclerView.ViewHolder(foodView) {
 
-        val title: TextView = mealView.findViewById(R.id.foodTitle)
-        val calories: TextView = mealView.findViewById(R.id.mealCaloriesValue)
-        val proteins: TextView = mealView.findViewById(R.id.mealProteinsValue)
-        val carbs: TextView = mealView.findViewById(R.id.mealCarbsValue)
-        val fats: TextView = mealView.findViewById(R.id.mealFatsValue)
-        val deleteBtn: ImageButton = mealView.findViewById(R.id.deleteFood)
-        val seeDetails: TextView = mealView.findViewById(R.id.textSeeDetails)
+        val title: TextView = foodView.findViewById(R.id.foodTitle)
+        val calories: TextView = foodView.findViewById(R.id.foodCaloriesValue)
+        val proteins: TextView = foodView.findViewById(R.id.foodProteinsValue)
+        val carbs: TextView = foodView.findViewById(R.id.foodCarbsValue)
+        val fats: TextView = foodView.findViewById(R.id.foodFatsValue)
+        val deleteBtn: ImageButton = foodView.findViewById(R.id.deleteFood)
+        val seeDetails: TextView = foodView.findViewById(R.id.textSeeDetails)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        val mealView = LayoutInflater.from(parent.context).inflate(R.layout.food_item, parent, false)
+        val foodView = LayoutInflater.from(parent.context).inflate(R.layout.food_item, parent, false)
 
-        return MyViewHolder(mealView)
+        return MyViewHolder(foodView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.title.text = mealsList[position].title?.uppercase() + " / No." + mealsList[position].number.toString()
-        holder.calories.text = mealsList[position].calories.toString() + "kcal"
-        holder.proteins.text = mealsList[position].proteins.toString() + "g"
-        holder.carbs.text = mealsList[position].carbs.toString() + "g"
-        holder.fats.text = mealsList[position].fats.toString() + "g"
+        holder.title.text = foodList[position].title?.uppercase() + " / No." + foodList[position].number.toString()
+        holder.calories.text = foodList[position].calories.toString() + "kcal"
+        holder.proteins.text = foodList[position].proteins.toString() + "g"
+        holder.carbs.text = foodList[position].carbs.toString() + "g"
+        holder.fats.text = foodList[position].fats.toString() + "g"
 
         // from adapter to fragment
         holder.itemView.setOnClickListener {
 
-            val foodUpdateFragment: FoodUpdateFragment = FoodUpdateFragment(mealsList[position])
+            val foodUpdateFragment: FoodUpdateFragment = FoodUpdateFragment(foodList[position])
 
             val fragmentTransaction = (holder.itemView.context as AppCompatActivity).supportFragmentManager.beginTransaction()
 
             /*
             // We're passing FoodData in constructor, no need for Bundle
             val bundle = Bundle()
-            bundle.putString("meal", mealsList[position].toString())
+            bundle.putString("food", foodList[position].toString())
 
             foodUpdateFragment.arguments = bundle
              */
 
-            Toast.makeText(holder.itemView.context, "Update " + mealsList[position].title?.uppercase(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, "Update " + foodList[position].title?.uppercase(), Toast.LENGTH_SHORT).show()
 
             fragmentTransaction.replace(R.id.mainFrameLayout, foodUpdateFragment)
-            //fragmentTransaction.addToBackStack(null) // go back
+            fragmentTransaction.addToBackStack(null) // go back
             fragmentTransaction.commit()
 
         }
@@ -83,18 +83,18 @@ class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodV
 
         holder.deleteBtn.setOnClickListener {
 
-            Toast.makeText(holder.itemView.context, "DELETE - " + mealsList[position].number, Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, "DELETE - " + foodList[position].number, Toast.LENGTH_SHORT).show()
 
-            builder.setMessage("Are you sure you want to delete " + mealsList[position].title)
+            builder.setMessage("Are you sure you want to delete " + foodList[position].title)
                 .setCancelable(true)
-                .setTitle("Delete " + mealsList[position].title!!.uppercase())
+                .setTitle("Delete " + foodList[position].title!!.uppercase())
 
                 .setPositiveButton(positiveSpan) { dialog, id ->
 
-                    Toast.makeText(holder.itemView.context, "DELETED - " + mealsList[position].title, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(holder.itemView.context, "DELETED - " + foodList[position].title, Toast.LENGTH_SHORT).show()
 
-                    foodViewModel.deleteFood(mealsList[position])
-                    mealsList.removeAt(position)
+                    foodViewModel.deleteFood(foodList[position])
+                    foodList.removeAt(position)
                     notifyItemRemoved(position)
                 }
 
@@ -105,28 +105,28 @@ class FoodAdapter (private var mealsList: ArrayList<FoodData>, private val foodV
         }
 
         holder.seeDetails.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Details for - " + mealsList[position].title, Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, "Details for - " + foodList[position].title, Toast.LENGTH_SHORT).show()
         }
 
     }
 
     override fun getItemCount(): Int {
-        return mealsList.size
+        return foodList.size
     }
 
-    public fun setCurrentData(mealsList: List<FoodData>) {
+    public fun setCurrentData(list: List<FoodData>) {
 
-        for(meal in mealsList){
-            if (meal.date == CurrentDate().getCurrentData())
-                this.mealsList.add(meal)
+        for(food in list){
+            if (food.date == CurrentDate().getCurrentData())
+                this.foodList.add(food)
         }
 
         notifyDataSetChanged()
     }
 
-    public fun setData(mealsList: List<FoodData>) {
+    public fun setData(list: List<FoodData>) {
 
-        this.mealsList = mealsList as ArrayList<FoodData>
+        this.foodList = list as ArrayList<FoodData>
         notifyDataSetChanged()
     }
 }

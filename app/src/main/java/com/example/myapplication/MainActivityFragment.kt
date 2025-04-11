@@ -109,7 +109,7 @@ class MainActivityFragment : AppCompatActivity() {
         addBtn.setOnClickListener {
             bottomNavigationView.selectedItemId = R.id.food
             setCurrentFragment(foodAddFragment, R.id.food)
-            Toast.makeText(applicationContext, "Add New Meal/Food", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Add New Food", Toast.LENGTH_SHORT).show()
             addBtn.isVisible = false
         }
 

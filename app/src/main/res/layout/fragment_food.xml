@@ -14,12 +14,71 @@
     >
 
     <LinearLayout
+        android:id="@+id/linearLayoutHistory"
+
+        android:layout_marginTop="0sp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingRight="25sp"
+            android:paddingLeft="25sp"
+
+            android:src="@drawable/history_outlined"
+
+            android:background="@android:color/transparent"
+
+            android:layout_weight="1"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10sp"
+
+            android:text="See full history"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+
+            android:layout_gravity="left|center"
+
+            android:layout_weight="1"
+
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingRight="25sp"
+            android:paddingLeft="25sp"
+
+            android:src="@drawable/right_arrow"
+
+            android:background="@android:color/transparent"
+
+            android:layout_weight="1"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/noValuesText"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="135dp"
 
         android:orientation="vertical"
 
@@ -50,21 +109,21 @@
 
     </LinearLayout>
 
-    <!-- Meals -->
+    <!-- Food -->
     <FrameLayout
-        android:id="@+id/mealsLayout"
+        android:id="@+id/foodLayout"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
         android:layout_marginStart="0dp"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="135dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="5dp"
         >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mealsList"
+            android:id="@+id/foodList"
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -89,6 +148,7 @@
 
         android:layout_gravity="top"
         android:layout_marginBottom="5pt"
+        android:layout_marginTop="40sp"
         >
 
         <TableRow
