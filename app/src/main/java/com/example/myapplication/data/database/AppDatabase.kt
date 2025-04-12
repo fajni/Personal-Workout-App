@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.myapplication.data.dao.AccountDAO
+import com.example.myapplication.data.dao.FoodDAO
 import com.example.myapplication.data.dao.WorkoutDAO
-import com.example.myapplication.data.models.WorkoutData
+import com.example.myapplication.data.models.*
 
 /*
 
@@ -17,22 +19,24 @@ import com.example.myapplication.data.models.WorkoutData
 
 */
 
-@Database(entities = [WorkoutData::class], version = 1, exportSchema = false)
-abstract class WorkoutDatabase : RoomDatabase() {
+@Database(entities = [FoodData::class, AccountData::class, WorkoutData::class], version = 1, exportSchema = false)
+abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun workoutDao(): WorkoutDAO
+    abstract fun foodDAO(): FoodDAO
+    abstract fun accountDAO(): AccountDAO
+    abstract fun workoutDAO(): WorkoutDAO
 
     // companion object is visible to other objects
     /*
-        FoodDatabase will be Singleton class,
+        AppDatabase will be Singleton class,
         Only 1 instance will be created
     */
     companion object {
 
         @Volatile // other threads can see the instance
-        private var INSTANCE: WorkoutDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): WorkoutDatabase {
+        fun getDatabase(context: Context): AppDatabase {
 
             val tempInstance = INSTANCE
 
@@ -42,8 +46,8 @@ abstract class WorkoutDatabase : RoomDatabase() {
             synchronized(this) {
                 val dbInstance = Room.databaseBuilder(
                     context.applicationContext,
-                    WorkoutDatabase::class.java,
-                    "WorkoutDatabase"
+                    AppDatabase::class.java,
+                    "AppDatabase"
                 )
                     .fallbackToDestructiveMigration()
                     .build()
@@ -53,5 +57,4 @@ abstract class WorkoutDatabase : RoomDatabase() {
             }
         }
     }
-
 }

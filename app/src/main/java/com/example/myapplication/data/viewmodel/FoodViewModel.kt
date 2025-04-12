@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.database.FoodDatabase
+import com.example.myapplication.data.database.AppDatabase
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.repository.FoodRepository
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +28,7 @@ class FoodViewModel(application: Application): AndroidViewModel(application) {
     // init block will always execute first when user ViewModel is called!
     init {
 
-        val foodDAO = FoodDatabase.getDatabase(application).foodDao()
+        val foodDAO = AppDatabase.getDatabase(application).foodDAO()
         repository = FoodRepository(foodDAO)
         readAllData = repository.readAllData
     }

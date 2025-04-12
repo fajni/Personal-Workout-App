@@ -187,11 +187,6 @@ class AccountFragment : Fragment() {
 
     private fun deleteAccount(account: AccountData) {
 
-        if(account == null) {
-            Toast.makeText(context, "Cannot delete null account!", Toast.LENGTH_SHORT).show()
-            return
-        }
-
         val builder = AlertDialog.Builder(context)
         val positiveSpan = SpannableString("Yes").apply { setSpan(ForegroundColorSpan(Color.GREEN), 0, "Yes".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
         val negativeSpan = SpannableString("No").apply { setSpan(ForegroundColorSpan(Color.RED), 0, "No".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }

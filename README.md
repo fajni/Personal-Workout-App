@@ -42,6 +42,7 @@ Pics of the app's user interface:
 - account_data (_only 1 instance_)
 - food_data
 - workout_data
+- meals_data
 
 <details>
 <summary>Account table</summary>
@@ -64,6 +65,17 @@ Pics of the app's user interface:
 
 <details>
 <summary>Workout table</summary>
+
+| number | day             | muscle           | workout_title | createdAt   | note         |
+|--------|-----------------|------------------|---------------|-------------|--------------|
+| 1      | monday          | chest/triceps    | push          | 30/03/2025  | Prsonedeljak |
+| 2      | tuesday         | /                | rest          | 30/03/2025  | /            |
+| 3      | saturday/sunday | swimming/running | condition     | 20/03/2025  | Svimosreda   |
+
+</details>
+
+<details>
+<summary>Meals table</summary>
 
 | number | day             | muscle           | workout_title | createdAt   | note         |
 |--------|-----------------|------------------|---------------|-------------|--------------|

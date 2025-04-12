@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.database.AccountDatabase
+import com.example.myapplication.data.database.AppDatabase
 import com.example.myapplication.data.models.AccountData
 import com.example.myapplication.data.repository.AccountRepository
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +26,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
     public val readAccount: LiveData<AccountData?>
 
     init {
-        val accountDAO = AccountDatabase.getDatabase(application).accountDAO()
+        val accountDAO = AppDatabase.getDatabase(application).accountDAO()
 
         repository = AccountRepository(accountDAO)
         readAccount = repository.readAccount

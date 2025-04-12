@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.myapplication.data.database.WorkoutDatabase
+import com.example.myapplication.data.database.AppDatabase
 import com.example.myapplication.data.models.WorkoutData
 import com.example.myapplication.data.repository.WorkoutRepository
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +28,7 @@ class WorkoutViewModel(application: Application): AndroidViewModel(application) 
     // init block will always execute first when user ViewModel is called!
     init {
 
-        val workoutDao = WorkoutDatabase.getDatabase(application).workoutDao()
+        val workoutDao = AppDatabase.getDatabase(application).workoutDAO()
         repository = WorkoutRepository(workoutDao)
         readWorkouts = repository.readWorkouts
     }

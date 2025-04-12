@@ -49,7 +49,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/linearLayoutFoodDatabase"
+                android:id="@+id/linearLayoutAppDatabase"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Delete Food Database:"
+                    android:text="Delete App Database:"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
@@ -77,12 +77,12 @@
                     />
 
                 <Button
-                    android:id="@+id/btnDeleteFoodDatabase"
+                    android:id="@+id/btnDeleteAppDatabase"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="DELETE FOOD"
+                    android:text="DELETE APP DATABASE"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
@@ -97,45 +97,47 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayoutAccountDatabase"
+                android:id="@+id/linearLayoutFoodTable"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:orientation="vertical"
 
-                app:layout_constraintTop_toBottomOf="@id/linearLayoutFoodDatabase"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
 
-                android:layout_marginTop="20sp"
+                android:layout_marginTop="30sp"
                 >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Delete Account Database:"
+                    android:text="Drop Food Table:"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textAlignment="center"
 
-                    android:layout_weight="1"
+                    android:layout_weight="0"
                     />
 
                 <Button
-                    android:id="@+id/btnDeleteAccountDatabase"
+                    android:id="@+id/btnDropFoodTable"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="DELETE ACCOUNT"
+                    android:text="DROP FOOD TABLE"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
 
                     android:layout_marginHorizontal="10sp"
 
-                    android:layout_weight="2"
+                    android:layout_weight="0"
 
                     android:backgroundTint="@color/red"
                     />
@@ -143,46 +145,100 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayoutAccountTable"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
                 android:orientation="vertical"
 
-                app:layout_constraintTop_toBottomOf="@id/linearLayoutAccountDatabase"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
 
-                android:layout_marginTop="20sp"
+                android:layout_marginTop="0sp"
                 >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Delete Workout Database:"
+                    android:text="Drop Account Table:"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textAlignment="center"
+
+                    android:layout_weight="0"
                     />
 
                 <Button
-                    android:id="@+id/btnDeleteWorkoutDatabase"
+                    android:id="@+id/btnDropAccountTable"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="DELETE WORKOUT"
+                    android:text="DROP ACCOUNT TABLE"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
 
                     android:layout_marginHorizontal="10sp"
 
+                    android:layout_weight="0"
+
                     android:backgroundTint="@color/red"
                     />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearLayoutWorkoutTable"
 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+
+                android:layout_marginTop="0sp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Drop Workout Table:"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+
+                    android:layout_weight="0"
+                    />
+
+                <Button
+                    android:id="@+id/btnDropWorkoutTable"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="DROP WORKOUT TABLE"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+
+                    android:layout_marginHorizontal="10sp"
+
+                    android:layout_weight="0"
+
+                    android:backgroundTint="@color/red"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
