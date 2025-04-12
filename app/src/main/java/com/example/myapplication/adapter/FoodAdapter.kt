@@ -8,7 +8,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -35,8 +35,9 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
         val proteins: TextView = foodView.findViewById(R.id.foodProteinsValue)
         val carbs: TextView = foodView.findViewById(R.id.foodCarbsValue)
         val fats: TextView = foodView.findViewById(R.id.foodFatsValue)
-        val deleteBtn: ImageButton = foodView.findViewById(R.id.deleteFood)
-        val seeDetails: TextView = foodView.findViewById(R.id.textSeeDetails)
+        val fibers: TextView = foodView.findViewById(R.id.foodFibersValue)
+        val btnDetails: Button = foodView.findViewById(R.id.btnDetails)
+        val btnDelete: Button = foodView.findViewById(R.id.btnDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -53,6 +54,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
         holder.proteins.text = foodList[position].proteins.toString() + "g"
         holder.carbs.text = foodList[position].carbs.toString() + "g"
         holder.fats.text = foodList[position].fats.toString() + "g"
+        holder.fibers.text =  foodList[position].fibers.toString() + " g"
 
         // from adapter to fragment
         holder.itemView.setOnClickListener {
@@ -81,7 +83,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
         val positiveSpan = SpannableString("Yes").apply { setSpan(ForegroundColorSpan(Color.GREEN), 0, "Yes".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
         val negativeSpan = SpannableString("No").apply { setSpan(ForegroundColorSpan(Color.RED), 0, "No".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
 
-        holder.deleteBtn.setOnClickListener {
+        holder.btnDelete.setOnClickListener {
 
             Toast.makeText(holder.itemView.context, "DELETE - " + foodList[position].number, Toast.LENGTH_SHORT).show()
 
@@ -104,7 +106,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
                 .show()
         }
 
-        holder.seeDetails.setOnClickListener {
+        holder.btnDetails.setOnClickListener {
             Toast.makeText(holder.itemView.context, "Details for - " + foodList[position].title, Toast.LENGTH_SHORT).show()
         }
 

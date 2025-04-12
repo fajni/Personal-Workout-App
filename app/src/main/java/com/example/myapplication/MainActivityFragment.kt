@@ -12,6 +12,7 @@ import com.example.myapplication.fragments.FoodAddFragment
 import com.example.myapplication.fragments.FoodFragment
 import com.example.myapplication.fragments.HistoryFragment
 import com.example.myapplication.fragments.MainFragment
+import com.example.myapplication.fragments.MealFragment
 import com.example.myapplication.fragments.SettingsPopUpFragment
 import com.example.myapplication.fragments.WorkoutFragment
 import com.example.myapplication.utils.CurrentDate
@@ -27,19 +28,22 @@ class MainActivityFragment : AppCompatActivity() {
         bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_outlined)
         bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_outlined)
         bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.sport_outlined)
-        bottomNavigationView.menu.findItem(R.id.history).setIcon(R.drawable.history_outlined)
+        bottomNavigationView.menu.findItem(R.id.meal).setIcon(R.drawable.meals_outlined)
 
         when(icon) {
             R.id.home -> bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_filled)
             R.id.food -> bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_filled)
             R.id.account -> bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_filled)
-            R.id.history -> bottomNavigationView.menu.findItem(R.id.history).setIcon(R.drawable.history_filled)
+            R.id.meal -> bottomNavigationView.menu.findItem(R.id.meal).setIcon(R.drawable.meals_filled)
             R.id.workout -> bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.sport_filled)
 
             else -> { }
         }
 
         supportFragmentManager.beginTransaction().apply {
+            if(fragment is FoodAddFragment){
+                addToBackStack(null)
+            }
             replace(R.id.mainFrameLayout, fragment)
             commit()
         }
@@ -65,7 +69,7 @@ class MainActivityFragment : AppCompatActivity() {
 
         val mainFragment = MainFragment()
         val foodFragment = FoodFragment()
-        val historyFragment = HistoryFragment()
+        val mealFragment = MealFragment()
         val workoutFragment = WorkoutFragment()
         val accountFragment = AccountFragment()
         val foodAddFragment = FoodAddFragment()
@@ -90,8 +94,8 @@ class MainActivityFragment : AppCompatActivity() {
                     setCurrentFragment(foodFragment, R.id.food)
                 }
 
-                R.id.history -> {
-                    setCurrentFragment(historyFragment, R.id.history)
+                R.id.meal -> {
+                    setCurrentFragment(mealFragment, R.id.meal)
                 }
 
                 R.id.workout -> {

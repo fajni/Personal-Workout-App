@@ -41,7 +41,7 @@
         android:text="Add new nutrients"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:textStyle="normal"
+        android:textStyle="bold"
         android:textAlignment="textStart"
 
         android:layout_weight="1"
@@ -259,6 +259,45 @@
 
     </LinearLayout>
 
+    <LinearLayout
+
+        android:layout_marginTop="155pt"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Fibers:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_weight="3"
+            />
+
+        <EditText
+            android:id="@+id/addFiberValue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter fibers"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+
+            android:inputType="number"
+
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/addValues"
 
@@ -291,7 +330,7 @@
         android:textSize="15sp"
 
         android:background="@drawable/main_button"
-        android:backgroundTint="@color/green"
+        android:backgroundTint="@color/dark_green"
         />
 
 </FrameLayout>

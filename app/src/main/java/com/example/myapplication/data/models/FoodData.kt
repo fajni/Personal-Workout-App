@@ -27,6 +27,8 @@ data class FoodData(
     public var carbs: Int? = 0,
     @ColumnInfo(name = "fats")
     public var fats: Int? = 0,
+    @ColumnInfo(name = "fiber")
+    public var fibers: Int? = 0,
 
     @ColumnInfo(name = "date")
     public var date: String? = ""
@@ -38,6 +40,7 @@ data class FoodData(
                 "Proteins: " + proteins + "\n" +
                 "Carbs: " + carbs + "\n" +
                 "Fats: " + fats + "\n" +
+                "Fibers: " + fibers + "\n" +
                 "Date: " + date
     }
 }

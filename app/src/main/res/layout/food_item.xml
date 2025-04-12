@@ -11,6 +11,8 @@
     app:cardCornerRadius="15dp"
 
     app:cardElevation="10dp"
+
+    android:background="@color/discord_color3"
     >
 
     <TextView
@@ -24,23 +26,23 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="@color/discord_blue"
-
-        android:paddingBottom="5dp"
+        android:textColor="@color/white"
 
         android:background="@color/discord_color3"
+
+        android:paddingBottom="5dp"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
 
         android:orientation="horizontal"
 
-        android:paddingHorizontal="15dp"
-        android:paddingBottom="10dp"
+        android:paddingHorizontal="5dp"
+        android:paddingBottom="20dp"
 
         android:background="@color/discord_color3"
         >
@@ -48,7 +50,7 @@
         <!-- CALORIES -->
         <LinearLayout
             android:layout_weight="1"
-            android:layout_width="0dp"
+            android:layout_width="10dp"
             android:layout_height="wrap_content"
 
             android:layout_gravity="center"
@@ -61,8 +63,8 @@
                 android:layout_height="wrap_content"
 
                 android:hint="Calories"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -82,7 +84,7 @@
         <!-- PROTEINS -->
         <LinearLayout
             android:layout_weight="1"
-            android:layout_width="0dp"
+            android:layout_width="10dp"
             android:layout_height="wrap_content"
 
             android:layout_gravity="center"
@@ -95,8 +97,8 @@
                 android:layout_height="wrap_content"
 
                 android:hint="Proteins"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -116,7 +118,7 @@
         <!-- CARBS -->
         <LinearLayout
             android:layout_weight="1"
-            android:layout_width="0dp"
+            android:layout_width="10dp"
             android:layout_height="wrap_content"
 
             android:layout_gravity="center"
@@ -129,8 +131,8 @@
                 android:layout_height="wrap_content"
 
                 android:hint="Carbs"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -163,8 +165,8 @@
                 android:layout_height="wrap_content"
 
                 android:hint="Fats"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
@@ -181,42 +183,108 @@
                 android:textStyle="normal" />
         </LinearLayout>
 
+        <!-- FIBER -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="Fiber"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/foodFibersValue"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="value (g)"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/deleteFood"
+    <!-- HORIZONTAL LINE -->
+    <View
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="85sp"
+        android:layout_marginHorizontal="5pt"
 
-        android:paddingVertical="10sp"
-        android:paddingStart="15sp"
+        android:layout_width="match_parent"
 
-        android:src="@drawable/delete"
+        android:layout_height="2dp"
 
-        android:background="@null"
-
-        android:layout_gravity="right|center"
-        android:layout_marginRight="10sp"
+        android:background="@color/discord_color2"
         />
 
-    <TextView
-        android:id="@+id/textSeeDetails"
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="35pt"
-
-        android:paddingBottom="5sp"
-        android:paddingRight="10sp"
-
-        android:text="See details"
-        android:textSize="15sp"
-        android:textColor="@color/discord_blue"
-        android:textAlignment="center"
+        android:layout_marginTop="40pt"
 
         android:background="@color/discord_color3"
-        />
+
+        android:gravity="center"
+
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btnDetails"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginHorizontal="15sp"
+
+            android:drawableLeft="@drawable/more"
+            android:drawableTint="@color/white"
+
+            android:text="DETAILS"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="10sp"
+
+            android:backgroundTint="@color/discord_blue"
+            />
+
+        <Button
+            android:id="@+id/btnDelete"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginHorizontal="15sp"
+
+            android:drawableLeft="@drawable/delete"
+            android:drawableTint="@color/white"
+
+            android:text="DELETE"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textAlignment="textStart"
+            android:textSize="10sp"
+
+            android:backgroundTint="@color/red"
+            />
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

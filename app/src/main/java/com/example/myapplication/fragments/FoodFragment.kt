@@ -29,6 +29,7 @@ class FoodFragment : Fragment() {
     private lateinit var proteinsValue: TextView
     private lateinit var carbsValue: TextView
     private lateinit var fatsValue: TextView
+    private lateinit var fibersValue: TextView
 
     private lateinit var noValuesText: LinearLayout
 
@@ -58,6 +59,7 @@ class FoodFragment : Fragment() {
         var proteins: Int = 0
         var carbs: Int = 0
         var fats: Int = 0
+        var fibers: Int = 0
 
         for (food in list){
             if(food.date == currentDate) {
@@ -66,6 +68,7 @@ class FoodFragment : Fragment() {
                 proteins += food.proteins!!
                 carbs += food.carbs!!
                 fats += food.fats!!
+                fibers += food.fibers!!
 
                 todayFood.add(food)
             }
@@ -81,6 +84,7 @@ class FoodFragment : Fragment() {
         proteinsValue.text = proteins.toString() + " g"
         carbsValue.text = carbs.toString() + " g"
         fatsValue.setText(fats.toString() + " g")
+        fibersValue.setText(fibers.toString() + " g")
 
     }
 
@@ -96,6 +100,7 @@ class FoodFragment : Fragment() {
         proteinsValue = view.findViewById<TextView>(R.id.proteinsValue)
         carbsValue = view.findViewById<TextView>(R.id.carbsValue)
         fatsValue = view.findViewById<TextView>(R.id.fatsValue)
+        fibersValue = view.findViewById<TextView>(R.id.fibersValue)
 
         noValuesText = view.findViewById<LinearLayout>(R.id.noValuesText)
 
@@ -116,6 +121,7 @@ class FoodFragment : Fragment() {
         linearLayoutHistory.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.mainFrameLayout, HistoryFragment())
+                .addToBackStack(null)
                 .commit()
         }
 

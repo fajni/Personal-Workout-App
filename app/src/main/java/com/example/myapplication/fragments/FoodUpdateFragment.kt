@@ -26,6 +26,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
     private lateinit var proteins: EditText
     private lateinit var carbs: EditText
     private lateinit var fats: EditText
+    private lateinit var fibers: EditText
     private lateinit var date: EditText
 
     private lateinit var updateBtn: Button
@@ -39,6 +40,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
         proteins.setText(foodData.proteins!!.toString())
         carbs.setText(foodData.carbs!!.toString())
         fats.setText(foodData.fats!!.toString())
+        fibers.setText(foodData.fibers!!.toString())
         date.setText(foodData.date!!.toString())
     }
 
@@ -50,6 +52,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
             proteins.text.isBlank() ||
             carbs.text.isBlank() ||
             fats.text.isBlank() ||
+            fibers.text.isBlank() ||
             date.text.isBlank()
         )
             return false
@@ -66,6 +69,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
             proteins.text.toString().toInt(),
             carbs.text.toString().toInt(),
             fats.text.toString().toInt(),
+            fibers.text.toString().toInt(),
             date.text.toString()
             )
 
@@ -91,6 +95,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
         proteins = view.findViewById(R.id.updateFoodProteins)
         carbs = view.findViewById(R.id.updateFoodCarbs)
         fats = view.findViewById(R.id.updateFoodFats)
+        fibers = view.findViewById(R.id.updateFoodFiber)
         date = view.findViewById(R.id.updateFoodDate)
         updateBtn = view.findViewById(R.id.updateFoodBtn)
         closeBtn = view.findViewById(R.id.btnCloseUpdateFood)

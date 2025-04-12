@@ -11,6 +11,8 @@ All data is saved locally using Room library, so there's no need for internet co
 
 - **Trainings**: Simple Track of your training/workout plan. Add/Update/Delete workout for any day in the week.
 
+- **Meals**: Meals preps. (_Not implemented_)
+
 ## Description
 
 A Personal app whose main goal is to track daily calorie intake and other nutrients. In addition, it's necessary to monitor the current body weight and the personal records in strength exercises.
@@ -24,11 +26,11 @@ Pics of the app's user interface:
 <img src = "./images/SplashScreen.png" width = 180>
 <img src = "./images/Home.png" width = 180>
 <img src = "./images/Nutrients.png" width = 180>
+<img src = "./images/History.png" width = 180>
 <img src = "./images/AddNutrients.png" width = 180>
 <img src = "./images/NutrientsInfo.png" width = 180>
 <img src = "./images/AddAccount.png" width = 180>
 <img src = "./images/Account.png" width = 180>
-<img src = "./images/History.png" width = 180>
 <img src = "./images/Workout.png" width = 180>
 <img src = "./images/WorkoutAdd.png" width = 180>
 <img src = "./images/WorkoutUpdate.png" width = 180>

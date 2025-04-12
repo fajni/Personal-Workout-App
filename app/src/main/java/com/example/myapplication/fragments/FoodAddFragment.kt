@@ -29,6 +29,7 @@ class FoodAddFragment : Fragment() {
     private lateinit var proteinsValue: EditText
     private lateinit var carbsValue: EditText
     private lateinit var fatsValue: EditText
+    private lateinit var fibersValue: EditText
 
     private lateinit var date: String
 
@@ -44,7 +45,8 @@ class FoodAddFragment : Fragment() {
             caloriesValue.text.isBlank() ||
             proteinsValue.text.isBlank() ||
             carbsValue.text.isBlank() ||
-            fatsValue.text.isBlank()
+            fatsValue.text.isBlank() ||
+            fibersValue.text.isBlank()
         )
             return false
 
@@ -58,6 +60,7 @@ class FoodAddFragment : Fragment() {
         proteinsValue.setText("")
         carbsValue.setText("")
         fatsValue.setText("")
+        fibersValue.setText("")
     }
 
     private fun insertDataToDatabase(foodData: FoodData) {
@@ -94,6 +97,7 @@ class FoodAddFragment : Fragment() {
         proteinsValue = view.findViewById<EditText>(R.id.addProteinsValue)
         carbsValue = view.findViewById<EditText>(R.id.addCarbsValue)
         fatsValue = view.findViewById<EditText>(R.id.addFatsValue)
+        fibersValue = view.findViewById<EditText>(R.id.addFiberValue)
 
         val addValues = view.findViewById<TextView>(R.id.addValues)
 
@@ -115,6 +119,7 @@ class FoodAddFragment : Fragment() {
                     proteins = proteinsValue.text.toString().toInt(),
                     carbs = carbsValue.text.toString().toInt(),
                     fats = fatsValue.text.toString().toInt(),
+                    fibers = fibersValue.text.toString().toInt(),
                     date = date
                 )
 

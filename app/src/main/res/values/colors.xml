@@ -22,4 +22,6 @@
     <color name="discord_color2">#36393e</color>
     <color name="discord_color3">#424549</color>
     <color name="discord_blue">#7289da</color>
+    <color name="discord_text1">#acafb4</color>
+    <color name="discord_text2">#9a9ca2</color>
 </resources>

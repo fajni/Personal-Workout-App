@@ -17,8 +17,7 @@
 
         android:orientation="vertical"
 
-        android:visibility="invisible"
-        >
+        android:visibility="invisible">
 
         <TextView
             android:layout_width="match_parent"
@@ -28,8 +27,7 @@
             android:textAlignment="center"
             android:textColor="@color/discord_blue"
             android:textSize="25sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -39,8 +37,7 @@
             android:textAlignment="center"
             android:textColor="@color/discord_color3"
             android:textSize="18sp"
-            android:textStyle="normal"
-            />
+            android:textStyle="normal" />
 
     </LinearLayout>
 
@@ -54,8 +51,7 @@
 
         android:orientation="vertical"
 
-        android:visibility="invisible"
-        >
+        android:visibility="invisible">
 
         <TextView
             android:layout_width="match_parent"
@@ -65,8 +61,7 @@
             android:textAlignment="center"
             android:textColor="@color/discord_blue"
             android:textSize="25sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -76,12 +71,15 @@
             android:textAlignment="center"
             android:textColor="@color/discord_color3"
             android:textSize="18sp"
-            android:textStyle="normal"
-            />
+            android:textStyle="normal" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
         android:id="@+id/foodValues"
 
         android:layout_width="match_parent"
@@ -89,8 +87,7 @@
 
         android:orientation="vertical"
 
-        android:visibility="visible"
-        >
+        android:visibility="visible">
 
         <!-- CALORIES -->
         <LinearLayout
@@ -482,7 +479,9 @@
                 android:textSize="18sp" />
 
         </LinearLayout>
+
     </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/noWorkoutValuesText"
@@ -490,14 +489,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="vertical"
-
-        android:visibility="invisible"
-
         android:layout_gravity="bottom"
 
         android:layout_marginBottom="80sp"
-        >
+
+        android:orientation="vertical"
+
+        android:visibility="invisible">
 
         <TextView
             android:layout_width="match_parent"
@@ -507,8 +505,7 @@
             android:textAlignment="center"
             android:textColor="@color/discord_blue"
             android:textSize="25sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -518,8 +515,7 @@
             android:textAlignment="center"
             android:textColor="@color/discord_color3"
             android:textSize="18sp"
-            android:textStyle="normal"
-            />
+            android:textStyle="normal" />
 
     </LinearLayout>
 
@@ -533,8 +529,7 @@
 
         android:orientation="vertical"
 
-        android:visibility="visible"
-        >
+        android:visibility="visible">
 
         <LinearLayout
 
