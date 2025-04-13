@@ -25,16 +25,16 @@ class MainActivityFragment : AppCompatActivity() {
     private fun setCurrentFragment(fragment: Fragment, icon: Int) {
 
         bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_outlined)
-        bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_outlined)
+        bottomNavigationView.menu.findItem(R.id.foods).setIcon(R.drawable.calorie_outlined)
         bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_outlined)
         bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.sport_outlined)
-        bottomNavigationView.menu.findItem(R.id.meal).setIcon(R.drawable.meals_outlined)
+        bottomNavigationView.menu.findItem(R.id.meals).setIcon(R.drawable.meals_outlined)
 
         when(icon) {
             R.id.home -> bottomNavigationView.menu.findItem(R.id.home).setIcon(R.drawable.home_filled)
-            R.id.food -> bottomNavigationView.menu.findItem(R.id.food).setIcon(R.drawable.calorie_filled)
+            R.id.foods -> bottomNavigationView.menu.findItem(R.id.foods).setIcon(R.drawable.calorie_filled)
             R.id.account -> bottomNavigationView.menu.findItem(R.id.account).setIcon(R.drawable.account_filled)
-            R.id.meal -> bottomNavigationView.menu.findItem(R.id.meal).setIcon(R.drawable.meals_filled)
+            R.id.meals -> bottomNavigationView.menu.findItem(R.id.meals).setIcon(R.drawable.meals_filled)
             R.id.workout -> bottomNavigationView.menu.findItem(R.id.workout).setIcon(R.drawable.sport_filled)
 
             else -> { }
@@ -90,12 +90,12 @@ class MainActivityFragment : AppCompatActivity() {
                     setCurrentFragment(mainFragment, R.id.home)
                 }
 
-                R.id.food -> {
-                    setCurrentFragment(foodFragment, R.id.food)
+                R.id.foods -> {
+                    setCurrentFragment(foodFragment, R.id.foods)
                 }
 
-                R.id.meal -> {
-                    setCurrentFragment(mealFragment, R.id.meal)
+                R.id.meals -> {
+                    setCurrentFragment(mealFragment, R.id.meals)
                 }
 
                 R.id.workout -> {
@@ -111,8 +111,8 @@ class MainActivityFragment : AppCompatActivity() {
         }
 
         addBtn.setOnClickListener {
-            bottomNavigationView.selectedItemId = R.id.food
-            setCurrentFragment(foodAddFragment, R.id.food)
+            bottomNavigationView.selectedItemId = R.id.foods
+            setCurrentFragment(foodAddFragment, R.id.foods)
             Toast.makeText(applicationContext, "Add New Food", Toast.LENGTH_SHORT).show()
             addBtn.isVisible = false
         }

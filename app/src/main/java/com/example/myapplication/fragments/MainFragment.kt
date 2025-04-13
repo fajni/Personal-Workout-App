@@ -111,11 +111,7 @@ class MainFragment : Fragment() {
 
         foodViewModel.readAllData.observe(viewLifecycleOwner, Observer { foods ->
 
-            if(foods.isEmpty()) {
-
-                noValuesText.isVisible = true
-                foodValues.isVisible = false
-            }
+            var noValues: Boolean = true
 
             val currentDate: String = CurrentDate().getCurrentData()
 
@@ -125,7 +121,14 @@ class MainFragment : Fragment() {
                     proteins += food.proteins!!
                     carbs += food.carbs!!
                     fats += food.fats!!
+
+                    noValues = false
                 }
+            }
+
+            if(noValues){
+                noValuesText.isVisible = true
+                foodValues.isVisible = false
             }
 
             updateProgressBars()

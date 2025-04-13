@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.myapplication.data.dao.AccountDAO
 import com.example.myapplication.data.dao.FoodDAO
+import com.example.myapplication.data.dao.MealDAO
 import com.example.myapplication.data.dao.WorkoutDAO
 import com.example.myapplication.data.models.*
 
@@ -19,12 +20,13 @@ import com.example.myapplication.data.models.*
 
 */
 
-@Database(entities = [FoodData::class, AccountData::class, WorkoutData::class], version = 1, exportSchema = false)
+@Database(entities = [FoodData::class, AccountData::class, WorkoutData::class, MealData::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun foodDAO(): FoodDAO
     abstract fun accountDAO(): AccountDAO
     abstract fun workoutDAO(): WorkoutDAO
+    abstract fun mealDAO(): MealDAO
 
     // companion object is visible to other objects
     /*

@@ -10,7 +10,7 @@
         />
 
     <item
-        android:id="@+id/food"
+        android:id="@+id/foods"
         android:title="Macros"
         android:icon="@drawable/calorie_outlined"
         />
@@ -28,7 +28,7 @@
         />
 
     <item
-        android:id="@+id/meal"
+        android:id="@+id/meals"
         android:title="Meals"
         android:icon="@drawable/meals_outlined"
         />

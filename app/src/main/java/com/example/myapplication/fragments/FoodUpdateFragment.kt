@@ -75,7 +75,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
 
         foodViewModel.updateFood(updatedFood)
 
-        requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.food
+        requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.foods
 
         parentFragmentManager.beginTransaction()
             .replace(R.id.mainFrameLayout, FoodFragment())
@@ -114,7 +114,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
 
         closeBtn.setOnClickListener {
 
-            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.food
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.foods
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.mainFrameLayout, FoodFragment())

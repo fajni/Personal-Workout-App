@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingHorizontal="15sp"
+            android:paddingHorizontal="30sp"
             android:paddingVertical="5sp"
 
             android:src="@drawable/close"
@@ -36,13 +36,30 @@
 
             android:layout_gravity="center"
 
-            android:layout_marginStart="20sp"
+            android:layout_marginStart="10sp"
 
             android:text="Update nutrients"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textAlignment="textStart"
+
+            android:layout_weight="1"
+            />
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingHorizontal="30sp"
+            android:paddingVertical="5sp"
+
+            android:layout_marginRight="0sp"
+
+            android:src="@drawable/update_pen"
+            android:background="@drawable/update_pen"
+            android:backgroundTint="@color/white"
 
             android:layout_weight="1"
             />

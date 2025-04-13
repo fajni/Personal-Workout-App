@@ -12,7 +12,96 @@
 
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Simple Meal Preps"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        />
+
+    <LinearLayout
+        android:id="@+id/noValuesText"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="35dp"
+
+        android:orientation="vertical"
+
+        android:visibility="invisible"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="No Meals Yet!"
+            android:textAlignment="center"
+            android:textColor="@color/discord_blue"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="You can add new meals on button below"
+            android:textAlignment="center"
+            android:textColor="@color/discord_color3"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            />
+
+    </LinearLayout>
+
+    <!-- Foods -->
+    <FrameLayout
+        android:id="@+id/mealsLayout"
+
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is Meal Fragment" />
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="70dp"
+
+        android:visibility="visible"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mealsRecyclerView"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            tools:listitem="@layout/meal_item"
+            />
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btnAddMeal"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="bottom|center"
+
+        android:drawableLeft="@drawable/add"
+        android:drawableTint="@color/white"
+
+        android:text="Add Meal"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="15sp"
+
+        android:backgroundTint="@color/dark_green"
+        />
 
 </FrameLayout>

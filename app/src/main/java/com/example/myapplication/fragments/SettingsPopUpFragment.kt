@@ -27,6 +27,7 @@ class SettingsPopUpFragment : DialogFragment() {
         val btnDropFoodTable = view.findViewById<Button>(R.id.btnDropFoodTable)
         val btnDropAccountTable = view.findViewById<Button>(R.id.btnDropAccountTable)
         val btnDropWorkoutTable = view.findViewById<Button>(R.id.btnDropWorkoutTable)
+        val btnDropMealTable = view.findViewById<Button>(R.id.btnDropMealTable)
 
         val builder = AlertDialog.Builder(context)
         val positiveSpan = SpannableString("Yes").apply { setSpan(ForegroundColorSpan(Color.GREEN), 0, "Yes".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
@@ -131,6 +132,34 @@ class SettingsPopUpFragment : DialogFragment() {
                     } catch (e: Exception) {
 
                         Toast.makeText(context, "Deleting Workout Table ERROR",Toast.LENGTH_SHORT).show()
+                        e.message
+                    }
+                }
+
+                .setNegativeButton(negativeSpan) { dialog, id -> dialog.dismiss()}
+                .show()
+        }
+
+        btnDropMealTable.setOnClickListener {
+
+            builder.setMessage("Are you sure you want to drop Meal table?")
+                .setCancelable(true)
+                .setTitle("Drop Meal Table")
+
+                .setPositiveButton(positiveSpan) { dialog, id ->
+
+                    try {
+
+                        val db = AppDatabase.getDatabase(context?.applicationContext!!)
+                        val sqliteDb = db.openHelper.writableDatabase
+
+                        sqliteDb.execSQL("DROP TABLE IF EXISTS meal_data")
+
+                        Toast.makeText(context, "Deleted Meal Table", Toast.LENGTH_SHORT).show()
+
+                    } catch (e: Exception) {
+
+                        Toast.makeText(context, "Deleting Meal Table ERROR",Toast.LENGTH_SHORT).show()
                         e.message
                     }
                 }

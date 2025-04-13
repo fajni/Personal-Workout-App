@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginBottom="10dp"
+
+    app:cardCornerRadius="15dp"
+
+    app:cardElevation="0dp"
+
+    android:background="@color/discord_color3"
+    android:backgroundTint="@color/discord_color3"
+    >
+
+    <TextView
+
+        android:id="@+id/mealTitle"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Meal Title"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+
+        android:background="@color/discord_color3"
+
+        android:paddingBottom="5dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30dp"
+
+        android:orientation="horizontal"
+
+        android:paddingHorizontal="5dp"
+        android:paddingBottom="10dp"
+
+        android:background="@color/discord_color3"
+        >
+
+        <ImageView
+            android:id="@+id/textureImage"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:layout_gravity="center_horizontal|center_vertical"
+
+            android:src="@drawable/meal_food"
+            />
+
+        <!-- INGREDIENTS -->
+        <LinearLayout
+            android:layout_weight="10"
+
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal|center_vertical"
+
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="Ingredients"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mealIngredients"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="ingredients"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- HORIZONTAL LINE -->
+    <View
+
+        android:layout_marginTop="85sp"
+        android:layout_marginHorizontal="5pt"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="2dp"
+
+        android:background="@color/discord_color2"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="90dp"
+
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="5dp"
+
+        android:background="@color/discord_color3"
+
+        android:orientation="horizontal"
+        >
+
+        <!-- CALORIES -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="Calories"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mealCaloriesValue"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="kcal"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <!-- PROTEINS -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="Proteins"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mealProteinsValue"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="g"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <!-- CARBS -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="Carbs"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mealCarbsValue"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="g"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <!-- FATS -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="Fats"
+                android:textColor="@color/discord_text1"
+                android:textColorHint="@color/discord_text1"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mealFatsValue"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:hint="g"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
 
-        android:text="Delete Databases"
+        android:text="Delete/Drop"
         android:textStyle="bold"
         android:textSize="25sp"
         android:textColor="@color/white"
@@ -82,7 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="DELETE APP DATABASE"
+                    android:text="DELETE DATABASE"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
@@ -130,7 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="DROP FOOD TABLE"
+                    android:text="DROP FOOD"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
@@ -178,7 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="DROP ACCOUNT TABLE"
+                    android:text="DROP ACCOUNT"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"
@@ -226,7 +226,55 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="DROP WORKOUT TABLE"
+                    android:text="DROP WORKOUT"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+
+                    android:layout_marginHorizontal="10sp"
+
+                    android:layout_weight="0"
+
+                    android:backgroundTint="@color/red"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutMealTable"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+
+                android:layout_marginTop="0sp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="Drop Meal Table:"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+
+                    android:layout_weight="0"
+                    />
+
+                <Button
+                    android:id="@+id/btnDropMealTable"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="DROP MEAL"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:textSize="18sp"

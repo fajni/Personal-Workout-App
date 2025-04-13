@@ -140,7 +140,7 @@ class FoodAddFragment : Fragment() {
 
         closeBtn.setOnClickListener {
 
-            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.food
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).selectedItemId = R.id.foods
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.mainFrameLayout, FoodFragment())

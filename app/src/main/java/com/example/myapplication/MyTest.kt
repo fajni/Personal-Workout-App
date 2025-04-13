@@ -5,15 +5,12 @@ import com.example.myapplication.utils.CurrentDate
 
 fun main() {
 
-    var numbers: ArrayList<String> = ArrayList<String>()
+    var ingredients: ArrayList<String> = ArrayList()
 
-    numbers.add("10")
+    ingredients.add("Bread")
+    ingredients.add("Milk")
+    ingredients.add("Water")
+    ingredients.add("Cheese")
 
-    println(numbers)
-
-    numbers.removeAt(0)
-
-    println(numbers)
-
-    print(CurrentDate().getCurrentData())
+    print(ingredients.joinToString(", "))
 }

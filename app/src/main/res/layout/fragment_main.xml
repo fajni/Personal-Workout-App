@@ -26,7 +26,7 @@
             android:text="Please Add Account Data!"
             android:textAlignment="center"
             android:textColor="@color/discord_blue"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:text="You can add account values on acc button"
             android:textAlignment="center"
             android:textColor="@color/discord_color3"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="normal" />
 
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:text="No Values Yet!"
             android:textAlignment="center"
             android:textColor="@color/discord_blue"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -70,7 +70,7 @@
             android:text="You can add new values on button below"
             android:textAlignment="center"
             android:textColor="@color/discord_color3"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="normal" />
 
     </LinearLayout>
@@ -504,7 +504,7 @@
             android:text="No Workout Values Yet!"
             android:textAlignment="center"
             android:textColor="@color/discord_blue"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -514,7 +514,7 @@
             android:text="You can add new values on workout button"
             android:textAlignment="center"
             android:textColor="@color/discord_color3"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="normal" />
 
     </LinearLayout>

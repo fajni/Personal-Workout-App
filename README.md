@@ -35,6 +35,7 @@ Pics of the app's user interface:
 <img src = "./images/WorkoutAdd.png" width = 180>
 <img src = "./images/WorkoutUpdate.png" width = 180>
 <img src = "./images/Settings.png" width = 180>
+<img src = "./images/Meals.png" width = 180>
 </details>
 
 ### Tables
@@ -77,11 +78,9 @@ Pics of the app's user interface:
 <details>
 <summary>Meals table</summary>
 
-| number | day             | muscle           | workout_title | createdAt   | note         |
-|--------|-----------------|------------------|---------------|-------------|--------------|
-| 1      | monday          | chest/triceps    | push          | 30/03/2025  | Prsonedeljak |
-| 2      | tuesday         | /                | rest          | 30/03/2025  | /            |
-| 3      | saturday/sunday | swimming/running | condition     | 20/03/2025  | Svimosreda   |
+| number | name         | texture | ingredients                 | description |
+|--------|--------------|---------|-----------------------------|-------------|
+| 1      | Simple Shake | drink   | milk, banana, peanut, honey | shake       |
 
 </details>
 
