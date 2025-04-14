@@ -246,26 +246,6 @@
         >
 
         <Button
-            android:id="@+id/btnDetails"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginHorizontal="15sp"
-
-            android:drawableLeft="@drawable/more"
-            android:drawableTint="@color/white"
-
-            android:text="DETAILS"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textSize="10sp"
-
-            android:backgroundTint="@color/discord_blue"
-            />
-
-        <Button
             android:id="@+id/btnDelete"
 
             android:layout_width="wrap_content"
@@ -283,6 +263,26 @@
             android:textSize="10sp"
 
             android:backgroundTint="@color/red"
+            />
+
+        <Button
+            android:id="@+id/btnDetails"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginHorizontal="15sp"
+
+            android:drawableLeft="@drawable/more"
+            android:drawableTint="@color/white"
+
+            android:text="DETAILS"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="10sp"
+
+            android:backgroundTint="@color/discord_blue"
             />
 
     </LinearLayout>

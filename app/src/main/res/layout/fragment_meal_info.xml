@@ -3,36 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MealAddFragment"
-
-    android:paddingHorizontal="2pt"
-
     android:background="@color/discord_background_color"
-    >
+
+    android:padding="2pt"
+
+    tools:context=".fragments.MealInfoFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/btnCloseAddMeal"
+            android:id="@+id/btnMealInfoClose"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+
             android:paddingHorizontal="15sp"
             android:paddingVertical="5sp"
 
-            android:src="@drawable/close"
-            android:background="@android:color/transparent"
-
-            android:layout_weight="1"
-            />
+            android:src="@drawable/close" />
 
         <TextView
+            android:id="@+id/infoMealTitle"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -40,14 +39,13 @@
 
             android:layout_marginStart="20sp"
 
-            android:text="Add new meal"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textAlignment="textStart"
-
             android:layout_weight="1"
-            />
+            android:text="Meal Info"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -55,44 +53,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="vertical"
-
         android:layout_marginTop="30pt"
-        >
+
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Name: "
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-
                 android:layout_weight="2"
-                />
+
+                android:text="Name: "
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/addMealName"
+                android:id="@+id/infoMealName"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:hint="Enter name"
-                android:textColorHint="@color/white"
+                android:layout_weight="1"
+
+                android:hint="Enter new title"
                 android:textColor="@color/white"
 
-                android:inputType="text"
-
-                android:layout_weight="1"
-                />
+                android:textColorHint="@color/white"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -100,35 +94,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
+                android:layout_weight="2"
+
                 android:text="Texture: "
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:textColor="@color/white"
-
-                android:layout_gravity="center"
-
-                android:layout_weight="2.2"
-                />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/addMealTexture"
+                android:id="@+id/infoMealTexture"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                tools:listitem="@layout/item_dropdown"
+                android:layout_weight="1"
 
                 android:popupBackground="@color/discord_color3"
 
-                android:layout_weight="1"
-                />
+                tools:listitem="@layout/item_dropdown" />
 
         </LinearLayout>
 
@@ -136,36 +125,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Ingredients: "
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-
                 android:layout_weight="2"
-                />
+                android:text="Ingredients: "
+                android:textColor="@color/white"
+                android:textSize="18sp"
+
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/addMealIngredients"
+                android:id="@+id/infoMealIngredients"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:hint="Enter ingredients"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-
+                android:layout_weight="1"
+                android:hint="Enter new ingredients"
                 android:inputType="text"
 
-                android:layout_weight="1"
-                />
+                android:textColor="@color/white"
 
+                android:textColorHint="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -188,12 +173,12 @@
                 />
 
             <EditText
-                android:id="@+id/addMealDesc"
+                android:id="@+id/infoMealDesc"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:hint="Enter description"
+                android:hint="Enter new description"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
 
@@ -201,7 +186,6 @@
 
                 android:layout_weight="1"
                 />
-
         </LinearLayout>
 
         <LinearLayout
@@ -217,7 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Calories: "
+                android:text="Calories (kcal): "
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -226,12 +210,12 @@
                 />
 
             <EditText
-                android:id="@+id/addMealCalories"
+                android:id="@+id/infoMealCalories"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:hint="Enter calories"
+                android:hint="Enter new calories"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
 
@@ -253,7 +237,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Proteins: "
+                android:text="Proteins (g): "
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -262,12 +246,12 @@
                 />
 
             <EditText
-                android:id="@+id/addMealProteins"
+                android:id="@+id/infoMealProteins"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:hint="Enter proteins"
+                android:hint="Enter new proteins"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
 
@@ -289,7 +273,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Carbs: "
+                android:text="Carbs (g): "
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -298,12 +282,12 @@
                 />
 
             <EditText
-                android:id="@+id/addMealCarbs"
+                android:id="@+id/infoMealCarbs"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:hint="Enter carbs"
+                android:hint="Enter new carbs"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
 
@@ -325,7 +309,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:text="Fats: "
+                android:text="Fats (g): "
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -334,12 +318,12 @@
                 />
 
             <EditText
-                android:id="@+id/addMealFats"
+                android:id="@+id/infoMealFats"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:hint="Enter fats"
+                android:hint="Enter new fats"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
 
@@ -352,24 +336,55 @@
 
     </LinearLayout>
 
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMealSubmit"
-
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="10pt"
+        android:paddingHorizontal="10sp"
+        android:paddingVertical="2sp"
 
-        android:layout_gravity="bottom|center"
+        android:paddingEnd="40pt"
 
-        android:text="SUBMIT"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="15sp"
+        android:layout_marginBottom="10sp"
+        android:layout_gravity="bottom|center_horizontal"
 
-        android:background="@drawable/main_button"
-        android:backgroundTint="@color/dark_green"
-        />
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btnMealInfoDelete"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="DELETE"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_marginEnd="5sp"
+
+            android:backgroundTint="@color/red"
+            />
+
+        <Button
+            android:id="@+id/btnMealInfoUpdate"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+
+            android:text="UPDATE"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            android:layout_marginStart="5sp"
+
+            android:backgroundTint="@color/discord_blue"
+            />
+
+    </LinearLayout>
 
 </FrameLayout>

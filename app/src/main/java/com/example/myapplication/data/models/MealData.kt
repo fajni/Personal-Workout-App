@@ -12,8 +12,7 @@ import androidx.room.TypeConverters
 
 */
 
-@Entity(tableName = "meal_data") // ingredients: List<String>
-@TypeConverters(Converters::class)
+@Entity(tableName = "meal_data")
 data class MealData(
 
     @PrimaryKey(autoGenerate = true)
@@ -26,8 +25,7 @@ data class MealData(
     public var texture: String?, // is it drink or food
 
     @ColumnInfo(name = "ingredients")
-    // Room will use Converters class because can't work with List
-    public var ingredients: List<String>,
+    public var ingredients: String,
 
     @ColumnInfo(name = "desc")
     public var description: String?,
@@ -47,20 +45,7 @@ data class MealData(
         return "Id: " + id + "\n" +
                 "Name: " + name + "\n" +
                 "Texture: " + texture + "\n" +
-                "Ingredients: " + ingredients.joinToString(", ") + "\n" +
+                "Ingredients: " + ingredients + "\n" +
                 "Description: " + description + "\n"
-    }
-}
-
-class Converters {
-
-    @TypeConverter
-    fun fromStringList(value: List<String>): String {
-        return value.joinToString(separator = ",")
-    }
-
-    @TypeConverter
-    fun toStringList(value: String): List<String> {
-        return value.split(",").map { it.trim() }
     }
 }

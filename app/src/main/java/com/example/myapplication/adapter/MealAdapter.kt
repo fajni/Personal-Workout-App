@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.data.models.MealData
+import com.example.myapplication.fragments.MealInfoFragment
 
 /*
 
@@ -42,7 +44,7 @@ class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<
         holder.mealTitle.text = mealsList[position].name.uppercase()
 
         holder.textureImage.setImageResource(R.drawable.meal_drink)
-        if(mealsList[position].texture.equals("food"))
+        if(mealsList[position].texture.equals("Food"))
             holder.textureImage.setImageResource(R.drawable.meal_food)
 
         if(mealsList[position].ingredients.toString().length > 43) {
@@ -61,8 +63,16 @@ class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<
         holder.mealCarbs.text = mealsList[position].carbs.toString() + " g"
         holder.mealFats.text = mealsList[position].fats.toString() + " g"
 
+        // from adapter to fragment
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Clicked on " + mealsList[position].name.uppercase(), Toast.LENGTH_SHORT).show()
+
+            val mealInfoFragment: MealInfoFragment = MealInfoFragment(mealsList[position])
+
+            val fragmentTransaction = (holder.itemView.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+
+            fragmentTransaction.replace(R.id.mainFrameLayout, mealInfoFragment)
+            fragmentTransaction.addToBackStack(null) //go back
+            fragmentTransaction.commit()
         }
     }
 

@@ -11,7 +11,7 @@ All data is saved locally using Room library, so there's no need for internet co
 
 - **Trainings**: Simple Track of your training/workout plan. Add/Update/Delete workout for any day in the week.
 
-- **Meals**: Meals preps. (_Not implemented_)
+- **Meals**: Create/Read/Update/Delete ingredients and macros for every meals.
 
 ## Description
 
@@ -36,6 +36,7 @@ Pics of the app's user interface:
 <img src = "./images/WorkoutUpdate.png" width = 180>
 <img src = "./images/Settings.png" width = 180>
 <img src = "./images/Meals.png" width = 180>
+<img src = "./images/MealsInfo.png" width = 180>
 </details>
 
 ### Tables
