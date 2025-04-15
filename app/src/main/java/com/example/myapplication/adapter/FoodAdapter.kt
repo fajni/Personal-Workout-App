@@ -85,8 +85,6 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
 
         holder.btnDelete.setOnClickListener {
 
-            Toast.makeText(holder.itemView.context, "DELETE - " + foodList[position].number, Toast.LENGTH_SHORT).show()
-
             builder.setMessage("Are you sure you want to delete " + foodList[position].title)
                 .setCancelable(true)
                 .setTitle("Delete " + foodList[position].title!!.uppercase())
@@ -119,7 +117,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
     public fun setCurrentData(list: List<FoodData>) {
 
         for(food in list){
-            if (food.date == CurrentDate().getCurrentData())
+            if (food.date == CurrentDate().getCurrentDate())
                 this.foodList.add(food)
         }
 

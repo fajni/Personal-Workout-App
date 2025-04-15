@@ -18,7 +18,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.data.models.WorkoutData
@@ -156,7 +155,7 @@ class WorkoutFragment : Fragment() {
         }
         else {
 
-            val workout = WorkoutData(0, day.text.toString(), muscle.text.toString(), title.text.toString(), CurrentDate().getCurrentData(), note.text.toString())
+            val workout = WorkoutData(0, day.text.toString(), muscle.text.toString(), title.text.toString(), CurrentDate().getCurrentDate(), note.text.toString())
 
             if(workoutBtnUpdate.text.equals("ADD")){
 

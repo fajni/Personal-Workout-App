@@ -11,7 +11,7 @@ class CurrentDate {
 
     private var currentDate: String = formatter.format(time)
 
-    public fun getCurrentData() : String {
+    public fun getCurrentDate() : String {
         return currentDate
     }
 

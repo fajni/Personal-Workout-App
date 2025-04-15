@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.example.myapplication.fragments.AccountFragment
 import com.example.myapplication.fragments.FoodAddFragment
 import com.example.myapplication.fragments.FoodFragment
-import com.example.myapplication.fragments.HistoryFragment
 import com.example.myapplication.fragments.MainFragment
 import com.example.myapplication.fragments.MealFragment
 import com.example.myapplication.fragments.SettingsPopUpFragment
@@ -52,7 +51,7 @@ class MainActivityFragment : AppCompatActivity() {
     private fun setDateTitle() {
 
         val currentData = findViewById<TextView>(R.id.date)
-        currentData.text = "TODAY: " + CurrentDate().getCurrentData() + " - " + CurrentDate().getCurrentDay()
+        currentData.text = "TODAY: " + CurrentDate().getCurrentDate() + " - " + CurrentDate().getCurrentDay()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

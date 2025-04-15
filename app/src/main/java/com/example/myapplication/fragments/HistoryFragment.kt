@@ -46,7 +46,7 @@ class HistoryFragment : Fragment() {
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 
         chooseDate = view.findViewById(R.id.chooseDate)
-        chooseDate.setText(CurrentDate().getCurrentData())
+        chooseDate.setText(CurrentDate().getCurrentDate())
 
         btnClearDatabase = view.findViewById(R.id.historyBtnClearDatabase)
 

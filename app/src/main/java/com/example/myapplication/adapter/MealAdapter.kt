@@ -1,16 +1,26 @@
 package com.example.myapplication.adapter
 
+import android.app.AlertDialog
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.models.MealData
+import com.example.myapplication.data.viewmodel.FoodViewModel
 import com.example.myapplication.fragments.MealInfoFragment
+import com.example.myapplication.utils.CurrentDate
 
 /*
 
@@ -30,6 +40,7 @@ class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<
         val mealProteins: TextView = mealView.findViewById(R.id.mealProteinsValue)
         val mealCarbs: TextView = mealView.findViewById(R.id.mealCarbsValue)
         val mealFats: TextView = mealView.findViewById(R.id.mealFatsValue)
+        val linearLayoutAddMealToMacros: LinearLayout = mealView.findViewById(R.id.linearLayoutAddMealToMacros)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -74,6 +85,49 @@ class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<
             fragmentTransaction.addToBackStack(null) //go back
             fragmentTransaction.commit()
         }
+
+        holder.linearLayoutAddMealToMacros.setOnClickListener {
+
+            val builder = AlertDialog.Builder(holder.itemView.context)
+            val positiveSpan = SpannableString("Yes").apply { setSpan(ForegroundColorSpan(Color.GREEN), 0, "Yes".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
+            val negativeSpan = SpannableString("No").apply { setSpan(ForegroundColorSpan(Color.RED), 0, "No".length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE) }
+
+            builder.setMessage("Are you sure you want to add this meal to current macros? ")
+                .setCancelable(true)
+                .setTitle("Add " + holder.mealTitle.text.toString().uppercase() + " to current Macros")
+
+                .setPositiveButton(positiveSpan) { dialog, id ->
+
+                    try{
+                        val foodViewModel: FoodViewModel = ViewModelProvider(holder.itemView.context as AppCompatActivity)[FoodViewModel::class.java]
+
+                        val food: FoodData = FoodData(
+                            number = 0,
+                            title = holder.mealTitle.text.toString(),
+                            calories = holder.mealCalories.text.toString().replace(" kcal", "").toInt(),
+                            proteins = holder.mealProteins.text.toString().replace(" g", "").toInt(),
+                            carbs = holder.mealCarbs.text.toString().replace(" g", "").toInt(),
+                            fats = holder.mealFats.text.toString().replace(" g", "").toInt(),
+                            fibers = 0,
+                            date = CurrentDate().getCurrentDate()
+                        )
+
+                        foodViewModel.addFood(food)
+
+                        Toast.makeText(holder.itemView.context, "Added " + holder.mealTitle.text.toString() + " to Macros List", Toast.LENGTH_SHORT).show()
+
+                    } catch (e: Exception) {
+                        Toast.makeText(holder.itemView.context, "ERROR - " + e.message, Toast.LENGTH_SHORT).show()
+                        println(e.message)
+                    }
+                }
+
+                .setNegativeButton(negativeSpan) { dialog, id ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
+
     }
 
     override fun getItemCount(): Int {

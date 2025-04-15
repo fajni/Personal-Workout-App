@@ -113,7 +113,7 @@ class MainFragment : Fragment() {
 
             var noValues: Boolean = true
 
-            val currentDate: String = CurrentDate().getCurrentData()
+            val currentDate: String = CurrentDate().getCurrentDate()
 
             for (food in foods) {
                 if (food.date == currentDate){

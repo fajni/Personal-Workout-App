@@ -51,7 +51,7 @@ class FoodFragment : Fragment() {
 
     private fun calculateValues(list: List<FoodData>) {
 
-        val currentDate = CurrentDate().getCurrentData()
+        val currentDate = CurrentDate().getCurrentDate()
 
         val todayFood = ArrayList<FoodData>()
 

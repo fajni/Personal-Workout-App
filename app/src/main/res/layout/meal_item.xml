@@ -263,4 +263,73 @@
 
     </LinearLayout>
 
+    <!-- HORIZONTAL LINE -->
+    <View
+        android:layout_marginTop="143sp"
+        android:layout_marginHorizontal="5pt"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="2dp"
+
+        android:background="@color/discord_color2"
+        />
+
+    <LinearLayout
+
+        android:id="@+id/linearLayoutAddMealToMacros"
+
+        android:layout_marginTop="150sp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+
+        android:layout_marginHorizontal="15sp"
+        android:layout_marginBottom="5sp"
+        >
+
+        <ImageView
+
+            android:layout_width="60sp"
+            android:layout_height="20sp"
+
+            android:layout_weight="1"
+
+            android:src="@drawable/add_box"
+
+            android:background="@android:color/transparent"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10sp"
+
+            android:text="Add this meal to current macros"
+            android:textColor="@color/dark_green"
+            android:textSize="15sp"
+            android:textStyle="bold"
+
+            android:layout_weight="1"
+
+            android:layout_gravity="center"
+            />
+
+        <ImageView
+
+            android:layout_width="60sp"
+            android:layout_height="20sp"
+
+            android:layout_weight="1"
+
+            android:src="@drawable/right_arrow_green"
+
+            android:background="@android:color/transparent"
+            />
+
+    </LinearLayout>
+
 </androidx.cardview.widget.CardView>
