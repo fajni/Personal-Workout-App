@@ -76,11 +76,13 @@
                     android:layout_weight="0"
                     />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDeleteAppDatabase"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
+                    app:cornerRadius="10sp"
 
                     android:text="DELETE DATABASE"
                     android:textStyle="bold"
@@ -124,11 +126,13 @@
                     android:layout_weight="0"
                     />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDropFoodTable"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
+                    app:cornerRadius="10sp"
 
                     android:text="DROP FOOD"
                     android:textStyle="bold"
@@ -172,11 +176,13 @@
                     android:layout_weight="0"
                     />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDropAccountTable"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
+                    app:cornerRadius="10sp"
 
                     android:text="DROP ACCOUNT"
                     android:textStyle="bold"
@@ -220,11 +226,13 @@
                     android:layout_weight="0"
                     />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDropWorkoutTable"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
+                    app:cornerRadius="10sp"
 
                     android:text="DROP WORKOUT"
                     android:textStyle="bold"
@@ -268,11 +276,13 @@
                     android:layout_weight="0"
                     />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDropMealTable"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
+                    app:cornerRadius="10sp"
 
                     android:text="DROP MEAL"
                     android:textStyle="bold"

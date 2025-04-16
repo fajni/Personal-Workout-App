@@ -43,7 +43,7 @@ class WorkoutFragment : Fragment() {
     private lateinit var sunday: LinearLayout
     private lateinit var sundayWorkoutTitle: TextView
 
-    private lateinit var selectDayText: TextView
+    private lateinit var linearLayoutSelectDayForDetails: LinearLayout
     private lateinit var scrollView: ScrollView
     private lateinit var day: TextView
     private lateinit var createdAt: TextView
@@ -76,7 +76,7 @@ class WorkoutFragment : Fragment() {
         sunday = view.findViewById(R.id.sunday)
         sundayWorkoutTitle = view.findViewById(R.id.sundayTraining)
 
-        selectDayText = view.findViewById(R.id.selectDayForMoreDetailsText)
+        linearLayoutSelectDayForDetails = view.findViewById(R.id.linearLayoutSelectDayForMoreDetails)
         scrollView = view.findViewById(R.id.workoutScrollView)
         day = view.findViewById(R.id.workoutDay)
         createdAt = view.findViewById(R.id.workoutCreatedAt)
@@ -127,17 +127,20 @@ class WorkoutFragment : Fragment() {
 
             selectedDay.setBackgroundResource(R.drawable.progress_table_green_border)
 
-            selectDayText.isVisible = false
+            linearLayoutSelectDayForDetails.isVisible = false
             scrollView.isVisible = true
 
-            workoutBtnDelete.isVisible = true
+            if(title.text.isNotBlank()){
+                workoutBtnDelete.isVisible = true
+            }
+
             workoutBtnUpdate.isVisible = true
 
         } else {
 
             selectedDay.setBackgroundResource(R.drawable.item_border)
 
-            selectDayText.isVisible = true
+            linearLayoutSelectDayForDetails.isVisible = true
             scrollView.isVisible = false
 
             workoutBtnDelete.isVisible = false
@@ -188,30 +191,35 @@ class WorkoutFragment : Fragment() {
 
         workoutBtnDelete.setOnClickListener {
 
-            builder.setMessage("Are you sure you want to delete workout data?")
-                .setCancelable(true)
-                .setTitle("Delete Workout " + workout.workoutTitle.uppercase())
+            if(title.text.isNotBlank()) {
 
-                .setPositiveButton(positiveSpan) { dialog, id ->
+                builder.setMessage("Are you sure you want to delete workout data?")
+                    .setCancelable(true)
+                    .setTitle("Delete Workout " + workout.workoutTitle.uppercase())
 
-                    Toast.makeText(context, "Workout deleted!", Toast.LENGTH_SHORT).show()
+                    .setPositiveButton(positiveSpan) { dialog, id ->
 
-                    try {
+                        Toast.makeText(context, "Workout deleted!", Toast.LENGTH_SHORT).show()
 
-                        clearFields(workout.day)
-                        workoutViewModel.deleteWorkout(workout)
+                        try {
 
-                        workoutBtnUpdate.setText("ADD")
-                        workoutBtnUpdate.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.green, null))
+                            clearFields(workout.day)
+                            workoutViewModel.deleteWorkout(workout)
 
-                    } catch (e: Exception) {
+                            workoutBtnUpdate.setText("ADD")
+                            workoutBtnUpdate.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.dark_green, null))
 
-                        throw e
+                        } catch (e: Exception) {
+
+                            throw e
+                        }
                     }
-                }
 
-                .setNegativeButton(negativeSpan) { dialog, id -> dialog.dismiss() }
-                .show()
+                    .setNegativeButton(negativeSpan) { dialog, id -> dialog.dismiss() }
+                    .show()
+            } else {
+                Toast.makeText(context, "Can't delete empty workout!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -220,7 +228,7 @@ class WorkoutFragment : Fragment() {
         day.text = selectedDay
 
         workoutBtnUpdate.setText("ADD")
-        workoutBtnUpdate.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.green, null))
+        workoutBtnUpdate.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.dark_green, null))
 
         createdAt.text = "/"
         title.setText("")

@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@id/mainActivityTitle"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
 
-        android:layout_marginTop="5pt"
+        android:layout_marginTop="0pt"
 
         android:layout_width="match_parent"
         android:layout_height="0dp"

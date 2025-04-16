@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.WorkoutFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.WorkoutFragment"
+
+    android:paddingHorizontal="2dp"
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +22,7 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:fillViewport="true"
         android:layout_marginTop="30sp"
         android:padding="10sp">
 
@@ -300,20 +304,41 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/selectDayForMoreDetailsText"
+    <LinearLayout
+        android:id="@+id/linearLayoutSelectDayForMoreDetails"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="95pt"
 
-        android:text="Select day for more details"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="italic"
+        android:visibility="visible"
 
-        android:visibility="visible" />
+        android:orientation="vertical"
+        >
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Select day for more details"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:textAlignment="center"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="110pt"
+
+            android:src="@drawable/workout"
+
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
 
 
     <ScrollView
@@ -324,6 +349,8 @@
 
         android:layout_marginTop="95pt"
         android:layout_marginBottom="30pt"
+
+        android:paddingHorizontal="5sp"
 
         android:fillViewport="true"
 
@@ -507,55 +534,60 @@
                     />
             </LinearLayout>
 
+            <!-- BUTTONS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="10sp"
+
+                android:orientation="horizontal"
+                android:paddingHorizontal="10sp"
+
+                android:layout_marginTop="20sp"
+
+                android:paddingVertical="2sp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWorkoutDelete"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="5sp"
+
+                    android:layout_weight="1"
+
+                    app:cornerRadius="10sp"
+
+                    android:backgroundTint="@color/red"
+
+                    android:text="DELETE"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWorkoutUpdate"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="5sp"
+
+                    android:layout_weight="1"
+
+                    app:cornerRadius="10sp"
+
+                    android:backgroundTint="@color/discord_blue"
+
+                    android:text="UPDATE"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
-
-    <!-- BUTTONS -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="10sp"
-
-        android:orientation="horizontal"
-        android:paddingHorizontal="10sp"
-        android:paddingEnd="40pt"
-
-        android:paddingVertical="2sp">
-
-        <Button
-            android:id="@+id/btnWorkoutDelete"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginEnd="5sp"
-
-            android:layout_weight="1"
-
-            android:backgroundTint="@color/red"
-
-            android:text="DELETE"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btnWorkoutUpdate"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="5sp"
-
-            android:layout_weight="1"
-
-            android:backgroundTint="@color/discord_blue"
-
-            android:text="UPDATE"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-
-    </LinearLayout>
 
 </FrameLayout>

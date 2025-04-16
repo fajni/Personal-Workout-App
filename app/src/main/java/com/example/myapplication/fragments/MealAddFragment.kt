@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +25,8 @@ class MealAddFragment : Fragment() {
 
     private lateinit var btnSubmitMeal: Button
     private lateinit var btnCloseAddMeal: ImageButton
+
+    private lateinit var addMealImageView: ImageView
 
     private lateinit var mealName: EditText
     private lateinit var mealTexture: Spinner
@@ -49,6 +53,8 @@ class MealAddFragment : Fragment() {
 
         btnSubmitMeal = view.findViewById(R.id.btnMealSubmit)
         btnCloseAddMeal = view.findViewById(R.id.btnCloseAddMeal)
+
+        addMealImageView = view.findViewById(R.id.addMealImageView)
 
         mealName = view.findViewById(R.id.addMealName)
 
@@ -136,6 +142,12 @@ class MealAddFragment : Fragment() {
         initializeResources(view)
 
         setButtons()
+
+        addMealImageView.animate()
+            .rotationYBy(360f)
+            .setDuration(1800)
+            .setStartDelay(1500)
+            .start()
 
         return view
     }

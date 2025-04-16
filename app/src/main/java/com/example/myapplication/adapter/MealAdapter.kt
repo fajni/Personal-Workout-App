@@ -13,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
@@ -54,9 +55,12 @@ class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<
 
         holder.mealTitle.text = mealsList[position].name.uppercase()
 
-        holder.textureImage.setImageResource(R.drawable.meal_drink)
-        if(mealsList[position].texture.equals("Food"))
-            holder.textureImage.setImageResource(R.drawable.meal_food)
+        holder.textureImage.setImageResource(R.drawable.meal_drink_symbol)
+        holder.mealTitle.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.discord_blue))
+        if(mealsList[position].texture.equals("Food")){
+            holder.textureImage.setImageResource(R.drawable.meal_food_symbol)
+            holder.mealTitle.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.discord_orange))
+        }
 
         if(mealsList[position].ingredients.toString().length > 43) {
             holder.mealIngredients.text = mealsList[position].ingredients.toString()

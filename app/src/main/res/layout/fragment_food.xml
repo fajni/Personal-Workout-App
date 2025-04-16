@@ -9,14 +9,16 @@
     tools:context=".fragments.FoodFragment"
 
     android:background="@color/discord_background_color"
-
-    android:padding="5pt"
     >
 
     <LinearLayout
         android:id="@+id/linearLayoutHistory"
 
-        android:layout_marginTop="0sp"
+        android:paddingTop="5sp"
+        android:paddingHorizontal="5sp"
+        android:paddingBottom="60sp"
+
+        android:background="@color/red"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="140dp"
 
         android:orientation="vertical"
 
@@ -107,6 +109,16 @@
             android:textStyle="normal"
             />
 
+        <ImageView
+            android:layout_width="120pt"
+            android:layout_height="120pt"
+
+            android:src="@drawable/no_values"
+
+            android:layout_gravity="center"
+
+            />
+
     </LinearLayout>
 
     <!-- Food -->
@@ -116,8 +128,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
+        android:paddingHorizontal="10sp"
+
         android:layout_marginStart="0dp"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="5dp"
         >
@@ -138,13 +152,15 @@
 
     <!-- CALCULATED/TARGET VALUES -->
     <TableLayout
+        android:id="@+id/caloriesTodayTableLayout"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:layout_marginHorizontal="15sp"
         android:padding="10pt"
 
-        android:background="@drawable/calories_today_border"
+        android:background="@drawable/calories_today_border_red"
 
         android:layout_gravity="top"
         android:layout_marginBottom="5pt"

@@ -1,22 +1,30 @@
 package com.example.myapplication.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.myapplication.utils.CurrentDate
 import com.example.myapplication.R
 import com.example.myapplication.data.models.AccountData
 import com.example.myapplication.data.viewmodel.AccountViewModel
 import com.example.myapplication.data.viewmodel.FoodViewModel
 import com.example.myapplication.data.viewmodel.WorkoutViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
 
@@ -48,11 +56,14 @@ class MainFragment : Fragment() {
     private lateinit var todayTraining: TextView
     private lateinit var todayMuscle: TextView
 
+    private lateinit var checkYourMacrosText: TextView
     private lateinit var noAccountValuesText: LinearLayout
     private lateinit var noValuesText: LinearLayout
-    private lateinit var foodValues: LinearLayout
+    private lateinit var foodValues: ScrollView
     private lateinit var noWorkoutValuesText: LinearLayout
     private lateinit var todayWorkout: LinearLayout
+
+    private lateinit var slideInImage: ImageView
 
     private fun initializeResources(view: View) {
 
@@ -77,11 +88,14 @@ class MainFragment : Fragment() {
         todayTraining = view.findViewById(R.id.todayTrainingTitle)
         todayMuscle = view.findViewById(R.id.todayMusclePart)
 
+        checkYourMacrosText = view.findViewById(R.id.checkYourMacrosText)
         noAccountValuesText = view.findViewById(R.id.noAccountValuesText)
         noValuesText = view.findViewById(R.id.noValuesText)
         noWorkoutValuesText = view.findViewById(R.id.noWorkoutValuesText)
         todayWorkout = view.findViewById(R.id.todayWorkoutValues)
         foodValues = view.findViewById(R.id.foodValues)
+
+        slideInImage = view.findViewById(R.id.slideInImage)
     }
 
 
@@ -129,6 +143,7 @@ class MainFragment : Fragment() {
             if(noValues){
                 noValuesText.isVisible = true
                 foodValues.isVisible = false
+                checkYourMacrosText.isVisible = false
             }
 
             updateProgressBars()
@@ -140,6 +155,7 @@ class MainFragment : Fragment() {
 
                 noAccountValuesText.isVisible = true
                 foodValues.isVisible = false
+                checkYourMacrosText.isVisible = false
             }
 
             myAccount = account
@@ -161,53 +177,64 @@ class MainFragment : Fragment() {
         progressBarFats.max = 0
 
         if (calories != 0 && myAccount != null) {
-            progressBarCalories.max = myAccount?.calories!!
-            progressBarCalories.progress = calories
 
             caloriesConsumed.setText(calories.toString() + " kcal")
             caloriesLeft.setText((myAccount?.calories!! - calories).toString() + " kcal")
 
-            println("Calories Max: " + progressBarCalories.max)
-            println("Calories Progress: " + progressBarCalories.progress)
+            progressBarCalories.max = myAccount?.calories!!
+            progressBarCalories.progress = calories
         }
 
         if (proteins != 0 && myAccount != null) {
-            progressBarProteins.max = myAccount?.proteins!!
-            progressBarProteins.progress = proteins
 
             proteinsConsumed.setText(proteins.toString() + " g")
             proteinsLeft.setText((myAccount?.proteins!! - proteins).toString() + " g")
 
-            println("Proteins Max: " + progressBarProteins.max)
-            println("Proteins Progress: " + progressBarProteins.progress)
+            progressBarProteins.max = myAccount?.proteins!!
+            progressBarProteins.progress = proteins
         }
 
         if (carbs != 0 && myAccount != null) {
-            progressBarCarbs.max = myAccount?.carbs!!
-            progressBarCarbs.progress = carbs
 
             carbsConsumed.setText(carbs.toString() + " g")
             carbsLeft.setText((myAccount?.carbs!! - carbs).toString() + " g")
 
-            println("Carbs Max: " + progressBarCarbs.max)
-            println("Carbs Progress: " + progressBarCarbs.progress)
+            progressBarCarbs.max = myAccount?.carbs!!
+            progressBarCarbs.progress = carbs
         }
 
         if (fats != 0 && myAccount != null) {
-            progressBarFats.max = myAccount?.fats!!
-            progressBarFats.progress = fats
 
             fatsConsumed.setText(fats.toString() + " g")
             fatsLeft.setText((myAccount?.fats!! - fats).toString() + " g")
 
-            println("Fats Max: " + progressBarFats.max)
-            println("Fats Progress: " + progressBarFats.progress)
+            progressBarFats.max = myAccount?.fats!!
+            progressBarFats.progress = fats
         }
 
         calories = 0
         proteins = 0
         carbs = 0
         fats = 0
+    }
+
+    private fun rightSideSlideImage() {
+
+        viewLifecycleOwner.lifecycleScope.launch {
+
+            // Slide In
+            delay(2000)
+            slideInImage.visibility = View.VISIBLE
+            val slideIn = AnimationUtils.loadAnimation(context, R.anim.slide_in)
+            slideInImage.startAnimation(slideIn)
+
+            // Slide out
+            delay(3000)
+            val slideOut = AnimationUtils.loadAnimation(context, R.anim.slide_out)
+            slideInImage.startAnimation(slideOut)
+            slideInImage.visibility = View.GONE
+
+        }
     }
 
     override fun onCreateView(
@@ -218,6 +245,8 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
         initializeResources(view)
+
+        rightSideSlideImage()
 
         setData()
 

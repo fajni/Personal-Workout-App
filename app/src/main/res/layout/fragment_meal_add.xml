@@ -3,16 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MealAddFragment"
 
-    android:paddingHorizontal="2pt"
-
-    android:background="@color/discord_background_color"
-    >
+    android:background="@color/discord_background_color">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:paddingBottom="40pt"
+        android:paddingHorizontal="2pt"
+
+        android:background="@color/dark_green"
 
         android:orientation="horizontal"
         >
@@ -51,18 +54,47 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="120pt"
+        android:layout_height="70pt"
+
+        android:layout_marginTop="15pt"
+
+        android:background="@drawable/border_green"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <ImageView
+        android:id="@+id/addMealImageView"
+
+        android:layout_marginTop="15pt"
+
+        android:layout_width="100pt"
+        android:layout_height="70pt"
+
+        android:src="@drawable/add_meal"
+
+        android:layout_gravity="center_horizontal"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:orientation="vertical"
 
-        android:layout_marginTop="30pt"
+        android:layout_marginTop="90pt"
+        android:paddingHorizontal="2pt"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
 
             android:orientation="horizontal"
             >
@@ -101,6 +133,11 @@
             android:layout_height="wrap_content"
 
             android:orientation="horizontal"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
             >
 
             <TextView
@@ -137,6 +174,11 @@
             android:layout_height="wrap_content"
 
             android:orientation="horizontal"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
             >
 
             <TextView
@@ -173,6 +215,11 @@
             android:layout_height="wrap_content"
 
             android:orientation="horizontal"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
             >
 
             <TextView
@@ -211,6 +258,11 @@
             android:orientation="horizontal"
 
             android:layout_marginTop="30sp"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
             >
 
             <TextView
@@ -247,6 +299,11 @@
             android:layout_height="wrap_content"
 
             android:orientation="horizontal"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
             >
 
             <TextView
@@ -283,6 +340,11 @@
             android:layout_height="wrap_content"
 
             android:orientation="horizontal"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
             >
 
             <TextView
@@ -319,6 +381,11 @@
             android:layout_height="wrap_content"
 
             android:orientation="horizontal"
+
+            android:layout_marginBottom="5sp"
+            android:paddingHorizontal="5pt"
+
+            android:background="@drawable/table_border"
             >
 
             <TextView
@@ -353,23 +420,24 @@
     </LinearLayout>
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMealSubmit"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="10pt"
+        android:layout_marginBottom="10sp"
 
         android:layout_gravity="bottom|center"
+
+        app:cornerRadius="10dp"
+
+        android:backgroundTint="@color/dark_green"
 
         android:text="SUBMIT"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="15sp"
-
-        android:background="@drawable/main_button"
-        android:backgroundTint="@color/dark_green"
         />
 
 </FrameLayout>

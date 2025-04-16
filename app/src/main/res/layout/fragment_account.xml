@@ -1,398 +1,436 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.AccountFragment"
+    android:layout_marginTop="5sp"
 
-    android:paddingHorizontal="2pt"
-    >
-    
+    android:paddingHorizontal="0pt"
+
+    tools:context=".fragments.AccountFragment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        
+
         android:layout_marginBottom="60sp"
-        
-        android:fillViewport="true"
-        >
+
+        android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
-            <!-- ACCOUNT TITLE -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginHorizontal="5pt"
+                android:layout_marginTop="0pt"
+
+                app:cardBackgroundColor="@color/discord_color2"
+
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+
+                    android:paddingHorizontal="10sp"
+
+                    android:paddingVertical="5sp">
+
+                    <ImageView
+                        android:layout_width="25pt"
+                        android:layout_height="25pt"
+
+                        android:layout_gravity="center_horizontal"
+
+                        android:src="@drawable/account"
+
+                        />
+
+                    <!-- ACCOUNT TITLE -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center"
+
+                        android:orientation="horizontal"
+
+                        android:paddingHorizontal="10sp">
+
+                        <EditText
+                            android:id="@+id/accountName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="1"
+                            android:hint="Enter account name"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/white"
+
+                            android:textColorHint="@color/white"
+                            android:textSize="18sp"
+
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15sp"
+
+                android:text="Macros"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:orientation="horizontal"
-                >
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/table_border"
 
-                <TextView
+                android:orientation="vertical"
+
+                android:paddingHorizontal="5pt">
+
+                <!-- ACCOUNT CALORIES -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Account: "
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                    android:orientation="horizontal">
 
-                    android:layout_weight="2"
-                    />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                <EditText
-                    android:id="@+id/accountName"
+                        android:layout_weight="2"
+                        android:text="Calories: "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/accountCalories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:hint="Enter calories"
+                        android:inputType="number"
+
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <!-- ACCOUNT PROTEINS -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                    android:orientation="horizontal">
 
-                    android:hint="Enter account name"
-                    android:textColorHint="@color/white"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                    android:layout_weight="1"
-                    />
+                        android:layout_weight="2"
+                        android:text="Proteins: "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/accountProteins"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:hint="Enter proteins"
+                        android:inputType="number"
+
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- ACCOUNT CARBS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="2"
+                        android:text="Carbs: "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/accountCarbs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:hint="Enter carbs"
+                        android:inputType="number"
+
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- ACCOUNT FATS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="2"
+                        android:text="Fats: "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/accountFats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:hint="Enter fats"
+                        android:inputType="number"
+
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+
+                        android:textSize="18sp" />
+                </LinearLayout>
 
             </LinearLayout>
 
-            <!-- ACCOUNT CALORIES -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15sp"
+
+                android:text="Max PRs"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="30sp"
+                android:layout_marginHorizontal="5sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/table_border"
 
-                android:orientation="horizontal"
-                >
+                android:orientation="vertical"
 
-                <TextView
+                android:paddingHorizontal="5pt">
+                <!-- ACCOUNT BENCH -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Calories: "
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                    android:orientation="horizontal">
 
-                    android:layout_weight="2"
-                    />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                <EditText
-                    android:id="@+id/accountCalories"
+                        android:layout_weight="1"
+                        android:text="MAX Bench: "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/accountBenchKg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:hint="Enter kg"
+                        android:inputType="number"
+
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/accountBenchReps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:hint="Enter reps"
+                        android:inputType="number"
+
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- ACCOUNT DEADLIFT -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                    android:orientation="horizontal">
 
-                    android:hint="Enter calories"
-                    android:textColorHint="@color/white"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                    android:layout_weight="1"
+                        android:layout_weight="1"
+                        android:text="MAX Deadlift: "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
 
-                    android:inputType="number"
-                    />
+                        android:textSize="18sp" />
 
-            </LinearLayout>
+                    <EditText
+                        android:id="@+id/accountDeadliftKg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-            <!-- ACCOUNT PROTEINS -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Enter kg"
+                        android:inputType="number"
 
-                android:layout_marginTop="0sp"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
 
-                android:orientation="horizontal"
-                >
+                        android:textColorHint="@color/white"
 
-                <TextView
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/accountDeadliftReps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:hint="Enter reps"
+                        android:inputType="number"
+
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- ACCOUNT SQUAD -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="Proteins: "
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                    android:orientation="horizontal">
 
-                    android:layout_weight="2"
-                    />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                <EditText
-                    android:id="@+id/accountProteins"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="MAX Squad: "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
 
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                        android:textSize="18sp" />
 
-                    android:hint="Enter proteins"
-                    android:textColorHint="@color/white"
+                    <EditText
+                        android:id="@+id/accountSquadKg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                    android:layout_weight="1"
+                        android:layout_weight="1"
+                        android:hint="Enter kg"
+                        android:inputType="number"
 
-                    android:inputType="number"
-                    />
-            </LinearLayout>
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
 
-            <!-- ACCOUNT CARBS -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
 
-                android:layout_marginTop="0sp"
+                        android:textSize="18sp" />
 
-                android:orientation="horizontal"
-                >
+                    <EditText
+                        android:id="@+id/accountSquadReps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Enter reps"
+                        android:inputType="number"
 
-                    android:text="Carbs: "
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
 
-                    android:layout_weight="2"
-                    />
+                        android:textColorHint="@color/white"
 
-                <EditText
-                    android:id="@+id/accountCarbs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter carbs"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <!-- ACCOUNT FATS -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="0sp"
-
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="Fats: "
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:layout_weight="2"
-                    />
-
-                <EditText
-                    android:id="@+id/accountFats"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter fats"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-
-            <!-- ACCOUNT BENCH -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="30sp"
-
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="MAX Bench: "
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:layout_weight="1"
-                    />
-
-                <EditText
-                    android:id="@+id/accountBenchKg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter kg"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
-
-                <EditText
-                    android:id="@+id/accountBenchReps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter reps"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <!-- ACCOUNT DEADLIFT -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="0sp"
-
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="MAX Deadlift: "
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:layout_weight="1"
-                    />
-
-                <EditText
-                    android:id="@+id/accountDeadliftKg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter kg"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
-
-                <EditText
-                    android:id="@+id/accountDeadliftReps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter reps"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
-            </LinearLayout>
-
-            <!-- ACCOUNT SQUAD -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_marginTop="0sp"
-
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:text="MAX Squad: "
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:layout_weight="1"
-                    />
-
-                <EditText
-                    android:id="@+id/accountSquadKg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter kg"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
-
-                <EditText
-                    android:id="@+id/accountSquadReps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
-                    android:hint="Enter reps"
-                    android:textColorHint="@color/white"
-
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
+                        android:textSize="18sp" />
+                </LinearLayout>
             </LinearLayout>
 
             <!-- ACCOUNT KG -->
@@ -400,7 +438,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="30sp"
+                android:layout_marginTop="25sp"
+                android:layout_marginHorizontal="5sp"
+                android:paddingHorizontal="5pt"
+
+                android:background="@drawable/table_border"
 
                 android:orientation="horizontal"
                 >
@@ -409,30 +451,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="KGs: "
-                    android:textSize="18sp"
+                    android:layout_weight="2"
+                    android:text="Current KGs: "
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
 
-                    android:layout_weight="2"
-                    />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/accountKg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:textSize="18sp"
+                    android:layout_weight="1"
+                    android:hint="Enter kg"
+                    android:inputType="number"
+
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
 
-                    android:hint="Enter kg"
                     android:textColorHint="@color/white"
 
-                    android:layout_weight="1"
-
-                    android:inputType="number"
-                    />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <!-- ACCOUNT DATE -->
@@ -440,7 +480,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginTop="30sp"
+                android:layout_marginTop="25sp"
+                android:layout_marginHorizontal="5sp"
+                android:paddingHorizontal="5pt"
+
+                android:background="@drawable/table_border"
 
                 android:orientation="horizontal"
                 >
@@ -449,28 +493,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
+                    android:layout_weight="2"
                     android:text="Update Date: "
-                    android:textSize="18sp"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
 
-                    android:layout_weight="2"
-                    />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/accountDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:textSize="18sp"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/white"
-
+                    android:layout_weight="1"
                     android:hint="dd/mm/yyyy"
+                    android:textAlignment="textStart"
+
+                    android:textColor="@color/white"
                     android:textColorHint="@color/white"
 
-                    android:layout_weight="1"
-                    />
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -480,48 +522,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:paddingHorizontal="10sp"
-        android:paddingVertical="2sp"
-
-        android:layout_marginBottom="10sp"
         android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10sp"
 
         android:orientation="horizontal"
-        >
+        android:paddingHorizontal="10sp"
 
-        <Button
+        android:paddingVertical="2sp">
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAccountDelete"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
-
-            android:text="DELETE"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_marginEnd="5sp"
 
-            android:backgroundTint="@color/red"
-            />
+            android:layout_weight="1"
 
-        <Button
+            android:backgroundTint="@color/red"
+            android:text="DELETE"
+            android:textColor="@color/white"
+
+            android:textStyle="bold"
+
+            app:cornerRadius="10sp" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAccountUpdateAdd"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_weight="1"
-
-            android:text="UPDATE"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
             android:layout_marginStart="5sp"
 
+            android:layout_weight="1"
+
             android:backgroundTint="@color/discord_blue"
-            />
+            android:text="UPDATE"
+            android:textColor="@color/white"
+
+            android:textStyle="bold"
+
+            app:cornerRadius="10sp" />
 
     </LinearLayout>
 

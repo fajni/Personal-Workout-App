@@ -14,9 +14,12 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.data.models.MealData
@@ -28,9 +31,12 @@ class MealInfoFragment(private var meal: MealData) : Fragment() {
 
     private lateinit var infoMealTitle: TextView
 
+    private lateinit var linearLayoutMealColor: LinearLayout
+    private lateinit var mealImageView: ImageView
+
     private lateinit var btnMealInfoClose: ImageButton
 
-    private lateinit var btnMealInfoDelete: Button
+    private lateinit var btnMealInfoDelete: ImageButton
     private lateinit var btnMealInfoUpdate: Button
 
     private lateinit var infoMealName: EditText
@@ -48,6 +54,9 @@ class MealInfoFragment(private var meal: MealData) : Fragment() {
         mealViewMealData = ViewModelProvider(this)[MealViewModel::class.java]
 
         infoMealTitle = view.findViewById(R.id.infoMealTitle)
+
+        linearLayoutMealColor = view.findViewById(R.id.linearLayoutMealColor)
+        mealImageView = view.findViewById(R.id.mealImageView)
 
         btnMealInfoClose = view.findViewById(R.id.btnMealInfoClose)
 
@@ -75,9 +84,16 @@ class MealInfoFragment(private var meal: MealData) : Fragment() {
         infoMealTitle.setText("Info for " + meal.name.uppercase())
 
         infoMealName.setText(meal.name)
-        infoMealTexture.setSelection(0)
-        if(meal.texture.equals("Food"))
-            infoMealTexture.setSelection(1)
+
+        // Drink = 0, Food = 1
+        infoMealTexture.setSelection(1)
+        if(meal.texture.equals("Drink")){
+            infoMealTexture.setSelection(0)
+            linearLayoutMealColor.setBackgroundResource(R.color.discord_blue)
+            mealImageView.setImageResource(R.drawable.meal_drink)
+            btnMealInfoUpdate.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.discord_blue))
+        }
+
         infoMealIngredients.setText(meal.ingredients)
         infoMealDesc.setText(meal.description)
         infoMealCalories.setText(meal.calories.toString())
@@ -162,6 +178,8 @@ class MealInfoFragment(private var meal: MealData) : Fragment() {
                     )
 
                     mealViewMealData.update(updateMeal)
+
+                    Toast.makeText(context, "Successfully update - " + infoMealName.text.toString().uppercase(), Toast.LENGTH_SHORT).show()
 
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.mainFrameLayout, MealFragment())

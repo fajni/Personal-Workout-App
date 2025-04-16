@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TableLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -16,14 +17,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.utils.CurrentDate
 import com.example.myapplication.R
 import com.example.myapplication.adapter.FoodAdapter
+import com.example.myapplication.data.models.AccountData
 import com.example.myapplication.data.models.FoodData
+import com.example.myapplication.data.viewmodel.AccountViewModel
 import com.example.myapplication.data.viewmodel.FoodViewModel
 
 class FoodFragment : Fragment() {
 
     private lateinit var foodViewModel: FoodViewModel
+    private lateinit var accountViewModel: AccountViewModel
 
     private lateinit var linearLayoutHistory: LinearLayout
+    private lateinit var caloriesTodayTableLayout: TableLayout
 
     private lateinit var caloriesValue: TextView
     private lateinit var proteinsValue: TextView
@@ -44,6 +49,28 @@ class FoodFragment : Fragment() {
 
             adapter.setCurrentData(foodList)
             calculateValues(foodList)
+        })
+
+        accountViewModel.readAccount.observe(viewLifecycleOwner, Observer { account ->
+
+            if (account != null) {
+
+                val calories = caloriesValue.text.toString().replace(" kcal", "").toInt()
+                val proteins = proteinsValue.text.toString().replace(" g", "").toInt()
+                val carbs = carbsValue.text.toString().replace(" g", "").toInt()
+                val fats = fatsValue.text.toString().replace(" g", "").toInt()
+
+                if(
+                    calories > account.calories!! &&
+                    proteins > account.proteins!! &&
+                    carbs > account.carbs!! &&
+                    fats > account.fats!!
+                    ){
+                    linearLayoutHistory.setBackgroundResource(R.color.dark_green)
+                    caloriesTodayTableLayout.setBackgroundResource(R.drawable.calories_today_border_green)
+                }
+            }
+
         })
 
         foodRecyclerView.adapter = adapter
@@ -95,6 +122,7 @@ class FoodFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_food, container, false)
 
         linearLayoutHistory = view.findViewById<LinearLayout>(R.id.linearLayoutHistory)
+        caloriesTodayTableLayout = view.findViewById<TableLayout>(R.id.caloriesTodayTableLayout)
 
         caloriesValue = view.findViewById<TextView>(R.id.caloriesValue)
         proteinsValue = view.findViewById<TextView>(R.id.proteinsValue)
@@ -109,12 +137,11 @@ class FoodFragment : Fragment() {
         foodRecyclerView.setHasFixedSize(true)
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
+        accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
 
         // Set ADD Button to VISIBLE
         val addBtn = requireActivity().findViewById<ImageButton>(R.id.addBtn)
         addBtn.isVisible = true
-
-        // TODO: set outline for progressTable to red if (calories < account.calories)
 
         setData()
 

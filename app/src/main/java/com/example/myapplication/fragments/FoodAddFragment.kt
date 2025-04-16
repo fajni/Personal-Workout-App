@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
@@ -99,8 +100,6 @@ class FoodAddFragment : Fragment() {
         fatsValue = view.findViewById<EditText>(R.id.addFatsValue)
         fibersValue = view.findViewById<EditText>(R.id.addFiberValue)
 
-        val addValues = view.findViewById<TextView>(R.id.addValues)
-
         val time = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy")
         date = formatter.format(time)
@@ -123,8 +122,6 @@ class FoodAddFragment : Fragment() {
                     date = date
                 )
 
-                addValues.text = data.toString()
-
                 insertDataToDatabase(data)
 
                 clearFields()
@@ -146,6 +143,12 @@ class FoodAddFragment : Fragment() {
                 .replace(R.id.mainFrameLayout, FoodFragment())
                 .commit()
         }
+
+        view.findViewById<ImageView>(R.id.addMealImageView).animate()
+            .rotationYBy(360f)
+            .setDuration(1800)
+            .setStartDelay(1500)
+            .start()
 
         // Set ADD Button to VISIBLE
         val addBtn = requireActivity().findViewById<ImageButton>(R.id.addBtn)

@@ -10,7 +10,7 @@
 
     app:cardCornerRadius="15dp"
 
-    app:cardElevation="10dp"
+    app:cardElevation="2dp"
 
     android:background="@color/discord_color3"
     >
@@ -245,7 +245,7 @@
         android:orientation="horizontal"
         >
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDelete"
 
             android:layout_width="wrap_content"
@@ -253,19 +253,22 @@
 
             android:layout_marginHorizontal="15sp"
 
-            android:drawableLeft="@drawable/delete"
-            android:drawableTint="@color/white"
+            app:cornerRadius="10sp"
+
+            app:icon="@drawable/delete"
+            app:iconTint="@color/white"
+            app:iconGravity="start"
 
             android:text="DELETE"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textSize="10sp"
 
             android:backgroundTint="@color/red"
             />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDetails"
 
             android:layout_width="wrap_content"
@@ -273,8 +276,10 @@
 
             android:layout_marginHorizontal="15sp"
 
-            android:drawableLeft="@drawable/more"
-            android:drawableTint="@color/white"
+            app:cornerRadius="10sp"
+
+            app:icon="@drawable/more"
+            app:iconTint="@color/white"
 
             android:text="DETAILS"
             android:textStyle="bold"

@@ -3,17 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/discord_background_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:padding="2pt"
+    tools:context=".fragments.MealInfoFragment"
 
-    tools:context=".fragments.MealInfoFragment">
+    android:background="@color/discord_background_color">
+
 
     <LinearLayout
+
+        android:id="@+id/linearLayoutMealColor"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:orientation="horizontal">
+        android:paddingHorizontal="2pt"
+        android:paddingBottom="40pt"
+
+        android:background="@color/discord_orange"
+
+        android:orientation="horizontal"
+        >
 
         <ImageButton
             android:id="@+id/btnMealInfoClose"
@@ -24,7 +34,9 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
 
-            android:paddingHorizontal="15sp"
+            android:layout_gravity="center"
+
+            android:paddingHorizontal="20sp"
             android:paddingVertical="5sp"
 
             android:src="@drawable/close" />
@@ -37,9 +49,10 @@
 
             android:layout_gravity="center"
 
-            android:layout_marginStart="20sp"
+            android:layout_marginStart="15sp"
 
-            android:layout_weight="1"
+            android:layout_weight="2"
+
             android:text="Meal Info"
             android:textAlignment="textStart"
             android:textColor="@color/white"
@@ -47,13 +60,184 @@
 
             android:textStyle="bold" />
 
+        <ImageButton
+            android:id="@+id/btnMealInfoDelete"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+
+            android:paddingHorizontal="20sp"
+            android:paddingVertical="5sp"
+
+            android:src="@drawable/delete_bin" />
+
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30pt"
+        android:layout_marginHorizontal="5pt"
+
+        app:cardBackgroundColor="@color/discord_color2"
+
+        app:cardElevation="5dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+
+            android:paddingEnd="10sp"
+
+            android:paddingVertical="5sp"
+            >
+
+            <ImageView
+
+                android:id="@+id/mealImageView"
+
+                android:layout_width="45pt"
+                android:layout_height="50pt"
+
+                android:src="@drawable/meal_food"
+
+                android:background="@android:color/transparent"
+
+                android:layout_gravity="start|center"
+
+                android:layout_weight="1"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="100"
+
+                android:layout_gravity="center_vertical"
+
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="2"
+
+                        android:text="Name: "
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/infoMealName"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+
+                        android:hint="Enter new title"
+                        android:textColor="@color/white"
+
+                        android:textColorHint="@color/white"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="2"
+
+                        android:text="Texture: "
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/infoMealTexture"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+
+                        android:popupBackground="@color/discord_color3"
+
+                        tools:listitem="@layout/item_dropdown" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:text="Desc: "
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+
+                        android:layout_weight="2"
+                        />
+
+                    <EditText
+                        android:id="@+id/infoMealDesc"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:hint="Enter new description"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+
+                        android:inputType="text"
+
+                        android:layout_weight="1"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="30pt"
+        android:layout_marginTop="90pt"
+
+        android:paddingHorizontal="5sp"
 
         android:orientation="vertical">
 
@@ -61,69 +245,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="2"
-
-                android:text="Name: "
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/infoMealName"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:hint="Enter new title"
-                android:textColor="@color/white"
-
-                android:textColorHint="@color/white"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="2"
-
-                android:text="Texture: "
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/infoMealTexture"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-
-                android:popupBackground="@color/discord_color3"
-
-                tools:listitem="@layout/item_dropdown" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
 
             android:orientation="horizontal">
 
@@ -153,48 +275,28 @@
                 android:textColorHint="@color/white" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:text="Description: "
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-
-                android:layout_weight="2"
-                />
-
-            <EditText
-                android:id="@+id/infoMealDesc"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:hint="Enter new description"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-
-                android:inputType="text"
-
-                android:layout_weight="1"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="horizontal"
-
+        <TextView
             android:layout_marginTop="30sp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Meal Macros"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+
+            android:layout_marginTop="10sp"
             >
 
             <TextView
@@ -334,55 +436,30 @@
 
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:paddingHorizontal="10sp"
-        android:paddingVertical="2sp"
-
-        android:paddingEnd="40pt"
-
-        android:layout_marginBottom="10sp"
-        android:layout_gravity="bottom|center_horizontal"
-
-        android:orientation="horizontal"
-        >
-
-        <Button
-            android:id="@+id/btnMealInfoDelete"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_weight="1"
-
-            android:text="DELETE"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-
-            android:layout_marginEnd="5sp"
-
-            android:backgroundTint="@color/red"
-            />
-
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMealInfoUpdate"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
 
-            android:layout_weight="1"
+            android:layout_marginTop="15sp"
+
+            android:paddingEnd="33dp"
+
+            app:cornerRadius="10dp"
+
+            app:icon="@drawable/update_pen"
+            app:iconTint="@color/white"
+            app:iconGravity="start"
+            app:iconSize="20sp"
 
             android:text="UPDATE"
             android:textStyle="bold"
             android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textAlignment="center"
 
-            android:layout_marginStart="5sp"
-
-            android:backgroundTint="@color/discord_blue"
+            android:backgroundTint="@color/discord_orange"
             />
 
     </LinearLayout>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +21,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
 
     private lateinit var foodViewModel: FoodViewModel
+
+    private lateinit var infoMealTitle: TextView
 
     private lateinit var title: EditText
     private lateinit var calories: EditText
@@ -35,6 +38,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
 
     private fun setFields() {
 
+        infoMealTitle.setText("Info for " + foodData.title!!.uppercase())
         title.setText(foodData.title!!)
         calories.setText(foodData.calories!!.toString())
         proteins.setText(foodData.proteins!!.toString())
@@ -89,6 +93,8 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
         val view = inflater.inflate(R.layout.fragment_update_food, container, false)
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
+
+        infoMealTitle = view.findViewById(R.id.infoMealTitle)
 
         title = view.findViewById(R.id.updateFoodTitle)
         calories = view.findViewById(R.id.updateFoodCalories)

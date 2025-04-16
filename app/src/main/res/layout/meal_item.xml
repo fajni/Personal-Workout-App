@@ -51,14 +51,14 @@
         <ImageView
             android:id="@+id/textureImage"
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
 
             android:layout_weight="1"
 
             android:layout_gravity="center_horizontal|center_vertical"
 
-            android:src="@drawable/meal_food"
+            android:src="@drawable/meal_food_symbol"
             />
 
         <!-- INGREDIENTS -->

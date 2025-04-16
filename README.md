@@ -23,20 +23,22 @@ Pics of the app's user interface:
 
 <details>
 <summary>Click for images</summary>
-<img src = "./images/SplashScreen.png" width = 180>
-<img src = "./images/Home.png" width = 180>
-<img src = "./images/Nutrients.png" width = 180>
-<img src = "./images/History.png" width = 180>
-<img src = "./images/AddNutrients.png" width = 180>
-<img src = "./images/NutrientsInfo.png" width = 180>
-<img src = "./images/AddAccount.png" width = 180>
-<img src = "./images/Account.png" width = 180>
-<img src = "./images/Workout.png" width = 180>
-<img src = "./images/WorkoutAdd.png" width = 180>
-<img src = "./images/WorkoutUpdate.png" width = 180>
-<img src = "./images/Settings.png" width = 180>
-<img src = "./images/Meals.png" width = 180>
-<img src = "./images/MealsInfo.png" width = 180>
+<img src = "./screenshots/SplashScreen.png" width = 180>
+<img src = "./screenshots/Home.png" width = 180>
+<img src = "./screenshots/Nutrients.png" width = 180>
+<img src = "./screenshots/History.png" width = 180>
+<img src = "./screenshots/AddNutrients.png" width = 180>
+<img src = "./screenshots/NutrientsInfo.png" width = 180>
+<img src = "./screenshots/AddAccount.png" width = 180>
+<img src = "./screenshots/Account.png" width = 180>
+<img src = "./screenshots/Workout.png" width = 180>
+<img src = "./screenshots/WorkoutAdd.png" width = 180/>
+<img src = "./screenshots/WorkoutUpdate.png" width = 180>
+<img src = "./screenshots/Settings.png" width = 180>
+<img src = "./screenshots/Meals.png" width = 180>
+<img src = "./screenshots/MealsAdd.png" width = 180>
+<img src = "./screenshots/MealsInfoFood.png" width = 180>
+<img src = "./screenshots/MealsInfoDrink.png" width = 180>
 </details>
 
 ### Tables
