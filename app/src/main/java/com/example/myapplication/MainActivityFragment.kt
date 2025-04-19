@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.myapplication.fragments.AccountFragment
 import com.example.myapplication.fragments.FoodAddFragment
 import com.example.myapplication.fragments.FoodFragment
@@ -20,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivityFragment : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var swipeRefresh: SwipeRefreshLayout
 
     private fun setCurrentFragment(fragment: Fragment, icon: Int) {
 
@@ -54,6 +56,49 @@ class MainActivityFragment : AppCompatActivity() {
         currentData.text = "TODAY: " + CurrentDate().getCurrentDate() + " - " + CurrentDate().getCurrentDay()
     }
 
+    private fun refreshFragment() {
+
+        swipeRefresh.setOnRefreshListener {
+
+            val currentFragment: Fragment? = supportFragmentManager.findFragmentById(R.id.mainFrameLayout)
+
+            when(currentFragment) {
+
+                is MainFragment -> {
+                    Toast.makeText(applicationContext, "Home Refreshed!", Toast.LENGTH_SHORT).show()
+                    setCurrentFragment(MainFragment(), R.id.home)
+                }
+
+                is FoodFragment -> {
+                    Toast.makeText(applicationContext, "Foods Refreshed!", Toast.LENGTH_SHORT).show()
+                    setCurrentFragment(FoodFragment(), R.id.foods)
+                }
+
+                is AccountFragment -> {
+                    Toast.makeText(applicationContext, "Account Refreshed!", Toast.LENGTH_SHORT).show()
+                    setCurrentFragment(AccountFragment(), R.id.home)
+                }
+
+                is MealFragment -> {
+                    Toast.makeText(applicationContext, "Meals Refreshed!", Toast.LENGTH_SHORT).show()
+                    setCurrentFragment(MealFragment(), R.id.meals)
+                }
+
+                is WorkoutFragment -> {
+                    Toast.makeText(applicationContext, "Workout Refreshed!", Toast.LENGTH_SHORT).show()
+                    setCurrentFragment(WorkoutFragment(), R.id.workout)
+                }
+
+                else -> {
+                    Toast.makeText(applicationContext, "Couldn't Refresh!", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            swipeRefresh.isRefreshing = false
+        }
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -62,9 +107,12 @@ class MainActivityFragment : AppCompatActivity() {
 
         setContentView(R.layout.activity_main_fragment)
 
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        swipeRefresh = findViewById(R.id.swipeRefresh)
+
         setDateTitle()
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        refreshFragment()
 
         val mainFragment = MainFragment()
         val foodFragment = FoodFragment()

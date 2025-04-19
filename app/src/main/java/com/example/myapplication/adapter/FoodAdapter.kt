@@ -49,7 +49,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        holder.title.text = foodList[position].title?.uppercase() + " / No." + foodList[position].number.toString()
+        holder.title.text = foodList[position].title?.uppercase() + " g/ml" + " - No." + foodList[position].number.toString()
         holder.calories.text = foodList[position].calories.toString() + "kcal"
         holder.proteins.text = foodList[position].proteins.toString() + "g"
         holder.carbs.text = foodList[position].carbs.toString() + "g"

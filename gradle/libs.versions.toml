@@ -17,10 +17,12 @@ navigationUiKtx = "2.8.8"
 lifecycleLivedataKtx = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
 roomCompiler = "2.6.1"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

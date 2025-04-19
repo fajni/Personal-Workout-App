@@ -5,25 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivityFragment"
-
     android:background="@color/discord_background_color"
-    >
+
+    tools:context=".MainActivityFragment">
 
     <LinearLayout
         android:id="@+id/mainActivityTitle"
 
-        app:layout_constraintTop_toTopOf="parent"
-
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        android:paddingHorizontal="20sp"
+        android:layout_height="wrap_content"
+        android:background="@color/discord_color1"
 
         android:orientation="horizontal"
 
-        android:background="@color/discord_color1"
-        >
+        android:paddingHorizontal="20sp"
+
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/date"
@@ -31,17 +29,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:paddingTop="0sp"
-
-            android:text="TODAY's DATE"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-
             android:layout_gravity="center|left"
 
             android:layout_weight="1"
-            />
+            android:paddingTop="0sp"
+            android:text="TODAY's DATE"
+            android:textColor="@color/white"
+
+            android:textSize="20sp"
+
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/settings"
@@ -51,68 +48,80 @@
 
             android:layout_weight="1"
 
-            android:src="@drawable/settings_outlined"
+            android:backgroundTint="@android:color/transparent"
 
             android:paddingHorizontal="30sp"
 
-            android:backgroundTint="@android:color/transparent"
+            android:src="@drawable/settings_outlined"
 
             />
 
     </LinearLayout>
 
-    <FrameLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
 
-        android:id="@+id/mainFrameLayout"
-
-        app:layout_constraintTop_toBottomOf="@id/mainActivityTitle"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-
-        android:layout_marginTop="0pt"
-
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        />
+
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainActivityTitle"
+
+        >
+
+        <FrameLayout
+
+            android:id="@+id/mainFrameLayout"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_marginTop="0pt"
+
+            app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+            app:layout_constraintTop_toBottomOf="@id/mainActivityTitle" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
 
         android:id="@+id/bottomNavigationView"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
+        android:layout_height="wrap_content"
         android:background="@color/discord_color1"
 
-        app:menu="@menu/bottom_nav_menu"
+        app:itemActiveIndicatorStyle="@null"
 
         app:itemIconTint="@color/white"
-        app:itemActiveIndicatorStyle="@null"
-        app:itemTextColor="@color/white"
-        app:itemTextAppearanceActiveBoldEnabled="true"
+
         app:itemRippleColor="@null"
-        />
+        app:itemTextAppearanceActiveBoldEnabled="true"
+        app:itemTextColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
     <ImageButton
         android:id="@+id/addBtn"
 
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
         android:layout_marginRight="5pt"
         android:layout_marginBottom="5pt"
 
-        android:padding="4pt"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:src="@drawable/add"
-
         android:background="@drawable/add_button_border"
 
         android:focusable="true"
-        />
+        android:padding="4pt"
+
+        android:src="@drawable/add"
+
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
+
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
