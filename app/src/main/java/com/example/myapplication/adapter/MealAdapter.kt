@@ -29,7 +29,9 @@ import com.example.myapplication.utils.CurrentDate
 
 */
 
-class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<MealAdapter.MyViewHolder>() {
+class MealAdapter : RecyclerView.Adapter<MealAdapter.MyViewHolder>() {
+
+    private var mealsList = ArrayList<MealData>()
 
     // individual element
     class MyViewHolder(mealView: View) : RecyclerView.ViewHolder(mealView) {
@@ -62,15 +64,11 @@ class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<
             holder.mealTitle.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.discord_orange))
         }
 
+        mealsList[position].ingredients.toString().replace("[", "").replace("]","")
         if(mealsList[position].ingredients.toString().length > 43) {
-            holder.mealIngredients.text = mealsList[position].ingredients.toString()
-                .replace("[", "")
-                .replace("]", "")
-                .substring(0, 40) + "..."
+            holder.mealIngredients.text = mealsList[position].ingredients.toString().substring(0, 40) + "..."
         } else {
             holder.mealIngredients.text = mealsList[position].ingredients.toString()
-                .replace("[", "")
-                .replace("]", "")
         }
 
         holder.mealCalories.text = mealsList[position].calories.toString() + " kcal"
@@ -132,6 +130,12 @@ class MealAdapter(private var mealsList: List<MealData>) : RecyclerView.Adapter<
                 .show()
         }
 
+    }
+
+    public fun setData(list: ArrayList<MealData>) {
+
+        this.mealsList = list
+        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {

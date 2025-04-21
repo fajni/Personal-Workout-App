@@ -46,13 +46,6 @@ class MainFragment : Fragment() {
     private lateinit var fatsConsumed: TextView
     private lateinit var fatsLeft: TextView
 
-    private var calories: Int = 0
-    private var proteins: Int = 0
-    private var carbs: Int = 0
-    private var fats: Int = 0
-
-    private var myAccount: AccountData? = null
-
     private lateinit var todayTraining: TextView
     private lateinit var todayMuscle: TextView
 
@@ -101,8 +94,17 @@ class MainFragment : Fragment() {
 
     private fun setData() {
 
-        todayTraining.setText("")
-        todayMuscle.setText("")
+        todayTraining.setText("/")
+        todayMuscle.setText("/")
+
+        progressBarCalories.progress = 0
+        progressBarCalories.max = 0
+        progressBarProteins.progress = 0
+        progressBarProteins.max = 0
+        progressBarCarbs.progress = 0
+        progressBarCarbs.max = 0
+        progressBarFats.progress = 0
+        progressBarFats.max = 0
 
         workoutViewModel.readWorkouts.observe(viewLifecycleOwner, Observer { workouts ->
 
@@ -127,6 +129,11 @@ class MainFragment : Fragment() {
 
             var noValues: Boolean = true
 
+            var calories: Int = 0
+            var proteins: Int = 0
+            var carbs: Int = 0
+            var fats: Int = 0
+
             val currentDate: String = CurrentDate().getCurrentDate()
 
             for (food in foods) {
@@ -141,84 +148,54 @@ class MainFragment : Fragment() {
             }
 
             if(noValues){
+
                 noValuesText.isVisible = true
                 foodValues.isVisible = false
                 checkYourMacrosText.isVisible = false
             }
+            else {
 
-            updateProgressBars()
-        })
+                caloriesConsumed.setText(calories.toString() + " kcal")
+                proteinsConsumed.setText(proteins.toString() + " g")
+                carbsConsumed.setText(carbs.toString() + " g")
+                fatsConsumed.setText(fats.toString() + " g")
 
-        accountViewModel.readAccount.observe(viewLifecycleOwner, Observer { account ->
+                accountViewModel.readAccount.observe(viewLifecycleOwner, Observer { account ->
 
-            if(account == null) {
+                    if(account == null) {
 
-                noAccountValuesText.isVisible = true
-                foodValues.isVisible = false
-                checkYourMacrosText.isVisible = false
+                        noAccountValuesText.isVisible = true
+                        foodValues.isVisible = false
+                        checkYourMacrosText.isVisible = false
+                    }
+                    else {
+
+                        caloriesLeft.setText((account.calories!! - calories).toString() + " kcal")
+                        proteinsLeft.setText((account.proteins!! - proteins).toString() + " g")
+                        carbsLeft.setText((account.carbs!! - carbs).toString() + " g")
+                        fatsLeft.setText((account.fats!! - fats).toString() + " g")
+
+                        progressBarCalories.max = account.calories!!
+                        progressBarCalories.progress = calories
+
+                        progressBarProteins.max = account.proteins!!
+                        progressBarProteins.progress = proteins
+
+                        progressBarCarbs.max = account.carbs!!
+                        progressBarCarbs.progress = carbs
+
+                        progressBarFats.max = account.fats!!
+                        progressBarFats.progress = fats
+                    }
+
+                })
+
             }
 
-            myAccount = account
-
-            updateProgressBars()
         })
-
     }
 
-    private fun updateProgressBars() {
-
-        progressBarCalories.progress = 0
-        progressBarCalories.max = 0
-        progressBarProteins.progress = 0
-        progressBarProteins.max = 0
-        progressBarCarbs.progress = 0
-        progressBarCarbs.max = 0
-        progressBarFats.progress = 0
-        progressBarFats.max = 0
-
-        if (calories != 0 && myAccount != null) {
-
-            caloriesConsumed.setText(calories.toString() + " kcal")
-            caloriesLeft.setText((myAccount?.calories!! - calories).toString() + " kcal")
-
-            progressBarCalories.max = myAccount?.calories!!
-            progressBarCalories.progress = calories
-        }
-
-        if (proteins != 0 && myAccount != null) {
-
-            proteinsConsumed.setText(proteins.toString() + " g")
-            proteinsLeft.setText((myAccount?.proteins!! - proteins).toString() + " g")
-
-            progressBarProteins.max = myAccount?.proteins!!
-            progressBarProteins.progress = proteins
-        }
-
-        if (carbs != 0 && myAccount != null) {
-
-            carbsConsumed.setText(carbs.toString() + " g")
-            carbsLeft.setText((myAccount?.carbs!! - carbs).toString() + " g")
-
-            progressBarCarbs.max = myAccount?.carbs!!
-            progressBarCarbs.progress = carbs
-        }
-
-        if (fats != 0 && myAccount != null) {
-
-            fatsConsumed.setText(fats.toString() + " g")
-            fatsLeft.setText((myAccount?.fats!! - fats).toString() + " g")
-
-            progressBarFats.max = myAccount?.fats!!
-            progressBarFats.progress = fats
-        }
-
-        calories = 0
-        proteins = 0
-        carbs = 0
-        fats = 0
-    }
-
-    private fun rightSideSlideImage() {
+    private fun imageSlide() {
 
         viewLifecycleOwner.lifecycleScope.launch {
 
@@ -246,7 +223,7 @@ class MainFragment : Fragment() {
 
         initializeResources(view)
 
-        rightSideSlideImage()
+        imageSlide()
 
         setData()
 

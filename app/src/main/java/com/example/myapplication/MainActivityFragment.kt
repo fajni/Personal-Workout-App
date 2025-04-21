@@ -2,12 +2,12 @@ package com.example.myapplication
 
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.myapplication.fragments.AccountFragment
 import com.example.myapplication.fragments.FoodAddFragment
 import com.example.myapplication.fragments.FoodFragment
@@ -21,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivityFragment : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
-    private lateinit var swipeRefresh: SwipeRefreshLayout
+    private lateinit var refreshImage: ImageView
 
     private fun setCurrentFragment(fragment: Fragment, icon: Int) {
 
@@ -58,7 +58,7 @@ class MainActivityFragment : AppCompatActivity() {
 
     private fun refreshFragment() {
 
-        swipeRefresh.setOnRefreshListener {
+        refreshImage.setOnClickListener {
 
             val currentFragment: Fragment? = supportFragmentManager.findFragmentById(R.id.mainFrameLayout)
 
@@ -93,8 +93,6 @@ class MainActivityFragment : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Couldn't Refresh!", Toast.LENGTH_SHORT).show()
                 }
             }
-
-            swipeRefresh.isRefreshing = false
         }
 
     }
@@ -108,7 +106,7 @@ class MainActivityFragment : AppCompatActivity() {
         setContentView(R.layout.activity_main_fragment)
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
-        swipeRefresh = findViewById(R.id.swipeRefresh)
+        refreshImage = findViewById(R.id.swipeRefresh)
 
         setDateTitle()
 

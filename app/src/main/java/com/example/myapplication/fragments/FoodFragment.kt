@@ -51,6 +51,8 @@ class FoodFragment : Fragment() {
             calculateValues(foodList)
         })
 
+        foodRecyclerView.adapter = adapter
+
         accountViewModel.readAccount.observe(viewLifecycleOwner, Observer { account ->
 
             if (account != null) {
@@ -66,14 +68,11 @@ class FoodFragment : Fragment() {
                     carbs > account.carbs!! &&
                     fats > account.fats!!
                     ){
-                    linearLayoutHistory.setBackgroundResource(R.color.dark_green)
                     caloriesTodayTableLayout.setBackgroundResource(R.drawable.calories_today_border_green)
                 }
             }
 
         })
-
-        foodRecyclerView.adapter = adapter
     }
 
     private fun calculateValues(list: List<FoodData>) {

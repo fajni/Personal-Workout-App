@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.utils.CurrentDate
 import com.example.myapplication.R
@@ -94,8 +95,16 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
                     Toast.makeText(holder.itemView.context, "DELETED - " + foodList[position].title, Toast.LENGTH_SHORT).show()
 
                     foodViewModel.deleteFood(foodList[position])
-                    foodList.removeAt(position)
+
+                    foodViewModel.readAllData.observe(holder.itemView.context as AppCompatActivity) { foods ->
+                        foodList = foods as ArrayList<FoodData>
+                    }
+
+                    // Doesn't work sometimes
+                    // foodList.removeAt(position)
+
                     notifyItemRemoved(position)
+                    notifyItemChanged(position)
                 }
 
                 .setNegativeButton(negativeSpan) { dialog, id ->

@@ -47,6 +47,8 @@ class MealFragment : Fragment() {
 
     private fun setData() {
 
+        val adapter = MealAdapter()
+
         mealViewModel.readAllMeals.observe(viewLifecycleOwner, Observer { mealsList ->
 
             if(mealsList.isEmpty()) {
@@ -59,9 +61,11 @@ class MealFragment : Fragment() {
                 noValuesText.isVisible = false
                 mealsLayout.isVisible = true
 
-                mealsRecyclerView.adapter = MealAdapter(mealsList)
+                adapter.setData(mealsList as ArrayList<MealData>)
             }
         })
+
+        mealsRecyclerView.adapter = adapter
 
         btnAddMeal.setOnClickListener {
             parentFragmentManager.beginTransaction()
