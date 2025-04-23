@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
@@ -90,7 +89,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_update_food, container, false)
+        val view = inflater.inflate(R.layout.fragment_food_update, container, false)
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 

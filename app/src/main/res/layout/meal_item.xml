@@ -101,7 +101,7 @@
     <!-- HORIZONTAL LINE -->
     <View
 
-        android:layout_marginTop="85sp"
+        android:layout_marginTop="85dp"
         android:layout_marginHorizontal="5pt"
 
         android:layout_width="match_parent"
@@ -265,7 +265,7 @@
 
     <!-- HORIZONTAL LINE -->
     <View
-        android:layout_marginTop="143sp"
+        android:layout_marginTop="135dp"
         android:layout_marginHorizontal="5pt"
 
         android:layout_width="match_parent"
@@ -279,12 +279,14 @@
 
         android:id="@+id/linearLayoutAddMealToMacros"
 
-        android:layout_marginTop="150sp"
+        android:layout_marginTop="140dp"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:orientation="horizontal"
+
+        android:paddingVertical="5dp"
 
         android:layout_marginHorizontal="15sp"
         android:layout_marginBottom="5sp"

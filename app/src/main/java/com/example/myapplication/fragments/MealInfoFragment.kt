@@ -95,6 +95,12 @@ class MealInfoFragment(private var meal: MealData) : Fragment() {
         }
 
         infoMealIngredients.setText(meal.ingredients)
+//        if(meal.ingredients.length > 40) {
+//            infoMealIngredients.setText(meal.ingredients.chunked(40).joinToString("\n"))
+//            println("Ingredients: "+infoMealIngredients.text)
+//            println("toString(): "+infoMealIngredients.text.toString())
+//        }
+
         infoMealDesc.setText(meal.description)
         infoMealCalories.setText(meal.calories.toString())
         infoMealProteins.setText(meal.proteins.toString())

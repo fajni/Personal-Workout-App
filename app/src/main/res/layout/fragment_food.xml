@@ -14,9 +14,9 @@
     <LinearLayout
         android:id="@+id/linearLayoutHistory"
 
-        android:paddingTop="5sp"
-        android:paddingHorizontal="5sp"
-        android:paddingBottom="60sp"
+        android:paddingTop="10dp"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="50dp"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingRight="25sp"
-            android:paddingLeft="25sp"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
 
             android:src="@drawable/history_outlined"
 
@@ -59,8 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:paddingRight="25sp"
-            android:paddingLeft="25sp"
+            android:paddingRight="15dp"
+            android:paddingLeft="25dp"
 
             android:src="@drawable/right_arrow"
 
@@ -126,7 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:paddingHorizontal="10sp"
+        android:paddingHorizontal="10dp"
 
         android:layout_marginStart="0dp"
         android:layout_marginTop="140dp"
@@ -155,14 +155,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginHorizontal="15sp"
+        android:layout_marginHorizontal="15dp"
         android:padding="10pt"
 
         android:background="@drawable/calories_today_border_red"
 
         android:layout_gravity="top"
         android:layout_marginBottom="5pt"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="45dp"
         >
 
         <TableRow

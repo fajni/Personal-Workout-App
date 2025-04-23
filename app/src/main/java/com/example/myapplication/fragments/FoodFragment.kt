@@ -70,6 +70,9 @@ class FoodFragment : Fragment() {
                     ){
                     caloriesTodayTableLayout.setBackgroundResource(R.drawable.calories_today_border_green)
                 }
+                else {
+                    caloriesTodayTableLayout.setBackgroundResource(R.drawable.calories_today_border_red)
+                }
             }
 
         })

@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import com.example.myapplication.fragments.AccountFragment
 import com.example.myapplication.fragments.FoodAddFragment
@@ -76,7 +77,7 @@ class MainActivityFragment : AppCompatActivity() {
 
                 is AccountFragment -> {
                     Toast.makeText(applicationContext, "Account Refreshed!", Toast.LENGTH_SHORT).show()
-                    setCurrentFragment(AccountFragment(), R.id.home)
+                    setCurrentFragment(AccountFragment(), R.id.account)
                 }
 
                 is MealFragment -> {

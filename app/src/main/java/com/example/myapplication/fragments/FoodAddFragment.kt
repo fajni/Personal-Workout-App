@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
@@ -85,7 +84,7 @@ class FoodAddFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_add_food, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_food_add, container, false)
 
         foodViewModel = ViewModelProvider(this)[FoodViewModel::class.java]
 

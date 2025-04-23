@@ -65,8 +65,10 @@ class MealAdapter : RecyclerView.Adapter<MealAdapter.MyViewHolder>() {
         }
 
         mealsList[position].ingredients.toString().replace("[", "").replace("]","")
-        if(mealsList[position].ingredients.toString().length > 43) {
-            holder.mealIngredients.text = mealsList[position].ingredients.toString().substring(0, 40) + "..."
+        if(mealsList[position].ingredients.toString().length > 43 || mealsList[position].ingredients.toString().contains("\n")) {
+            var s: String = mealsList[position].ingredients.toString().replace("\n", "")
+            s= s.substring(0, 35) + "..."
+            holder.mealIngredients.text = s
         } else {
             holder.mealIngredients.text = mealsList[position].ingredients.toString()
         }
