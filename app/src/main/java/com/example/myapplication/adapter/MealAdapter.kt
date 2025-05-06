@@ -119,7 +119,8 @@ class MealAdapter : RecyclerView.Adapter<MealAdapter.MyViewHolder>() {
                             carbs = holder.mealCarbs.text.toString().replace(" g", "").toInt(),
                             fats = holder.mealFats.text.toString().replace(" g", "").toInt(),
                             fibers = 0,
-                            date = CurrentDate().getCurrentDate()
+                            date = CurrentDate().getCurrentDate(),
+                            time = CurrentDate().getCurrentTime()
                         )
 
                         foodViewModel.addFood(food)

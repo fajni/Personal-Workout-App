@@ -19,6 +19,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
 import com.example.myapplication.fragments.FoodUpdateFragment
+import java.time.LocalTime
 
 /*
 
@@ -37,6 +38,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
         val carbs: TextView = foodView.findViewById(R.id.foodCarbsValue)
         val fats: TextView = foodView.findViewById(R.id.foodFatsValue)
         val fibers: TextView = foodView.findViewById(R.id.foodFibersValue)
+        val time: TextView = foodView.findViewById(R.id.foodTime)
         val btnDetails: Button = foodView.findViewById(R.id.btnDetails)
         val btnDelete: Button = foodView.findViewById(R.id.btnDelete)
     }
@@ -56,6 +58,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
         holder.carbs.text = foodList[position].carbs.toString() + "g"
         holder.fats.text = foodList[position].fats.toString() + "g"
         holder.fibers.text =  foodList[position].fibers.toString() + " g"
+        holder.time.text = CurrentDate().calculateTimeDuration(LocalTime.parse(foodList[position].time), LocalTime.now()) + " ago"
 
         // from adapter to fragment
         holder.itemView.setOnClickListener {

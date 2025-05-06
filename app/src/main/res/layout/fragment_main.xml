@@ -113,7 +113,7 @@
         android:id="@+id/foodValues"
 
         android:layout_width="match_parent"
-        android:layout_height="170pt"
+        android:layout_height="wrap_content"
 
         android:layout_marginTop="30dp"
         >
@@ -133,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                app:cardBackgroundColor="@color/discord_color2"
+                app:cardBackgroundColor="@color/discord_color1"
 
                 android:layout_marginBottom="10dp"
 
@@ -262,7 +262,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                app:cardBackgroundColor="@color/discord_color2"
+                app:cardBackgroundColor="@color/discord_color1"
 
                 android:layout_marginBottom="10dp"
 
@@ -391,7 +391,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                app:cardBackgroundColor="@color/discord_color2"
+                app:cardBackgroundColor="@color/discord_color1"
 
                 android:layout_marginBottom="10dp"
 
@@ -520,7 +520,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                app:cardBackgroundColor="@color/discord_color2"
+                app:cardBackgroundColor="@color/discord_color1"
 
                 android:layout_marginBottom="10dp"
 
@@ -645,6 +645,87 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <LinearLayout
+                android:id="@+id/todayWorkoutValues"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="bottom"
+
+                android:orientation="vertical"
+
+                android:visibility="visible">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:text="Today's Training: "
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/todayTrainingTitle"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:text="title"
+                        android:textColor="@color/white"
+
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:text="Muscle Part: "
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:id="@+id/todayMusclePart"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="1"
+                        android:text="muscle"
+                        android:textColor="@color/white"
+
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
@@ -682,87 +763,6 @@
             android:textColor="@color/discord_color3"
             android:textSize="15sp"
             android:textStyle="normal" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/todayWorkoutValues"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="240pt"
-
-        android:orientation="vertical"
-
-        android:visibility="visible">
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-                android:text="Today's Training: "
-                android:textColor="@color/white"
-                android:textSize="20sp"
-
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:id="@+id/todayTrainingTitle"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-                android:text="title"
-                android:textColor="@color/white"
-
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:orientation="horizontal">
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-                android:text="Muscle Part: "
-                android:textColor="@color/white"
-                android:textSize="20sp"
-
-                android:textStyle="bold" />
-
-            <TextView
-
-                android:id="@+id/todayMusclePart"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-                android:text="muscle"
-                android:textColor="@color/white"
-
-                android:textSize="20sp" />
-
-        </LinearLayout>
 
     </LinearLayout>
 

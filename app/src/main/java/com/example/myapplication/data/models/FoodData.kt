@@ -31,7 +31,10 @@ data class FoodData(
     public var fibers: Int? = 0,
 
     @ColumnInfo(name = "date")
-    public var date: String? = ""
+    public var date: String? = "",
+
+    @ColumnInfo(name = "time")
+    public var time: String
 
 ) {
     override fun toString(): String {
@@ -41,6 +44,7 @@ data class FoodData(
                 "Carbs: " + carbs + "\n" +
                 "Fats: " + fats + "\n" +
                 "Fibers: " + fibers + "\n" +
-                "Date: " + date
+                "Date: " + date + "\n" +
+                "Time: " + time
     }
 }

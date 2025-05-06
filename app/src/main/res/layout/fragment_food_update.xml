@@ -185,6 +185,44 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="3"
+
+                    android:text="Time: "
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:id="@+id/updateFoodTime"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:hint="hh:mm"
+                    android:textColorHint="@color/white"
+
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+
+                    android:maxLength="10"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         </LinearLayout>
@@ -194,7 +232,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="90pt"
+        android:layout_marginTop="100pt"
 
         android:paddingHorizontal="5sp"
 

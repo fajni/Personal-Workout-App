@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FoodFragment"
 
-    android:background="@color/discord_background_color"
+    android:background="@android:color/transparent"
     >
 
     <LinearLayout

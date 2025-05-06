@@ -219,6 +219,26 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/foodTime"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/discord_color3"
+
+        android:text="time ago"
+        android:textColor="@color/discord_text1"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textAlignment="textEnd"
+
+        android:layout_marginTop="20sp"
+        android:paddingRight="25sp"
+
+        android:layout_gravity="center"
+        />
+
     <!-- HORIZONTAL LINE -->
     <View
 
@@ -236,7 +256,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="40pt"
+        android:layout_marginTop="47pt"
 
         android:background="@color/discord_color3"
 

@@ -1,11 +1,17 @@
 package com.example.myapplication
 
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
@@ -18,6 +24,7 @@ import com.example.myapplication.fragments.SettingsPopUpFragment
 import com.example.myapplication.fragments.WorkoutFragment
 import com.example.myapplication.utils.CurrentDate
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import jp.wasabeef.blurry.Blurry
 
 class MainActivityFragment : AppCompatActivity() {
 
@@ -51,10 +58,17 @@ class MainActivityFragment : AppCompatActivity() {
         }
     }
 
-    private fun setDateTitle() {
+    private fun setTitle(title: String) {
 
-        val currentData = findViewById<TextView>(R.id.date)
-        currentData.text = "TODAY: " + CurrentDate().getCurrentDate() + " - " + CurrentDate().getCurrentDay()
+        val currentTitle = findViewById<TextView>(R.id.mainActivityTitle)
+
+        currentTitle.text = title
+
+        if(title.equals("date")){
+
+            currentTitle.text = "TODAY: " + CurrentDate().getCurrentDate() + " - " + CurrentDate().getCurrentDay()
+        }
+
     }
 
     private fun refreshFragment() {
@@ -106,10 +120,11 @@ class MainActivityFragment : AppCompatActivity() {
 
         setContentView(R.layout.activity_main_fragment)
 
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         refreshImage = findViewById(R.id.swipeRefresh)
 
-        setDateTitle()
+        setTitle("date")
 
         refreshFragment()
 
@@ -133,22 +148,27 @@ class MainActivityFragment : AppCompatActivity() {
             when(it.itemId){
 
                 R.id.home -> {
+                    setTitle("date")
                     setCurrentFragment(mainFragment, R.id.home)
                 }
 
                 R.id.foods -> {
+                    setTitle("Check calories")
                     setCurrentFragment(foodFragment, R.id.foods)
                 }
 
                 R.id.meals -> {
+                    setTitle("Saved meals")
                     setCurrentFragment(mealFragment, R.id.meals)
                 }
 
                 R.id.workout -> {
+                    setTitle("Workouts")
                     setCurrentFragment(workoutFragment, R.id.workout)
                 }
 
                 R.id.account -> {
+                    setTitle("My account")
                     addBtn.isVisible = false
                     setCurrentFragment(accountFragment, R.id.account)
                 }

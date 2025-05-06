@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
+import com.example.myapplication.utils.CurrentDate
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -118,7 +119,8 @@ class FoodAddFragment : Fragment() {
                     carbs = carbsValue.text.toString().toInt(),
                     fats = fatsValue.text.toString().toInt(),
                     fibers = fibersValue.text.toString().toInt(),
-                    date = date
+                    date = date,
+                    time = CurrentDate().getCurrentTime()
                 )
 
                 insertDataToDatabase(data)

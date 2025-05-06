@@ -80,6 +80,9 @@ dependencies {
     //Kotlin components
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
-    // Swipe Refresh Layout
+    // Swipe Refresh Layout (unused)
     implementation(libs.androidx.swiperefreshlayout)
+
+    // Blur effect
+    implementation(libs.blurry)
 }

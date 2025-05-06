@@ -32,7 +32,7 @@ Pics of the app's user interface:
 <img src = "./screenshots/AddAccount.png" width = 180>
 <img src = "./screenshots/Account.png" width = 180>
 <img src = "./screenshots/Workout.png" width = 180>
-<img src = "./screenshots/WorkoutAdd.png" width = 180/>
+<img src = "./screenshots/WorkoutAdd.png" width = 180>
 <img src = "./screenshots/WorkoutUpdate.png" width = 180>
 <img src = "./screenshots/Settings.png" width = 180>
 <img src = "./screenshots/Meals.png" width = 180>
@@ -60,10 +60,10 @@ Pics of the app's user interface:
 <details>
 <summary>Food table</summary>
 
-| number | title     | calories | proteins | carbs | fats | date        |
-|--------|-----------|----------|----------|-------|------|-------------|
-| 56     | Milk 300  | 150      | 15       | 5     | 8    | 26/03/2025  |
-| 57     | Bread 200 | 250      | 10       | 50    | 4    | 26/03/2025  |
+| number | title     | calories | proteins | carbs | fats | date        | time   |
+|--------|-----------|----------|----------|-------|------|-------------|--------|
+| 56     | Milk 300  | 150      | 15       | 5     | 8    | 26/03/2025  | 16:30  |
+| 57     | Bread 200 | 250      | 10       | 50    | 4    | 26/03/2025  | 16:30  |
 
 </details>
 

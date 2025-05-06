@@ -15,6 +15,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.models.FoodData
 import com.example.myapplication.data.viewmodel.FoodViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.time.LocalTime
 
 
 class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
@@ -30,6 +31,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
     private lateinit var fats: EditText
     private lateinit var fibers: EditText
     private lateinit var date: EditText
+    private lateinit var time: EditText
 
     private lateinit var updateBtn: Button
 
@@ -45,9 +47,16 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
         fats.setText(foodData.fats!!.toString())
         fibers.setText(foodData.fibers!!.toString())
         date.setText(foodData.date!!.toString())
+        time.setText(foodData.time.toString())
     }
 
     private fun checkBlankFields(): Boolean {
+
+        try {
+            LocalTime.parse(time.text.toString())
+        } catch (e: Exception) {
+            return false
+        }
 
         if (
             title.text.isBlank() ||
@@ -56,7 +65,8 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
             carbs.text.isBlank() ||
             fats.text.isBlank() ||
             fibers.text.isBlank() ||
-            date.text.isBlank()
+            date.text.isBlank() ||
+            time.text.isBlank()
         )
             return false
 
@@ -73,7 +83,8 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
             carbs.text.toString().toInt(),
             fats.text.toString().toInt(),
             fibers.text.toString().toInt(),
-            date.text.toString()
+            date.text.toString(),
+            time.text.toString()
             )
 
         foodViewModel.updateFood(updatedFood)
@@ -102,6 +113,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
         fats = view.findViewById(R.id.updateFoodFats)
         fibers = view.findViewById(R.id.updateFoodFiber)
         date = view.findViewById(R.id.updateFoodDate)
+        time = view.findViewById(R.id.updateFoodTime)
         updateBtn = view.findViewById(R.id.updateFoodBtn)
         closeBtn = view.findViewById(R.id.btnCloseUpdateFood)
 
@@ -114,7 +126,7 @@ class FoodUpdateFragment(private var foodData: FoodData) : Fragment() {
                 Toast.makeText(context, "Updated " + title.text.toString().uppercase() , Toast.LENGTH_SHORT).show()
             }
             else
-                Toast.makeText(context, "Empty Fields Not Allowed!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Check all fields!", Toast.LENGTH_SHORT).show()
         }
 
         closeBtn.setOnClickListener {
