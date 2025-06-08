@@ -220,12 +220,32 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/foodTime"
+        android:id="@+id/foodDate"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:background="@color/discord_color3"
+
+        android:text="date"
+        android:textColor="@color/discord_text1"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textAlignment="textStart"
+
+        android:layout_marginTop="20sp"
+        android:paddingLeft="25sp"
+
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/foodTime"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@android:color/transparent"
 
         android:text="time ago"
         android:textColor="@color/discord_text1"

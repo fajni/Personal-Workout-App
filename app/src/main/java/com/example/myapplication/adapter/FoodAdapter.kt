@@ -39,6 +39,7 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
         val fats: TextView = foodView.findViewById(R.id.foodFatsValue)
         val fibers: TextView = foodView.findViewById(R.id.foodFibersValue)
         val time: TextView = foodView.findViewById(R.id.foodTime)
+        val date: TextView = foodView.findViewById(R.id.foodDate)
         val btnDetails: Button = foodView.findViewById(R.id.btnDetails)
         val btnDelete: Button = foodView.findViewById(R.id.btnDelete)
     }
@@ -58,7 +59,15 @@ class FoodAdapter (private var foodList: ArrayList<FoodData>, private val foodVi
         holder.carbs.text = foodList[position].carbs.toString() + "g"
         holder.fats.text = foodList[position].fats.toString() + "g"
         holder.fibers.text =  foodList[position].fibers.toString() + " g"
-        holder.time.text = CurrentDate().calculateTimeDuration(LocalTime.parse(foodList[position].time), LocalTime.now()) + " ago"
+
+        try {
+            holder.time.text = CurrentDate().calculateTimeDuration(LocalTime.parse(foodList[position].time),LocalTime.now()) + " ago"
+        } catch (e: Exception) {
+            holder.time.text = "Can't calculate duration"
+            holder.time.setTextSize(10f)
+        }
+
+        holder.date.text = foodList[position].date.toString()
 
         // from adapter to fragment
         holder.itemView.setOnClickListener {

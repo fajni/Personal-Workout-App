@@ -76,9 +76,11 @@ class HistoryFragment : Fragment() {
                     noValuesText.isVisible = false
                     foodLayout.isVisible = true
                 }
+                else {
 
-                //adapter.setData(foods)
-                adapter.setData(foodList)
+                    //adapter.setData(foods)
+                    adapter.setData(foodList)
+                }
             })
             recyclerView.adapter = adapter
         }
